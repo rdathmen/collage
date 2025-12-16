@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مستكشف طرق تحضير الألكانات</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Style/الالكانات.css">
+    <script src="../js/theme.js"></script>
+    <style>
+        /* Improved readability */
+        p, li, td, th {
+            line-height: 1.8 !important;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            line-height: 1.4 !important;
+        }
+
+        /* Better text contrast in dark mode */
+        .dark p, .dark li {
+            color: rgb(229, 231, 235) !important;
+        }
+
+        .dark h1, .dark h2, .dark h3, .dark h4 {
+            color: rgb(255, 255, 255) !important;
+        }
+    </style>
+</head>
+
+<body class="text-gray-900 dark:text-gray-100 bg-stone-50 dark:bg-gray-900 transition-colors duration-300">
+    <div class="flex flex-col md:flex-row min-h-screen">
+        <header class="md:hidden flex justify-between items-center p-4 bg-white dark:bg-gray-800 shadow-md w-full">
+            <a href="../index.html"
+                class="p-2 rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+            </a>
+            <h1 class="text-xl font-bold text-teal-700 dark:text-teal-400">تحضير الألكانات</h1>
+            <div class="flex items-center gap-2">
+                <button class="theme-toggle p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                    aria-label="Toggle Dark Mode">
+                    <svg class="w-6 h-6 hidden dark:block text-yellow-400" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                    <svg class="w-6 h-6 block dark:hidden text-gray-600" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
+                </button>
+                <button id="menu-toggle" class="p-2 rounded-md text-gray-700 hover:bg-gray-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <nav id="sidebar"
+            class="w-full md:w-64 bg-white dark:bg-gray-800 md:shadow-lg p-4 space-y-2 shrink-0 hidden md:block md:sticky md:top-0 md:h-screen overflow-y-auto border-l dark:border-gray-700">
+            <h1 class="text-2xl font-bold text-teal-700 dark:text-teal-400 mb-6 hidden md:block">الألكانات</h1>
+            <ul class="space-y-1" id="main-nav-links">
+                <li><a href="#intro" class="nav-link active">مقدمة</a></li>
+                <li><a href="#examples" class="nav-link">امثلة</a></li>
+                <li>
+                    <button class="title w-full text-right flex justify-between items-center" id="toggle-button">
+                        <span>طرق التحظير</span>
+                        <svg id="toggle-icon" class="w-5 h-5 transition-transform duration-200"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <ul class="sub-menu hidden ml-4 space-y-1" id="sub-menu">
+                        <li><a href="#natural" class="nav-link">1. مصادر طبيعية (صناعيًا)</a></li>
+                        <li><a href="#hydrogenation" class="nav-link">2. هدرجة الألكينات والألكاينات</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <a href="./cards.html"
+                class="flex items-center justify-center w-full  font-bold py-2 px-4 rounded-lg hover:bg-teal-700 hover:text-white transition-colors mb-4">
+                <span> العودة </span>
+            </a>
+            <button
+                class="theme-toggle w-full flex items-center justify-center p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors mt-4"
+                aria-label="Toggle Dark Mode">
+                <span class="ml-2 font-bold text-gray-700 dark:text-gray-200">الوضع الليلي</span>
+                <svg class="w-6 h-6 hidden dark:block text-yellow-400" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+                <svg class="w-6 h-6 block dark:hidden text-gray-600" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                </svg>
+            </button>
+        </nav>
+
+        <main class="flex-1 p-6 md:p-10 overflow-y-auto">
+            <div class="max-w-4xl mx-auto">
+
+                <!-- Intro Section -->
+                <section id="intro" class="content-section active">
+                    <!-- Hero Definition Card -->
+                    <div
+                        class="bg-gradient-to-br from-teal-600 to-teal-800 rounded-2xl p-8 text-white shadow-xl mb-10 relative overflow-hidden">
+                        <div
+                            class="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full -mr-16 -mt-16 blur-3xl">
+                        </div>
+                        <div
+                            class="absolute bottom-0 left-0 w-48 h-48 bg-teal-400 opacity-10 rounded-full -ml-10 -mb-10 blur-2xl">
+                        </div>
+
+                        <div class="relative z-10">
+                            <h2 class="text-4xl font-bold mb-4">الألكانات (Alkanes)</h2>
+                            <p class="text-xl leading-relaxed opacity-90 mb-6" style="line-height: 1.8;">
+                                هي هيدروكربونات <span class="font-bold text-yellow-300">مشبعة</span>، تتكون فقط من
+                                الكربون والهيدروجين، وترتبط بروابط تساهمية أحادية قوية.
+                            </p>
+                            <div class="flex flex-wrap gap-4">
+                                <div class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/30">
+                                    <span class="block text-xs opacity-75">الصيغة العامة</span>
+                                    <span class="font-mono text-xl font-bold">CnH2n+2</span>
+                                </div>
+                                <div class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/30">
+                                    <span class="block text-xs opacity-75">الروابط</span>
+                                    <span class="font-bold">تساهمية أحادية (σ)</span>
+                                </div>
+                                <div class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/30">
+                                    <span class="block text-xs opacity-75">الاسم القديم</span>
+                                    <span class="font-bold">البرافينات (خاملة)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Types Grid -->
+                    <h3
+                        class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-6 border-r-4 border-teal-500 pr-3">
+                        أنواع الألكانات
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                        <!-- Linear -->
+                        <div
+                            class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 hover:shadow-xl transition-shadow border-t-4 border-blue-500 group text-center">
+                            <img class="h-48 w-full object-contain mx-auto mb-4" src="../images/خطية.png"
+                                alt="ألكانات خطية">
+
+                            <h4 class="text-lg font-bold text-gray-800 dark:text-white mb-2">خطية (مستقيمة)</h4>
+                            <div
+                                class="bg-gray-50 dark:bg-gray-700 p-2 rounded text-center text-blue-500 dark:text-blue-300 font-mono text-3xl ">
+                                C-C-C-C-C
+                            </div>
+                        </div>
+
+                        <!-- Branched -->
+                        <div
+                            class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 :shadow-xl text-center transition-shadow border-t-4 border-purple-500 group">
+                            <img class="h-48 w-full object-contain mx-auto mb-4" src="../images/متاشكبة.png"
+                                alt="ألكانات متفرعة">
+                            <h4 class="text-xl font-bold text-gray-800 dark:text-white mb-2">متفرعة</h4>
+                            <div
+                                class="bg-gray-50 dark:bg-gray-700 p-2 text-3xl text-blue-500 dark:text-blue-300 rounded text-center font-mono">
+                                C-C(C)-C-C
+                            </div>
+                        </div>
+
+                        <!-- Cyclic -->
+
+                        <div
+                            class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6  hover:shadow-xl transition-shadow border-t-4 border-blue-500 group text-center">
+                            <img class="h-48 w-full object-contain mx-auto mb-4" src="../images/حلقي.png"
+                                alt="ألكانات حلقية">
+
+                            <h4 class="text-lg font-bold dark:text-white mb-2">حلقية</h4>
+                            <div
+                                class="bg-gray-50 dark:bg-gray-700 p-2 text-3xl text-blue-500 dark:text-blue-300 rounded text-center font-mono">
+                                ⨀</div>
+                        </div>
+                    </div>
+
+                    <!-- Properties Visual -->
+                    <h3
+                        class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-6 border-r-4 border-teal-500 pr-3">
+                        الخواص الفيزيائية
+                    </h3>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 mb-10">
+                        <div class="relative pt-6 pb-2">
+                            <!-- Gradient Bar -->
+                            <div
+                                class="h-4 bg-gradient-to-r from-blue-200 via-blue-400 to-blue-800 rounded-full mb-6 relative">
+                                <div
+                                    class="absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-1/2 w-4 h-4 bg-white border-4 border-blue-200 rounded-full shadow">
+                                </div>
+                                <div
+                                    class="absolute top-1/2 left-1/3 transform -translate-y-1/2 -translate-x-1/2 w-4 h-4 bg-white border-4 border-blue-400 rounded-full shadow">
+                                </div>
+                                <div
+                                    class="absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-1/2 w-4 h-4 bg-white border-4 border-blue-800 rounded-full shadow">
+                                </div>
+                            </div>
+
+                            <!-- Labels -->
+                            <div class="flex justify-between text-sm font-bold text-gray-600 dark:text-gray-300">
+                                <div class="text-center w-1/3">
+                                    <span class="block text-2xl mb-1">☁️</span>
+                                    غازات<br><span class="text-xs font-normal text-gray-400">1-4 كربون</span>
+                                </div>
+                                <div class="text-center w-1/3">
+                                    <span class="block text-2xl mb-1">💧</span>
+                                    سوائل<br><span class="text-xs font-normal text-gray-400">5-17 كربون</span>
+                                </div>
+                                <div class="text-center w-1/3">
+                                    <span class="block text-2xl mb-1">🧊</span>
+                                    مواد صلبة<br><span class="text-xs font-normal text-gray-400">18+ كربون</span>
+                                </div>
+                            </div>
+                            <p class="mt-6 text-center text-gray-500 dark:text-gray-400 text-sm">تزداد درجة الغليان
+                                والكثافة بزيادة عدد
+                                ذرات الكربون (الكتلة المولية).</p>
+                        </div>
+                    </div>
+                    <div class="my-4 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm text-center">
+                        <img src="../images/هدرجة-شرح2.png" alt="رسم توضيحي لبرج التقطير التجزيئي"
+                            class="mt-2 rounded-lg shadow-sm ">
+                    </div>
+                </section>
+
+                <!-- Examples Section -->
+                <section id="examples" class="content-section">
+                    <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-4">أمثلة على الألكانات</h2>
+                    <p class="mt-4 text-gray-700 dark:text-gray-300 leading-relaxed" style="line-height: 1.8;">
+                        فيما يلي أمثلة على بعض الألكانات المستقيمة السلسلة:
+                    </p>
+                    <div class="overflow-x-auto mt-2">
+                        <table class="min-w-full bg-white dark:bg-gray-800 shadow-md rounded-lg text-right">
+                            <thead class="bg-gray-100 dark:bg-gray-700">
+                                <tr>
+                                    <th class="px-6 py-3 text-gray-600 dark:text-gray-200 font-bold uppercase text-sm">
+                                        الاسم</th>
+                                    <th
+                                        class="px-6 py-3 text-gray-600 dark:text-gray-200 font-bold uppercase text-sm text-left">
+                                        الصيغة
+                                        البنائية</th>
+                                </tr>
+                            </thead>
+                            <tbody
+                                class="text-gray-700 dark:text-gray-300 divide-y divide-gray-200 dark:divide-gray-600">
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap font-medium">البنتان</td>
+                                    <td class="px-6 py-4 font-mono text-left">CH₃–CH₂–CH₂–CH₂–CH₃</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap font-medium">الهكسان</td>
+                                    <td class="px-6 py-4 font-mono text-left">CH₃–CH₂–CH₂–CH₂–CH₂–CH₃</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap font-medium">الهبتان</td>
+                                    <td class="px-6 py-4 font-mono text-left">CH₃–CH₂–CH₂–CH₂–CH₂–CH₂–CH₃</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap font-medium">الأوكتان</td>
+                                    <td class="px-6 py-4 font-mono text-left">CH₃–CH₂–CH₂–CH₂–CH₂–CH₂–CH₂–CH₃</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap font-medium">النونان</td>
+                                    <td class="px-6 py-4 font-mono text-left">CH₃–CH₂–CH₂–CH₂–CH₂–CH₂–CH₂–CH₂–CH₃</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap font-medium">الديكان</td>
+                                    <td class="px-6 py-4 font-mono text-left">CH₃–CH₂–CH₂–CH₂–CH₂–CH₂–CH₂–CH₂–CH₂–CH₃
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="my-6 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm text-center">
+                        <h2 class="title"> (امثلة)</h2>
+                        <img src="../images/امثلة1.PNG" alt="أمثلة على الألكانات: ميثان، إيثان، بروبان، بيوتان"
+                            class="mt-2 rounded-lg shadow-sm mx-auto w-full max-w-lg">
+                    </div>
+                    <div class="my-6 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm text-center">
+                        <h2 class="title"> (امثلة)</h2>
+                        <img src="../images/امثلة2.PNG" alt="أمثلة على الألكانات: بنتان، هكسان"
+                            class="mt-2 rounded-lg shadow-sm mx-auto w-full max-w-lg">
+                    </div>
+
+                    <!-- Interactive Quiz Section -->
+                    <div class="mt-10 p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-4 text-center">اختبر معلوماتك!
+                        </h3>
+                        <div class="text-center">
+                            <p class="text-lg text-gray-700 dark:text-gray-300 mb-2">ما هو <span id="quiz-item-type"
+                                    class="font-bold text-teal-700 dark:text-teal-400"></span> لـ:</p>
+                            <p id="quiz-question"
+                                class="text-xl font-mono bg-gray-100 dark:bg-gray-700 dark:text-white p-3 rounded-md my-4 text-left"
+                                dir="ltr"></p>
+                            <input type="text" id="quiz-answer"
+                                class="w-full md:w-2/3 p-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md text-center"
+                                placeholder="اكتب إجابتك هنا">
+                            <div class="mt-4">
+                                <button id="quiz-submit"
+                                    class="bg-teal-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-teal-700 transition-colors">تحقق
+                                    من الإجابة</button>
+                                <button id="quiz-next"
+                                    class="bg-gray-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-gray-600 transition-colors ml-2">السؤال
+                                    التالي</button>
+                            </div>
+                            <p id="quiz-feedback" class="mt-4 h-6 text-lg font-semibold"></p>
+                        </div>
+                    </div>
+
+                </section>
+
+                <section id="natural" class="content-section">
+                    <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-8">من مصادر طبيعية </h2>
+
+                    <!-- Natural Gas Section -->
+                    <h3 class="text-xl font-semibold mt-6 text-teal-800 dark:text-teal-400 mb-4">أولاً: الغاز الطبيعي
+                    </h3>
+                    <p class="mt-2 mb-6 text-gray-700 dark:text-gray-300 leading-relaxed" style="line-height: 1.8;">
+                        يتكون الغاز الطبيعي بشكل أساسي من <strong>الميثان (CH₄)</strong>، وهو أبسط الألكانات. كما يحتوي
+                        على كميات أقل من الألكانات الأخرى ذات درجات الغليان المنخفضة مثل <strong>الإيثان
+                            (C₂H₆)</strong>، و<strong>البروبان (C₃H₈)</strong>، و<strong>البيوتان (C₄H₁₀)</strong>. يتم
+                        فصل هذه المكونات عن طريق تبريد الغاز الطبيعي إلى درجات حرارة منخفضة جدًا، مما يؤدي إلى إسالة كل
+                        مكون عند درجة حرارة مختلفة ومن ثم فصله.
+                    </p>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 mb-8">
+                        <div class="flex flex-col md:flex-row items-center justify-center gap-8">
+                            <!-- Input -->
+                            <div class="text-center">
+                                <div
+                                    class="bg-gray-100 dark:bg-gray-700 rounded-full p-4 w-24 h-24 flex items-center justify-center mx-auto mb-2 border-4 border-teal-100 dark:border-teal-900">
+                                    <span class="font-bold text-gray-700 dark:text-gray-200">غاز<br>طبيعي</span>
+                                </div>
+                                <div class="text-teal-600 dark:text-teal-400 text-2xl font-bold">↓</div>
+                            </div>
+
+                            <!-- Process Image -->
+                            <div class="relative w-64 h-64">
+                                <img src="../images/natural_gas_process.png" alt="وحدة معالجة الغاز"
+                                    class="w-full h-full object-contain drop-shadow-md">
+                                <div
+                                    class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-teal-600 text-white px-4 py-1 rounded-full text-sm font-bold shadow-sm">
+                                    تبريد وفصل</div>
+                            </div>
+
+                            <!-- Outputs -->
+                            <div class="flex flex-col gap-3 w-full md:w-auto">
+                                <div
+                                    class="flex items-center gap-2 bg-blue-50 dark:bg-blue-900/30 p-3 rounded-lg border border-blue-100 dark:border-blue-800 shadow-sm">
+                                    <span class="w-3 h-3 rounded-full bg-blue-500"></span>
+                                    <span class="font-bold text-gray-700 dark:text-gray-200">ميثان (CH₄)</span>
+                                </div>
+                                <div
+                                    class="flex items-center gap-2 bg-green-50 dark:bg-green-900/30 p-3 rounded-lg border border-green-100 dark:border-green-800 shadow-sm">
+                                    <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                                    <span class="font-bold text-gray-700 dark:text-gray-200">إيثان (C₂H₆)</span>
+                                </div>
+                                <div
+                                    class="flex items-center gap-2 bg-yellow-50 dark:bg-yellow-900/30 p-3 rounded-lg border border-yellow-100 dark:border-yellow-800 shadow-sm">
+                                    <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                                    <span class="font-bold text-gray-700 dark:text-gray-200">بروبان (C₃H₈)</span>
+                                </div>
+                                <div
+                                    class="flex items-center gap-2 bg-red-50 dark:bg-red-900/30 p-3 rounded-lg border border-red-100 dark:border-red-800 shadow-sm">
+                                    <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                                    <span class="font-bold text-gray-700 dark:text-gray-200">بيوتان (C₄H₁₀)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fractional Distillation Section -->
+                    <h3 class="text-xl font-semibold mt-8 text-teal-800 dark:text-teal-400 mb-4">ثانياً: النفط الخام
+                        (التقطير التجزيئي)
+                    </h3>
+                    <p class="mt-2  mb-6 leading-relaxed">
+                        النفط الخام هو خليط معقد للغاية من آلاف الهيدروكربونات المختلفة، بما في ذلك الألكانات ذات
+                        السلاسل الكربونية المتفاوتة في الطول. الطريقة الصناعية الرئيسية لفصل هذا الخليط إلى مكونات أبسط
+                        وأكثر فائدة هي <strong>التقطير التجزيئي</strong>.
+                    </p>
+                    <div class="my-4 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm text-center">
+                        <img src="../images/2.png" alt="رسم توضيحي لبرج التقطير التجزيئي"
+                            class="mt-2 rounded-lg shadow-sm mx-auto w-full max-w-lg">
+                        <p class="text-sm text-gray-500 mt-2">برج التقطير التجزيئي يفصل النفط الخام إلى قطفات مختلفة
+                            بناءً على درجة الغليان.</p>
+                    </div>
+                    <h4 class="text-lg font-semibold mt-4 text-teal-700 dark:text-teal-400">خطوات عملية التقطير
+                        التجزيئي:</h4>
+                    <ol
+                        class="list-decimal list-inside mt-2 text-gray-700 dark:text-gray-300 leading-relaxed space-y-2">
+                        <li>يتم تسخين النفط الخام في فرن إلى درجة حرارة عالية (حوالي 400 درجة مئوية)، مما يؤدي إلى تبخر
+                            معظم مكوناته.</li>
+                        <li>يُضخ خليط البخار والسائل الساخن إلى أسفل برج تجزئة ضخم. يكون البرج شديد الحرارة في الأسفل
+                            وتتناقص درجة حرارته تدريجيًا كلما اتجهنا إلى الأعلى.</li>
+                        <li>ترتفع الأبخرة داخل البرج. عندما يرتفع بخار مكون معين إلى مستوى تكون فيه درجة حرارة البرج
+                            مساوية لدرجة غليانه، فإنه يتكثف على صوانٍ خاصة ويعود إلى الحالة السائلة ويتم سحبه.</li>
+                        <li><strong>المكونات ذات درجات الغليان المرتفعة (جزيئات أكبر وسلاسل كربونية أطول)</strong> تتكثف
+                            في الأجزاء السفلية من البرج.</li>
+                        <li><strong>المكونات ذات درجات الغليان المنخفضة (جزيئات أصغر وسلاسل كربونية أقصر)</strong> تستمر
+                            في الصعود إلى مستويات أعلى قبل أن تتكثف.</li>
+                    </ol>
+                    <div class="my-4 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm text-center">
+                        <img src="../images/oil.jpeg" alt="رسم توضيحي لبرج التقطير التجزيئي"
+                            class="mt-2 rounded-lg shadow-sm mx-auto w-full max-w-lg">
+                        <p class="text-sm text-gray-500 mt-2">برج التقطير التجزيئي يفصل النفط الخام إلى قطفات مختلفة
+                            بناءً على درجة الغليان.</p>
+                    </div>
+                    <div class="video-player-container relative group  mx-auto">
+                        <video muted playsinline class="custom-video w-full h-full rounded-lg">
+                            <source src="../videos/الفصل_العظيم__تكرير_النفط.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div
+                            class="video-controls absolute bottom-0 left-0 right-0 flex items-center justify-between p-4 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <button class="play-pause-btn text-white">
+                                <svg class="play-icon h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z">
+                                    </path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <svg class="pause-icon h-6 w-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </button>
+                            <input type="range" min="0" max="100" value="0" class="progress-bar w-full mx-4">
+                            <button class="mute-btn text-white">
+                                <svg class="volume-on-icon h-6 w-6 hidden" xmlns="http://www.w3.org/2000/svg"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z">
+                                    </path>
+                                </svg>
+                                <svg class="volume-off-icon h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z">
+                                    </path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 14l-4-4m0 4l4-4"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                </section>
+
+                <section id="hydrogenation" class="content-section">
+                    <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-4"> هدرجة الألكينات والألكاينات</h2>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                        تُعد هذه من أكثر الطرق شيوعًا وموثوقية في المختبر لتحويل المركبات غير المشبعة (التي تحتوي على
+                        روابط ثنائية أو ثلاثية) إلى ألكانات مشبعة. تتم العملية بإضافة غاز الهيدروجين بوجود عامل حفاز.
+                    </p>
+                    <div class="my-4 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm text-center">
+                        <img src="../images/شرح-هدرجة.png" alt="رسم توضيحي لبرج التقطير التجزيئي"
+                            class="mt-2 rounded-lg shadow-sm ">
+                    </div>
+
+                    <h3 class="text-xl font-semibold mt-4 text-teal-800 dark:text-teal-400">هدرجة الألكينات
+                        (Hydrogenation of Alkenes)</h3>
+                    <p class="mt-2 text-gray-700 dark:text-gray-300 leading-relaxed">
+                        يتم إضافة جزيء هيدروجين (H₂) إلى الرابطة الثنائية (C=C) في الألكين بوجود عامل حفاز (Catalyst)
+                        مثل النيكل (Ni) أو البلاتين (Pt) أو البلاديوم (Pd) تحت ضغط وحرارة.
+                    </p>
+                    <p class="mt-2 font-semibold text-gray-600 dark:text-gray-400">المعادلة العامة:</p>
+                    <pre dir="ltr"><code>R-CH=CH-R' + H₂ --(حفاز)--> R-CH₂-CH₂-R'</code></pre>
+                    <p class="mt-2 font-semibold text-gray-600 dark:text-gray-400">مثال: تحضير الإيثان من الإيثين.</p>
+                    <pre dir="ltr"><code>CH₂=CH₂ (إيثين) + H₂ --(Ni, حرارة)--> CH₃–CH₃ (إيثان)</code></pre>
+                    <div class="my-4 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm text-center">
+                        <img src="../images/هدرجة.jpeg" alt="رسم توضيحي لبرج التقطير التجزيئي"
+                            class="mt-2 rounded-lg shadow-sm mx-auto w-full max-w-lg">
+                    </div>
+                    <h3 class="text-xl font-semibold mt-6 text-teal-800 dark:text-teal-400">هدرجة الألكاينات
+                        (Hydrogenation of Alkynes)
+                    </h3>
+                    <p class="mt-2 text-gray-700 dark:text-gray-300 leading-relaxed">
+                        يمكن أيضًا هدرجة الألكاينات (التي تحتوي رابطة ثلاثية C≡C) لإنتاج الألكانات. يتطلب التفاعل ضعف
+                        كمية الهيدروجين (2 مول) لإشباع الرابطة الثلاثية بالكامل.
+                    </p>
+                    <p class="mt-2 font-semibold text-gray-600 dark:text-gray-400">المعادلة العامة:</p>
+                    <pre dir="ltr"><code>R-C≡C-R' + 2 H₂ --(حفاز)--> R-CH₂-CH₂-R'</code></pre>
+                    <p class="mt-2 font-semibold text-gray-600 dark:text-gray-400">مثال: تحضير البروبان من البروباين.
+                    </p>
+                    <pre dir="ltr"><code>CH₃-C≡CH (بروباين) + 2 H₂ --(Pd)--> CH₃-CH₂-CH₃ (بروبان)</code></pre>
+
+                    <div class="my-4 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm text-center">
+                        <img src="../images/هدرجة2.png" alt="رسم توضيحي لبرج التقطير التجزيئي"
+                            class="mt-2 rounded-lg shadow-sm mx-auto w-full max-w-lg">
+                    </div>
+                    <div class="video-player-container relative group">
+                        <video muted autoplay playsinline class="custom-video w-full h-full rounded-lg">
+                            <source src="../videos/x.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div
+                            class="video-controls absolute bottom-0 left-0 right-0 flex items-center justify-between p-4 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <button class="play-pause-btn text-white">
+                                <svg class="play-icon h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z">
+                                    </path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <svg class="pause-icon h-6 w-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </button>
+                            <input type="range" min="0" max="100" value="0" class="progress-bar w-full mx-4">
+                            <button class="mute-btn text-white">
+                                <svg class="volume-on-icon h-6 w-6 hidden" xmlns="http://www.w3.org/2000/svg"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z">
+                                    </path>
+                                </svg>
+                                <svg class="volume-off-icon h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z">
+                                    </path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 14l-4-4m0 4l4-4"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/الالكانات.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+body {
+    font-family: 'Tajawal', sans-serif;
+}
+
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+}

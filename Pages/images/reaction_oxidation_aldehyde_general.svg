@@ -1,0 +1,19 @@
+<svg viewBox="0 0 500 150" xmlns="http://www.w3.org/2000/svg" class="text-gray-900 dark:text-gray-100">
+    <defs>
+        <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" class="fill-orange-400 dark:fill-indigo-500" />
+        </marker>
+    </defs>
+    <!-- Aldehyde -->
+    <text x="50" y="50" class="font-tajawal text-xl fill-current">ألدهيد</text>
+    <text x="40" y="100" class="font-mono text-2xl font-bold fill-current">R-CHO</text>
+
+    <!-- Arrow -->
+    <line x1="160" y1="95" x2="280" y2="95" class="stroke-orange-400 dark:stroke-indigo-500" stroke-width="3" marker-end="url(#arrow)" />
+    <text x="220" y="80" class="font-tajawal text-base text-center fill-current">[O]</text>
+    <text x="220" y="125" class="font-tajawal text-base text-center fill-current">(عامل مؤكسد قوي)</text>
+
+    <!-- Carboxylic Acid -->
+    <text x="350" y="50" class="font-tajawal text-xl fill-current">حمض كربوكسيلي</text>
+    <text x="340" y="100" class="font-mono text-2xl font-bold fill-current">R-COOH</text>
+</svg>

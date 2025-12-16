@@ -1,0 +1,249 @@
+        /* --- Global Styles & Body Background --- */
+        :root {
+            --primary-color: #3c68b9;
+            /* Dark Blue */
+            --secondary-color: #2a5298;
+            /* Royal Blue */
+            --text-color: #f0f0f0;
+            --btn-color: #caa323;
+            --card-bg: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            background-attachment: fixed;
+            /* Makes the gradient stay in place on scroll */
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+
+
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        /* --- Glassmorphism Navigation Bar --- */
+        .main-header {
+            width: 100%;
+            padding: 15px 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            border-radius: 15px;
+            margin: 0 20px;
+
+            /* The Glassmorphism Effect */
+            background: rgba(255, 255, 255, 0.15);
+            /* Semi-transparent background */
+            backdrop-filter: blur(10px);
+            /* The blur effect */
+            -webkit-backdrop-filter: blur(10px);
+            /* For Safari */
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            /* Subtle border */
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+            /* Soft shadow */
+        }
+
+        .logo {
+            font-size: 1.2em;
+            font-weight: bold;
+            text-decoration: none;
+            color: var(--text-color);
+        }
+
+        .img-logo {
+
+            height: 60px;
+            border-radius: 20px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* --- Responsive Navigation --- */
+        .menu-icon {
+            display: none;
+            /* Hidden on desktop */
+            cursor: pointer;
+            font-size: 2em;
+            user-select: none;
+        }
+
+        #menu-toggle {
+            display: none;
+            /* Hide the checkbox */
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 1em;
+            padding: 5px 10px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-button {
+            padding: 10px 20px;
+            border: 1px solid var(--text-color);
+            border-radius: 20px;
+            background-color: transparent;
+            color: var(--text-color);
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .nav-button:hover {
+            background-color: var(--text-color);
+            color: var(--primary-color);
+        }
+
+        .landing-content {
+            margin-top: 100px;
+            height: 80vh;
+        }
+
+        .landing-content h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .landing-content p {
+            font-size: 1.1em;
+            /* Made the font size smaller */
+            margin-bottom: 40px;
+            /* Increased space before the button */
+        }
+
+        .landing-content .btn {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 25px;
+            text-decoration: none;
+            color: rgba(27, 25, 25, 0.87);
+            background-color: var(--btn-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .landing-content .btn:hover {
+            background-color: #f0ca4ee3;
+            color: rgb(0, 53, 4);
+
+        }
+
+        /* New styles for two-column layout */
+        .landing-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            /* Space between image and text */
+        }
+
+        .landing-text {
+            text-align: center;
+            /* Center the text and button */
+            max-width: 500px;
+            /* Constrain the width of the text block */
+        }
+
+        .landing-content img {
+            max-width: 400px;
+            /* Adjust size as needed */
+            height: auto;
+            border-radius: 20px;
+        }
+
+        /* --- Footer Styles --- */
+        .site-footer {
+            background-color: #1c2b4a;
+            /* Darker blue shade */
+            color: #a9b3c9;
+            padding: 40px 0 20px 0;
+            margin-top: 160px;
+            width: 100%;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: right;
+        }
+
+        .footer-column h4 {
+            color: var(--text-color);
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul a {
+            color: #a9b3c9;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul a:hover {
+            color: #fff;
+        }
+
+        .footer-column .logo-container {
+            margin-bottom: 15px;
+        }
+
+        .footer-about {
+            line-height: 1.6;
+            font-size: 0.9em;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9em;
+        }

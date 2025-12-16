@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المجموعات الوظيفية - الكيمياء العضوية</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Style/cards.css">
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #4facfe 75%, #00f2fe 100%);
+            background-attachment: fixed;
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .dark .glass-nav {
+            background: rgba(17, 24, 39, 0.9);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Improved readability */
+        p, li, td, th {
+            line-height: 1.8 !important;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            line-height: 1.4 !important;
+        }
+
+        /* Better text contrast in dark mode */
+        .dark p, .dark li {
+            color: rgb(229, 231, 235) !important;
+        }
+
+        .dark h1, .dark h2, .dark h3, .dark h4 {
+            color: rgb(255, 255, 255) !important;
+        }
+    </style>
+    <script src="../js/theme.js"></script>
+</head>
+
+<body class="text-gray-900 transition-colors duration-300">
+
+    <!-- Navigation -->
+    <nav class="glass-nav fixed w-full z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <a href="../index.html" class="flex items-center gap-3">
+                        <div
+                            class="w-10 h-10 bg-teal-600 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg transform rotate-3">
+                            C</div>
+                        <span class="font-bold text-2xl text-gray-800 dark:text-white tracking-tight">الكيمياء<span
+                                class="text-teal-600">.العضوية</span></span>
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8 ">
+                    <a href="../index.html"
+                        class="text-gray-600 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400 font-medium transition-colors">الرئيسية</a>
+                    <a href="#" class="text-teal-600 dark:text-teal-400 font-bold transition-colors">المواضيع</a>
+                    <a href="من_نحن.html"
+                        class="text-gray-600 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400 font-medium transition-colors">من
+                        نحن</a>
+                    <button
+                        class="theme-toggle p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors mr-4"
+                        aria-label="Toggle Dark Mode">
+                        <!-- Sun Icon -->
+                        <svg class="w-6 h-6 hidden dark:block text-yellow-400" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                        <!-- Moon Icon -->
+                        <svg class="w-6 h-6 block dark:hidden text-gray-600" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button class="text-gray-600 hover:text-teal-600 focus:outline-none">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                    <button
+                        class="theme-toggle p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors ml-2"
+                        aria-label="Toggle Dark Mode">
+                        <!-- Sun Icon -->
+                        <svg class="w-6 h-6 hidden dark:block text-yellow-400" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                        <!-- Moon Icon -->
+                        <svg class="w-6 h-6 block dark:hidden text-gray-600" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-teal-800 to-slate-900 text-white pt-32 pb-12 px-4">
+        <div class="max-w-7xl mx-auto text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">المجموعات الوظيفية</h1>
+            <p class="text-xl text-teal-100 max-w-2xl mx-auto leading-relaxed" style="line-height: 1.8;">استكشف العائلات الكيميائية المختلفة، خصائصها، وتفاعلاتها
+                المميزة.</p>
+        </div>
+    </header>
+
+    <!-- Cards Grid -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Card: Alkanes (New) -->
+            <a href="الالكانات.html"
+                class="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 card-1">
+                <div class="h-48 bg-gray-200 relative overflow-hidden">
+                    <img src="../images/molecule_alkene.png" alt="Alkanes"
+                        class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div class="absolute bottom-4 right-4 text-white">
+                        <div class="text-xs font-bold bg-teal-500 px-2 py-1 rounded mb-1 inline-block">أساس الكيمياء
+                        </div>
+                        <h3 class="text-2xl font-bold">الألكانات</h3>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-gray-500 dark:text-gray-400 text-sm">الصيغة العامة</span>
+                        <span class="font-mono font-bold text-teal-600 dark:text-teal-400">CnH2n+2</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed" style="line-height: 1.6;">هيدروكربونات مشبعة، تتكون من روابط أحادية فقط.
+                    </p>
+                </div>
+            </a>
+
+            <!-- Card Alkyl Halides -->
+            <a href="هاليدات_الاكيل.html"
+                class="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 card-2">
+                <div class="h-48 bg-gray-200 relative overflow-hidden">
+                    <img src="../images/molecule_alkyl_halide_card.png"
+                        alt="صورة توضيحية لهاليد ألكيل تمثل مجموعة ألكيل متصلة بذرة هالوجين"
+                        class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div class="absolute bottom-4 right-4 text-white">
+                        <div class="text-xs font-bold bg-teal-500 px-2 py-1 rounded mb-1 inline-block">
+                            هاليدات الألكيل
+                        </div>
+                        <h3 class="text-2xl font-bold">
+                            Alkyl Halides
+                        </h3>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-gray-500 dark:text-gray-400 text-sm">
+                            RX – مركبات عضوية هالوجينية
+                        </span>
+                        <span class="font-mono font-bold text-teal-600 dark:text-teal-400">
+                            R–X
+                        </span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed" style="line-height: 1.6;">
+                        تعريف، تصنيف، تسمية، تحضير، وأهم تفاعلات هاليدات الألكيل مع أمثلة وتمارين.
+                    </p>
+                </div>
+            </a>
+
+            <!-- Card: Alcohols -->
+            <a href="الكحولات.html"
+                class="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 card-3">
+                <div class="h-48 bg-gray-200 relative overflow-hidden">
+                    <img src="../images/كحولات.png" alt="Alcohols"
+                        class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div class="absolute bottom-4 right-4 text-white">
+                        <div class="text-xs font-bold bg-green-500 px-2 py-1 rounded mb-1 inline-block">
+                            مشتقات الهيدروكربونات
+                        </div>
+                        <h3 class="text-2xl font-bold">
+                            الكحولات
+                        </h3>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-gray-500 dark:text-gray-400 text-sm">
+                            المجموعة الوظيفية
+                        </span>
+                        <span class="font-mono font-bold text-teal-600 dark:text-teal-400">
+                            R–OH
+                        </span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed" style="line-height: 1.6;">
+                        مركبات عضوية تحتوي على مجموعة هيدروكسيل (-OH) مرتبطة بذرة كربون مشبعة.
+                    </p>
+                </div>
+            </a>
+
+            <!-- Card: Ethers -->
+            <a href="الايثرات.html"
+                class="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 card-4">
+                <div class="h-48 bg-gray-200 relative overflow-hidden">
+                    <img src="../images/جزيئ.png" alt="Ethers"
+                        class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div class="absolute bottom-4 right-4 text-white">
+                        <div class="text-xs font-bold bg-purple-500 px-2 py-1 rounded mb-1 inline-block">
+                            مشتقات الهيدروكربونات
+                        </div>
+                        <h3 class="text-2xl font-bold">
+                            الايثرات
+                        </h3>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-gray-500 dark:text-gray-400 text-sm">
+                            المجموعة الوظيفية
+                        </span>
+                        <span class="font-mono font-bold text-teal-600 dark:text-teal-400">
+                            R–O–R'
+                        </span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed" style="line-height: 1.6;">
+                        مركبات عضوية تحتوي على ذرة أكسجين مرتبطة بمجموعتي ألكيل أو أريل.
+                    </p>
+                </div>
+            </a>
+
+            <!-- Card: Alkenes -->
+            <a href="الألكينات.html"
+                class="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 card-5">
+                <div class="h-48 bg-gray-200 relative overflow-hidden">
+                    <img src="../images/خلفية الألكينات.jpg" alt="Alkenes"
+                        class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div class="absolute bottom-4 right-4 text-white">
+                        <div class="text-xs font-bold bg-blue-500 px-2 py-1 rounded mb-1 inline-block">
+                            هيدروكربونات غير مشبعة
+                        </div>
+                        <h3 class="text-2xl font-bold">
+                            الألكينات
+                        </h3>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-gray-500 dark:text-gray-400 text-sm">
+                            الصيغة العامة
+                        </span>
+                        <span class="font-mono font-bold text-teal-600 dark:text-teal-400">
+                            CnH2n
+                        </span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed" style="line-height: 1.6;">
+                        هيدروكربونات غير مشبعة تحتوي على رابطة مزدوجة واحدة على الأقل بين ذرتي كربون.
+                    </p>
+                </div>
+            </a>
+
+            <!-- Card: Alkynes -->
+            <a href="الألكاينات.html"
+                class="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 card-6">
+                <div class="h-48 bg-gray-200 relative overflow-hidden">
+                    <img src="../images/خلفية االألكاينات.jpg" alt="Alkynes"
+                        class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div class="absolute bottom-4 right-4 text-white">
+                        <div class="text-xs font-bold bg-indigo-500 px-2 py-1 rounded mb-1 inline-block">
+                            هيدروكربونات غير مشبعة
+                        </div>
+                        <h3 class="text-2xl font-bold">
+                            الألكاينات
+                        </h3>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-gray-500 dark:text-gray-400 text-sm">
+                            الصيغة العامة
+                        </span>
+                        <span class="font-mono font-bold text-teal-600 dark:text-teal-400">
+                            CnH2n-2
+                        </span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed" style="line-height: 1.6;">
+                        هيدروكربونات غير مشبعة تحتوي على رابطة ثلاثية واحدة على الأقل بين ذرتي كربون.
+                    </p>
+                </div>
+            </a>
+
+            <!-- Card: Aldehydes & Ketones -->
+            <a href="الألدهيدات_والكيتونات.html"
+                class="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 card-7">
+                <div class="h-48 bg-gray-200 relative overflow-hidden">
+                    <img src="../images/الألدهيدات والكيتونات خلفية.jpg" alt="Aldehydes & Ketones"
+                        class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div class="absolute bottom-4 right-4 text-white">
+                        <div class="text-xs font-bold bg-orange-500 px-2 py-1 rounded mb-1 inline-block">
+                            مركبات كربونيلية
+                        </div>
+                        <h3 class="text-2xl font-bold">
+                            الألدهيدات والكيتونات
+                        </h3>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-gray-500 dark:text-gray-400 text-sm">
+                            المجموعة الوظيفية
+                        </span>
+                        <span class="font-mono font-bold text-teal-600 dark:text-teal-400">
+                            R–CHO / R–CO–R'
+                        </span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed" style="line-height: 1.6;">
+                        مركبات عضوية تحتوي على مجموعة كربونيل (C=O) في نهاية السلسلة أو في الوسط.
+                    </p>
+                </div>
+            </a>
+
+            <!-- Card: Amines -->
+            <a href="الأمينات.html"
+                class="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 card-8">
+                <div class="h-48 bg-gray-200 relative overflow-hidden">
+                    <img src="../images/خلفية الأمينات.jpg" alt="Amines"
+                        class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div class="absolute bottom-4 right-4 text-white">
+                        <div class="text-xs font-bold bg-pink-500 px-2 py-1 rounded mb-1 inline-block">
+                            مركبات نيتروجينية
+                        </div>
+                        <h3 class="text-2xl font-bold">
+                            الأمينات
+                        </h3>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-gray-500 dark:text-gray-400 text-sm">
+                            المجموعة الوظيفية
+                        </span>
+                        <span class="font-mono font-bold text-teal-600 dark:text-teal-400">
+                            R–NH₂
+                        </span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed" style="line-height: 1.6;">
+                        مركبات عضوية تحتوي على ذرة نيتروجين مرتبطة بذرة كربون أو أكثر.
+                    </p>
+                </div>
+            </a>
+
+            <!-- Card: Nitro Compounds -->
+            <a href="النترو_مركبات.html"
+                class="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 card-9">
+                <div class="h-48 bg-gray-200 relative overflow-hidden">
+                    <img src="../images/خلفية النترو مركبات.jpg" alt="Nitro Compounds"
+                        class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div class="absolute bottom-4 right-4 text-white">
+                        <div class="text-xs font-bold bg-red-500 px-2 py-1 rounded mb-1 inline-block">
+                            مركبات نيتروجينية
+                        </div>
+                        <h3 class="text-2xl font-bold">
+                            النترو مركبات
+                        </h3>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-gray-500 dark:text-gray-400 text-sm">
+                            المجموعة الوظيفية
+                        </span>
+                        <span class="font-mono font-bold text-teal-600 dark:text-teal-400">
+                            R–NO₂
+                        </span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed" style="line-height: 1.6;">
+                        مركبات عضوية تحتوي على مجموعة نترو (-NO₂) مرتبطة بذرة كربون.
+                    </p>
+                </div>
+            </a>
+
+
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 border-t border-gray-800 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="flex items-center justify-center gap-2 mb-4">
+                    <div class="w-8 h-8 bg-teal-600 rounded-lg flex items-center justify-center text-white font-bold">C
+                    </div>
+                    <span class="font-bold text-xl text-white">الكيمياء.العضوية</span>
+                </div>
+                <p class="text-sm text-gray-500">&copy; 2025 جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 150" class="text-gray-900 dark:text-gray-100">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" class="fill-gray-700 dark:fill-gray-300" />
+    </marker>
+  </defs>
+  
+  <g transform="translate(50, 50)">
+    <!-- Aldehyde -->
+    <text x="0" y="30" font-family="Arial" font-size="16" class="fill-black dark:fill-white" font-weight="bold">R-CHO</text>
+    <text x="70" y="30" font-family="Arial" font-size="16" class="fill-black dark:fill-white">+</text>
+    <text x="90" y="30" font-family="Arial" font-size="16" class="fill-blue-500" font-weight="bold">2[Ag(NH₃)₂]⁺</text>
+    <text x="90" y="50" font-family="Arial" font-size="10" class="fill-gray-500">(Tollens' Reagent)</text>
+    <text x="190" y="30" font-family="Arial" font-size="16" class="fill-black dark:fill-white">+</text>
+    <text x="210" y="30" font-family="Arial" font-size="16" class="fill-black dark:fill-white">3OH⁻</text>
+    
+    <!-- Arrow -->
+    <line x1="270" y1="25" x2="330" y2="25" class="stroke-gray-700 dark:stroke-gray-300" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="285" y="15" font-family="Arial" font-size="12" class="fill-gray-600 dark:fill-gray-300">Heat</text>
+    
+    <!-- Products -->
+    <text x="350" y="30" font-family="Arial" font-size="16" class="fill-black dark:fill-white" font-weight="bold">R-COO⁻</text>
+    <text x="430" y="30" font-family="Arial" font-size="16" class="fill-black dark:fill-white">+</text>
+    <text x="450" y="30" font-family="Arial" font-size="20" class="fill-gray-400" font-weight="bold">2Ag↓</text>
+    <text x="450" y="55" font-family="Arial" font-size="12" class="fill-gray-500">(Silver Mirror)</text>
+  </g>
+</svg>

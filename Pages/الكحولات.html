@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الكحولات</title>
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { darkMode: 'class', }
+    </script>
+    <!-- Google Font Tajawal -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../Style/الكحولات.css">
+    <!-- Theme -->
+    <script src="../js/theme.js"></script>
+</head>
+
+<body class="text-gray-900 dark:text-white bg-stone-50 dark:bg-gray-900 transition-colors duration-300"
+    style="font-family: Tajawal, sans-serif">
+    <div class="flex flex-col md:flex-row-reverse min-h-screen">
+        <!-- Mobile Header -->
+        <header class="md:hidden flex justify-between items-center p-4 bg-white dark:bg-gray-800 shadow-md w-full">
+            <a href="../index.html"
+                class="p-2 rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+            </a>
+            <h1 class="text-xl font-bold text-teal-700 dark:text-teal-400">الكحولات</h1>
+            <div class="flex items-center gap-2">
+                <button class="theme-toggle p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                    aria-label="Toggle Dark Mode">
+                    <svg class="w-6 h-6 hidden dark:block text-yellow-400" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                    <svg class="w-6 h-6 block dark:hidden text-gray-600" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
+                </button>
+                <button id="menu-toggle"
+                    class="p-2 rounded-md text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Sidebar Navigation -->
+        <nav id="sidebar"
+            class="w-full md:w-64 bg-white dark:bg-gray-800 md:shadow-lg p-4 space-y-2 shrink-0 hidden md:block md:sticky md:top-0 md:h-screen overflow-y-auto border-l dark:border-gray-700">
+            <h1 class="text-2xl font-bold text-teal-700 dark:text-teal-400 mb-6 hidden md:block">الكحولات</h1>
+            <ul class="space-y-1" id="main-nav-links">
+                <li><a href="#intro" class="nav-link active">المقدمة والتعريف</a></li>
+                <li><a href="#classification" class="nav-link">تصنيف الكحولات</a></li>
+                <li><a href="#naming" class="nav-link">التسمية</a></li>
+                <li><a href="#isomers" class="nav-link">الجناس (المتشكلات)</a></li>
+                <li><a href="#preparation" class="nav-link">التحضير</a></li>
+                <li><a href="#properties" class="nav-link">الخواص الفيزيائية</a></li>
+                <li><a href="#reactions" class="nav-link">التفاعلات الكيميائية</a></li>
+                <li><a href="#quiz" class="nav-link">اختبر نفسك</a></li>
+            </ul>
+
+            <!-- زر الرجوع وبطاقات المواضيع -->
+            <ul class="mt-6 space-y-2">
+                <li>
+                    <a href="./cards.html"
+                        class="flex items-center justify-center w-full font-bold py-2 px-4 rounded-lg hover:bg-teal-700 hover:text-white transition-colors mb-2">
+                        بطاقات المواضيع
+                    </a>
+                </li>
+                <li>
+                    <a href="../index.html"
+                        class="flex items-center justify-center w-full font-bold py-2 px-4 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
+                        الصفحة الرئيسية
+                    </a>
+                </li>
+            </ul>
+
+            <!-- زر الثيم في السايدبار -->
+            <button
+                class="theme-toggle w-full flex items-center justify-center p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors mt-4"
+                aria-label="تبديل الوضع الليلي">
+                <span class="ml-2 font-bold text-gray-700 dark:text-gray-200">الوضع الليلي</span>
+                <!-- Sun Icon -->
+                <svg class="w-6 h-6 hidden dark:block text-yellow-400" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364
+                      6.364l-.707-.707M6.343 6.343l-.707-.707m12.728
+                      0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0
+                      11-8 0 4 4 0 018 0z" />
+                </svg>
+                <!-- Moon Icon -->
+                <svg class="w-6 h-6 block dark:hidden text-gray-600" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646
+                      9.003 9.003 0 0012 21a9.003 9.003 0
+                      008.354-5.646z" />
+                </svg>
+            </button>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-6 md:p-10 overflow-y-auto">
+            <div class="max-w-4xl mx-auto">
+
+                <!-- Intro Section -->
+                <section id="intro" class="content-section active">
+                    <!-- Hero Definition Card -->
+                    <div
+                        class="bg-gradient-to-br from-green-600 to-green-800 rounded-2xl p-8 text-white shadow-xl mb-10 relative overflow-hidden">
+                        <div
+                            class="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full -mr-16 -mt-16 blur-3xl">
+                        </div>
+                        <div
+                            class="absolute bottom-0 left-0 w-48 h-48 bg-green-400 opacity-10 rounded-full -ml-10 -mb-10 blur-2xl">
+                        </div>
+                        <div class="relative z-10">
+                            <h2 class="text-4xl font-bold mb-4">الكحولات Alcohols</h2>
+                            <p class="text-xl leading-relaxed opacity-90 mb-6">
+                                هي مركبات عضوية تحتوي على مجموعة <span class="font-bold text-yellow-300">هيدروكسيل
+                                    (-OH)</span> مرتبطة بذرة كاربون مشبعة.
+                            </p>
+                            <div class="flex flex-wrap gap-4">
+                                <div class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/30">
+                                    <span class="block text-xs opacity-75">الصيغة العامة</span>
+                                    <span class="font-mono text-xl font-bold">R–OH</span>
+                                </div>
+                                <div class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/30">
+                                    <span class="block text-xs opacity-75">القانون العام</span>
+                                    <span class="font-bold">CₙH₂ₙ₊₂O</span>
+                                </div>
+                                <div class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/30">
+                                    <span class="block text-xs opacity-75">المجموعة الفعالة</span>
+                                    <span class="font-bold">C–OH</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Molecule 3D Image -->
+                    <div class="my-4 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm text-center">
+                        <h3 class="font-bold mb-2">جزيء الإيثانول ثلاثي الأبعاد</h3>
+                        <img src="../images/جزيئ.png" alt="جزيء الإيثانول"
+                            class="mx-auto rounded-lg shadow-sm max-h-64 object-contain">
+                        <p class="text-sm text-gray-500 mt-2">نموذج الكرة والعصا لجزيء الإيثانول CH₃CH₂OH</p>
+                    </div>
+                </section>
+
+                <!-- Classification Section -->
+                <section id="classification" class="content-section">
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">تصنيف الكحولات</h2>
+                    <p class="mt-2 mb-6 text-gray-800 dark:text-gray-200 leading-relaxed">
+                        تُقسم الكحولات حسب نوع ذرة الكاربون المرتبطة بمجموعة الهيدروكسيل (-OH).
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                        <!-- Primary Alcohol -->
+                        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 border-t-4 border-blue-500">
+                            <h3 class="text-xl font-bold mb-2 text-blue-600 dark:text-blue-300">كحول أولي (1°)
+                            </h3>
+                            <p class="text-gray-800 dark:text-gray-200 mb-3">تكون OH مرتبطة بذرة كاربون أولية
+                                (متصلة
+                                بكاربون واحد فقط).</p>
+                            <div class="bg-gray-50 dark:bg-gray-700 p-3 rounded text-center font-mono text-lg">
+                                CH₃–CH₂–<span class="text-blue-500 font-bold">OH</span>
+                            </div>
+                            <p class="text-sm text-gray-500 mt-2 text-center">مثال: الإيثانول</p>
+                        </div>
+
+                        <!-- Secondary Alcohol -->
+                        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 border-t-4 border-purple-500">
+                            <h3 class="text-xl font-bold mb-2 text-purple-600 dark:text-purple-300">كحول ثانوي
+                                (2°)</h3>
+                            <p class="text-gray-800 dark:text-gray-200 mb-3">تكون OH مرتبطة بذرة كاربون ثانوية
+                                (متصلة
+                                بكاربونين).</p>
+                            <div class="bg-gray-50 dark:bg-gray-700 p-3 rounded text-center font-mono text-lg">
+                                CH₃–<span class="text-purple-500 font-bold">CH(OH)</span>–CH₃
+                            </div>
+                            <p class="text-sm text-gray-500 mt-2 text-center">مثال: 2-بروبانول</p>
+                        </div>
+
+                        <!-- Tertiary Alcohol -->
+                        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 border-t-4 border-red-500">
+                            <h3 class="text-xl font-bold mb-2 text-red-600 dark:text-red-300">كحول ثالثي (3°)
+                            </h3>
+                            <p class="text-gray-800 dark:text-gray-200 mb-3">تكون OH مرتبطة بذرة كاربون ثالثية
+                                (متصلة
+                                بثلاثة كاربونات).</p>
+                            <div class="bg-gray-50 dark:bg-gray-700 p-3 rounded text-center font-mono text-lg">
+                                (CH₃)₃<span class="text-red-500 font-bold">C–OH</span>
+                            </div>
+                            <p class="text-sm text-gray-500 mt-2 text-center">مثال: 2-مثيل-2-بروبانول</p>
+                        </div>
+                    </div>
+
+                    <!-- Classification Diagram -->
+                    <div class="my-4 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm text-center">
+                        <h3 class="font-bold mb-2">مخطط تصنيف الكحولات</h3>
+                        <img src="../images/alcohol-classification-diagram.png" alt="مخطط تصنيف الكحولات"
+                            class="mx-auto rounded-lg shadow-sm max-h-80 object-contain">
+                    </div>
+                </section>
+
+                <!-- Naming Section -->
+                <section id="naming" class="content-section">
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">تسمية الكحولات</h2>
+                    <p class="mt-2 text-gray-800 dark:text-gray-200 leading-relaxed">
+                        تُسمى الكحولات حسب نظام IUPAC باتباع الخطوات التالية:
+                    </p>
+                    <ol class="list-decimal list-inside mt-4 space-y-3 text-gray-900 dark:text-gray-100">
+                        <li><strong>نختار أطول سلسلة كاربونية</strong> ونعطيها اسم <strong>ألكانول</strong> بحسب
+                            عدد
+                            ذرات الكاربون.</li>
+                        <li><strong>نرقم السلسلة</strong> من الطرف القريب للذرة الحاملة لـ OH.</li>
+                        <li><strong>إذا بدون تفرع:</strong> رقم OH - ألكانول</li>
+                        <li><strong>إذا الكحول متفرع:</strong> رقم واسم التفرع (حسب الأبجدية) - رقم OH - ألكانول
+                        </li>
+                    </ol>
+
+                    <!-- Examples Table -->
+                    <div class="overflow-x-auto mt-6">
+                        <table class="min-w-full bg-white dark:bg-gray-800 shadow-md rounded-lg text-right">
+                            <thead class="bg-gray-100 dark:bg-gray-700">
+                                <tr>
+                                    <th class="px-6 py-3 text-gray-600 dark:text-gray-200 font-bold uppercase text-sm">
+                                        الاسم</th>
+                                    <th
+                                        class="px-6 py-3 text-gray-600 dark:text-gray-200 font-bold uppercase text-sm text-left">
+                                        الصيغة البنائية</th>
+                                </tr>
+                            </thead>
+                            <tbody
+                                class="text-gray-700 dark:text-gray-300 divide-y divide-gray-200 dark:divide-gray-600">
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap font-medium">1-بروبانول</td>
+                                    <td class="px-6 py-4 font-mono text-left">CH₃–CH₂–CH₂–OH</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap font-medium">2-بروبانول</td>
+                                    <td class="px-6 py-4 font-mono text-left">CH₃–CH(OH)–CH₃</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap font-medium">2-مثيل-2-بروبانول</td>
+                                    <td class="px-6 py-4 font-mono text-left">(CH₃)₃C–OH</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap font-medium">3-مثيل-2-بنتانول</td>
+                                    <td class="px-6 py-4 font-mono text-left">CH₃–CH(OH)–CH(CH₃)–CH₂–CH₃</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Naming Diagram -->
+                    <div class="my-6 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm text-center">
+                        <h3 class="font-bold mb-2">طريقة الترقيم والتسمية</h3>
+                        <img src="../images/alcohol-naming-diagram.png" alt="طريقة تسمية الكحولات"
+                            class="mx-auto rounded-lg shadow-sm max-w-lg w-full">
+                    </div>
+                </section>
+
+                <!-- Isomers Section -->
+                <section id="isomers" class="content-section">
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">الجناس (المتشكلات)</h2>
+                    <p class="mt-2 text-gray-800 dark:text-gray-200 leading-relaxed mb-4">
+                        يمكن الحصول على الجناس للكحولات من خلال:
+                    </p>
+                    <ul class="list-disc list-inside space-y-2 text-gray-900 dark:text-gray-100 mb-6">
+                        <li>تحريك مجموعة OH بحيث تأخذ كل المواقع</li>
+                        <li>تثبيت ذرات الكاربون الطرفية وتحريك الوسطية</li>
+                    </ul>
+                    <img src="../images/الجناس (المتشكلات)
+
+.png" alt="الجناس (المتشكلات)
+
+" class="mx-auto rounded-lg shadow-sm max-h-80 object-contain">
+
+                    <!-- Note Box -->
+                    <div
+                        class="p-4 bg-yellow-50 dark:bg-yellow-900/30 border border-yellow-200 dark:border-yellow-700 rounded-lg mb-6">
+                        <h4 class="font-bold mb-1 text-yellow-700 dark:text-yellow-300">💡 ملاحظة مهمة</h4>
+                        <p class="text-gray-800 dark:text-gray-200">
+                            عندما يُعطى كتلة مولية ويُطلب الصيغ البنائية للمركب، يجب أولاً إيجاد الصيغة الجزيئية
+                            ثم عمل
+                            الجناس.
+                            <br>
+                            <strong>الكتلة المولية = CₙH₂ₙ₊₂O</strong>
+                        </p>
+                    </div>
+
+                    <!-- Example -->
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold mb-4 text-green-700 dark:text-green-400">مثال: جناس C₄H₁₀O
+                            (الكتلة
+                            المولية 74 g/mol)</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-gray-50 dark:bg-gray-700 p-3 rounded">
+                                <p class="font-bold text-sm mb-1">1-بيوتانول</p>
+                                <p class="font-mono">CH₃–CH₂–CH₂–CH₂–OH</p>
+                            </div>
+                            <div class="bg-gray-50 dark:bg-gray-700 p-3 rounded">
+                                <p class="font-bold text-sm mb-1">2-بيوتانول</p>
+                                <p class="font-mono">CH₃–CH₂–CH(OH)–CH₃</p>
+                            </div>
+                            <div class="bg-gray-50 dark:bg-gray-700 p-3 rounded">
+                                <p class="font-bold text-sm mb-1">2-مثيل-1-بروبانول</p>
+                                <p class="font-mono">CH₃–CH(CH₃)–CH₂–OH</p>
+                            </div>
+                            <div class="bg-gray-50 dark:bg-gray-700 p-3 rounded">
+                                <p class="font-bold text-sm mb-1">2-مثيل-2-بروبانول</p>
+                                <p class="font-mono">(CH₃)₃C–OH</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Isomers Video -->
+                    <div class="video-player-container relative group mt-6">
+                        <video muted playsinline class="custom-video w-full h-full rounded-lg">
+                            <source src="../videos/alcohol-isomers.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div
+                            class="video-controls absolute bottom-0 left-0 right-0 flex items-center justify-between p-4 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <button class="play-pause-btn text-white">
+                                <svg class="play-icon h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <svg class="pause-icon h-6 w-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </button>
+                            <input type="range" min="0" max="100" value="0" class="progress-bar w-full mx-4">
+                            <button class="mute-btn text-white">
+                                <svg class="volume-on-icon h-6 w-6 hidden" xmlns="http://www.w3.org/2000/svg"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                                </svg>
+                                <svg class="volume-off-icon h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 14l-4-4m0 4l4-4" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Preparation Section -->
+                <section id="preparation" class="content-section">
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">تحضير الكحولات</h2>
+                    <p class="mt-2 text-gray-800 dark:text-gray-200 leading-relaxed mb-6">
+                        تُحضر الكحولات من إضافة جزيء ماء (H–OH) إلى الألكين بوجود حامض الكبريتيك المركز H₂SO₄.
+                    </p>
+
+                    <!-- Symmetric Alkene -->
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 mb-6">
+                        <h3 class="text-xl font-bold mb-4 text-blue-700 dark:text-blue-400">1. إضافة الماء إلى
+                            الألكين
+                            المتناظر</h3>
+                        <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded text-center font-mono text-lg" dir="ltr">
+                            CH₂=CH₂ + H–OH → CH₃–CH₂–OH
+                            <br>
+                            <span class="text-sm text-gray-500">(إيثين + ماء → إيثانول)</span>
+                        </div>
+                        <p class="mt-3 text-gray-600 dark:text-gray-300 text-sm">
+                            <strong>ملاحظة:</strong> في الألكين المتناظر، يمكن إضافة H و OH على أي طرف من طرفي
+                            الرابطة
+                            C=C.
+                        </p>
+                    </div>
+
+                    <!-- Asymmetric Alkene -->
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 mb-6">
+                        <h3 class="text-xl font-bold mb-4 text-purple-700 dark:text-purple-400">2. إضافة الماء
+                            إلى
+                            الألكين غير المتناظر (قاعدة ماركوفنيكوف)</h3>
+                        <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded text-center font-mono text-lg" dir="ltr">
+                            CH₃–CH=CH₂ + H–OH → CH₃–CH(OH)–CH₃
+                            <br>
+                            <span class="text-sm text-gray-500">(بروبين + ماء → 2-بروبانول)</span>
+                        </div>
+                        <div
+                            class="mt-4 p-3 bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-700 rounded">
+                            <p class="text-green-800 dark:text-green-200">
+                                <strong>قاعدة ماركوفنيكوف:</strong> "أشبع الشبعان" - نضيف H لذرة C الأكثر
+                                هيدروجين، و OH
+                                لذرة C الأقل هيدروجين.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Preparation Diagram -->
+                    <div class="my-4 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm text-center">
+                        <h3 class="font-bold mb-2">مخطط تحضير الكحولات من الألكينات</h3>
+                        <img src="../images/alcohol-preparation-diagram.png" alt="تحضير الكحولات"
+                            class="mx-auto rounded-lg shadow-sm max-w-lg w-full">
+                    </div>
+
+                    <!-- Preparation Video -->
+                    <div class="video-player-container relative group mt-6">
+                        <video muted playsinline class="custom-video w-full h-full rounded-lg">
+                            <source src="../videos/alcohol-preparation.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div
+                            class="video-controls absolute bottom-0 left-0 right-0 flex items-center justify-between p-4 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <button class="play-pause-btn text-white">
+                                <svg class="play-icon h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <svg class="pause-icon h-6 w-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </button>
+                            <input type="range" min="0" max="100" value="0" class="progress-bar w-full mx-4">
+                            <button class="mute-btn text-white">
+                                <svg class="volume-on-icon h-6 w-6 hidden" xmlns="http://www.w3.org/2000/svg"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                                </svg>
+                                <svg class="volume-off-icon h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 14l-4-4m0 4l4-4" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Properties Section -->
+                <section id="properties" class="content-section">
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">الخواص الفيزيائية</h2>
+
+                    <div class="space-y-4">
+                        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-5 border-r-4 border-blue-500">
+                            <h4 class="font-bold text-blue-700 dark:text-blue-300 mb-2">الحالة والمظهر</h4>
+                            <p class="text-gray-700 dark:text-gray-300">الكحولات ذات الكتل المولية الصغيرة سوائل
+                                عديمة
+                                اللون ذات رائحة مميزة.</p>
+                        </div>
+
+                        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-5 border-r-4 border-green-500">
+                            <h4 class="font-bold text-green-700 dark:text-green-300 mb-2">درجة الغليان</h4>
+                            <p class="text-gray-700 dark:text-gray-300">درجة غليان الكحولات
+                                <strong>عالية</strong> بسبب
+                                قابليتها على تكوين أواصر هيدروجينية بين جزيئاتها.
+                            </p>
+                        </div>
+
+                        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-5 border-r-4 border-purple-500">
+                            <h4 class="font-bold text-purple-700 dark:text-purple-300 mb-2">الذوبانية في الماء
+                            </h4>
+                            <p class="text-gray-700 dark:text-gray-300">الكحولات من C₁ إلى C₃ تمتزج بشكل تام مع
+                                الماء
+                                بسبب قابليتها على تكوين أواصر هيدروجينية مع الماء.</p>
+                        </div>
+                    </div>
+
+                    <div class="my-6 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm text-center">
+                        <h3 class="font-bold mb-2">الخواص الفيزيائية</h3>
+                        <img src="../images/الخواص الفيزيائية للكحولات.png" alt="الروابط الهيدروجينية"
+                            class="mx-auto rounded-lg shadow-sm max-w-lg w-full">
+                        <p class="text-sm text-gray-500 mt-2">توضيح الخواص الفيزيائية للكحولات</p>
+                    </div>
+                    <!-- Hydrogen Bonding Diagram -->
+                    <div class="my-6 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm text-center">
+                        <h3 class="font-bold mb-2">الروابط الهيدروجينية في الكحولات</h3>
+                        <img src="../images/hydrogen-bonding-alcohols.png" alt="الروابط الهيدروجينية"
+                            class="mx-auto rounded-lg shadow-sm max-w-lg w-full">
+                        <p class="text-sm text-gray-500 mt-2">توضيح الروابط الهيدروجينية بين جزيئات الكحول</p>
+                    </div>
+                </section>
+
+                <!-- Reactions Section -->
+                <section id="reactions" class="content-section">
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">التفاعلات الكيميائية</h2>
+
+                    <!-- Reaction with Sodium -->
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 mb-6">
+                        <h3 class="text-xl font-bold mb-4 text-blue-700 dark:text-blue-400">1. التفاعل مع
+                            الصوديوم</h3>
+                        <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded text-center font-mono" dir="ltr">
+                            R–OH + Na → R–ONa + ½H₂
+                        </div>
+                        <p class="mt-3 text-gray-600 dark:text-gray-300">ينتج ألكوكسيد الصوديوم وغاز الهيدروجين.
+                        </p>
+                    </div>
+
+                    <!-- Reaction with PCl5/PCl3 -->
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 mb-6">
+                        <h3 class="text-xl font-bold mb-4 text-purple-700 dark:text-purple-400">2. التفاعل مع
+                            هاليدات
+                            الفسفور</h3>
+                        <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded text-center font-mono mb-3" dir="ltr">
+                            R–OH + PCl₅ → R–Cl + POCl₃ + HCl
+                        </div>
+                        <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded text-center font-mono" dir="ltr">
+                            3R–OH + PCl₃ → 3R–Cl + H₃PO₃
+                        </div>
+                        <p class="mt-3 text-gray-600 dark:text-gray-300">ينتج هاليد الألكيل المقابل.</p>
+                    </div>
+
+                    <!-- Lucas Reagent -->
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 mb-6">
+                        <h3 class="text-xl font-bold mb-4 text-green-700 dark:text-green-400">3. التفاعل مع كاشف
+                            لوكاس
+                            (HCl + ZnCl₂)</h3>
+                        <p class="mb-4 text-gray-700 dark:text-gray-300">يُستخدم للتمييز بين أنواع الكحولات:</p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div
+                                class="bg-blue-50 dark:bg-blue-900/30 p-4 rounded border border-blue-200 dark:border-blue-700 text-center">
+                                <p class="font-bold text-blue-700 dark:text-blue-300">كحول أولي</p>
+                                <p class="text-sm">لا يتفاعل - المحلول رائق</p>
+                            </div>
+                            <div
+                                class="bg-purple-50 dark:bg-purple-900/30 p-4 rounded border border-purple-200 dark:border-purple-700 text-center">
+                                <p class="font-bold text-purple-700 dark:text-purple-300">كحول ثانوي</p>
+                                <p class="text-sm">عكرة بعد 2-5 دقائق</p>
+                            </div>
+                            <div
+                                class="bg-red-50 dark:bg-red-900/30 p-4 rounded border border-red-200 dark:border-red-700 text-center">
+                                <p class="font-bold text-red-700 dark:text-red-300">كحول ثالثي</p>
+                                <p class="text-sm">عكرة فوراً</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dehydration -->
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 mb-6">
+                        <h3 class="text-xl font-bold mb-4 text-orange-700 dark:text-orange-400">4. نزع الماء
+                            (التجفيف)
+                        </h3>
+                        <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded text-center font-mono" dir="ltr">
+                            R–CH₂–CH(OH)–R' <span class="text-orange-500">H₂SO₄, 170°C</span>→ R–CH=CH–R' + H₂O
+                        </div>
+                        <div
+                            class="mt-4 p-3 bg-yellow-50 dark:bg-yellow-900/30 border border-yellow-200 dark:border-yellow-700 rounded">
+                            <p class="text-yellow-800 dark:text-yellow-200">
+                                <strong>قاعدة ستيسيف:</strong> "جوّع الجوعان" - يُسحب H من ذرة C الأقل هيدروجين.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Oxidation -->
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold mb-4 text-red-700 dark:text-red-400">5. الأكسدة</h3>
+                        <div class="space-y-4">
+                            <div class="bg-blue-50 dark:bg-blue-900/30 p-4 rounded border-r-4 border-blue-500">
+                                <p class="font-bold text-blue-700 dark:text-blue-300 mb-2">كحول أولي:</p>
+                                <p class="font-mono text-sm" dir="ltr">R–CH₂–OH → [O] → R–CHO (ألدهيد) → [O] →
+                                    R–COOH
+                                    (حامض)</p>
+                            </div>
+                            <div class="bg-purple-50 dark:bg-purple-900/30 p-4 rounded border-r-4 border-purple-500">
+                                <p class="font-bold text-purple-700 dark:text-purple-300 mb-2">كحول ثانوي:</p>
+                                <p class="font-mono text-sm" dir="ltr">R–CH(OH)–R' → [O] → R–CO–R' (كيتون)</p>
+                            </div>
+                            <div class="bg-red-50 dark:bg-red-900/30 p-4 rounded border-r-4 border-red-500">
+                                <p class="font-bold text-red-700 dark:text-red-300 mb-2">كحول ثالثي:</p>
+                                <p class="text-sm">لا يتأكسد ❌ (لأن ذرة C الحاملة لـ OH خالية من H)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reactions Flowchart -->
+                    <div class="my-6 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm text-center">
+                        <h3 class="font-bold mb-2">ملخص تفاعلات الكحولات</h3>
+                        <img src="../images/alcohol-reactions-flowchart.png" alt="تفاعلات الكحولات"
+                            class="mx-auto rounded-lg shadow-sm max-w-2xl w-full">
+                    </div>
+                </section>
+
+                <!-- Quiz Section -->
+                <section id="quiz" class="content-section">
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">اختبر نفسك! 🎯</h2>
+                    <div class="mt-6 p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
+                        <div class="text-center">
+                            <p class="text-lg text-gray-700 dark:text-gray-300 mb-2">
+                                <span id="quiz-item-type" class="font-bold text-green-700 dark:text-green-400"></span>
+                            </p>
+                            <p id="quiz-question"
+                                class="text-xl font-mono bg-gray-100 dark:bg-gray-700 dark:text-white p-3 rounded-md my-4 text-left"
+                                dir="ltr"></p>
+                            <input type="text" id="quiz-answer"
+                                class="w-full md:w-2/3 p-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md text-center"
+                                placeholder="اكتب الإجابة هنا">
+                            <div class="mt-4">
+                                <button id="quiz-submit"
+                                    class="bg-green-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-green-700 transition-colors">
+                                    تحقق
+                                </button>
+                                <button id="quiz-next"
+                                    class="bg-gray-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-gray-600 transition-colors ml-2">
+                                    السؤال التالي
+                                </button>
+                            </div>
+                            <p id="quiz-feedback" class="mt-4 h-6 text-lg font-semibold"></p>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/الكحولات.js"></script>
+</body>
+
+</html>
