@@ -579,10 +579,87 @@
                             <p class="text-xl leading-relaxed opacity-90 mb-6">
                                 يمكن تحضير الألكاينات بعدة طرق من مركبات مختلفة.
                             </p>
-                            <div
-                                class="bg-white/20 backdrop-blur-sm px-6 py-4 rounded-lg border border-white/30 inline-block">
-                                <p class="text-sm opacity-75 mb-2">الطريقة الرئيسية:</p>
-                                <p class="font-mono text-2xl font-bold">R-CH₂-X + 2 NaNH₂ → R-C≡CH</p>
+                            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 mb-4">
+                                <p class="text-sm opacity-75 mb-4 text-center">الطريقة الرئيسية:</p>
+                                <!-- Enhanced Main Formula SVG -->
+                                <div class="bg-white dark:bg-gray-700 rounded-lg p-6">
+                                    <svg viewBox="0 0 950 120" class="w-full" xmlns="http://www.w3.org/2000/svg">
+                                        <!-- R-CH₂-X -->
+                                        <g transform="translate(50, 60)">
+                                            <!-- R -->
+                                            <circle cx="0" cy="0" r="24" fill="#6366F1" stroke="#4F46E5"
+                                                stroke-width="3" />
+                                            <text x="0" y="7" fill="white" font-size="14" font-weight="bold"
+                                                text-anchor="middle">R</text>
+                                            <line x1="24" y1="0" x2="42" y2="0" stroke="#1E40AF" stroke-width="3" />
+                                            <!-- C -->
+                                            <circle cx="60" cy="0" r="24" fill="#3B82F6" stroke="#1E40AF"
+                                                stroke-width="3" />
+                                            <text x="60" y="7" fill="white" font-size="14" font-weight="bold"
+                                                text-anchor="middle">C</text>
+                                            <line x1="84" y1="0" x2="102" y2="0" stroke="#1E40AF" stroke-width="3" />
+                                            <!-- H₂ on C -->
+                                            <text x="60" y="-28" fill="#F59E0B" font-size="12" font-weight="bold"
+                                                text-anchor="middle">H₂</text>
+                                            <!-- X -->
+                                            <circle cx="120" cy="0" r="22" fill="#EF4444" stroke="#DC2626"
+                                                stroke-width="3" />
+                                            <text x="120" y="7" fill="white" font-size="13" font-weight="bold"
+                                                text-anchor="middle">X</text>
+                                        </g>
+
+                                        <!-- + 2 NaNH₂ -->
+                                        <g transform="translate(220, 60)">
+                                            <text x="20" y="7" fill="currentColor" class="dark:text-white"
+                                                font-size="28" font-weight="bold">+</text>
+                                            <text x="50" y="7" fill="#10B981" font-size="20" font-weight="bold">2
+                                                NaNH</text>
+                                            <text x="125" y="11" fill="#10B981" font-size="16">₂</text>
+                                        </g>
+
+                                        <!-- Arrow -->
+                                        <g transform="translate(400, 60)">
+                                            <path d="M 0 0 L 90 0" stroke="#14B8A6" stroke-width="5" fill="none"
+                                                marker-end="url(#arrow-prep-main)" />
+                                        </g>
+
+                                        <!-- R-C≡CH -->
+                                        <g transform="translate(540, 60)">
+                                            <!-- R -->
+                                            <circle cx="0" cy="0" r="24" fill="#6366F1" stroke="#4F46E5"
+                                                stroke-width="3" />
+                                            <text x="0" y="7" fill="white" font-size="14" font-weight="bold"
+                                                text-anchor="middle">R</text>
+                                            <line x1="24" y1="0" x2="42" y2="0" stroke="#6D28D9" stroke-width="3" />
+                                            <!-- C -->
+                                            <circle cx="60" cy="0" r="24" fill="#8B5CF6" stroke="#6D28D9"
+                                                stroke-width="3" />
+                                            <text x="60" y="7" fill="white" font-size="14" font-weight="bold"
+                                                text-anchor="middle">C</text>
+                                            <!-- Triple Bond -->
+                                            <line x1="84" y1="-6" x2="104" y2="-6" stroke="#6D28D9" stroke-width="4" />
+                                            <line x1="84" y1="0" x2="104" y2="0" stroke="#6D28D9" stroke-width="4" />
+                                            <line x1="84" y1="6" x2="104" y2="6" stroke="#6D28D9" stroke-width="4" />
+                                            <!-- C -->
+                                            <circle cx="120" cy="0" r="24" fill="#8B5CF6" stroke="#6D28D9"
+                                                stroke-width="3" />
+                                            <text x="120" y="7" fill="white" font-size="14" font-weight="bold"
+                                                text-anchor="middle">C</text>
+                                            <!-- H -->
+                                            <circle cx="145" cy="0" r="18" fill="#F59E0B" stroke="#D97706"
+                                                stroke-width="2" />
+                                            <text x="145" y="6" fill="white" font-size="12" font-weight="bold"
+                                                text-anchor="middle">H</text>
+                                        </g>
+
+                                        <defs>
+                                            <marker id="arrow-prep-main" markerWidth="12" markerHeight="12" refX="10"
+                                                refY="4" orient="auto">
+                                                <polygon points="0 0, 12 4, 0 8" fill="#14B8A6" />
+                                            </marker>
+                                        </defs>
+                                    </svg>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -601,8 +678,88 @@
                             يمكن تحضير الألكاينات من هاليدات الألكيل باستخدام أميد الصوديوم (NaNH₂) في خطوتين من
                             الإزالة.
                         </p>
-                        <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-lg mb-4">
-                            R-CH₂-CH₂-X + 2 NaNH₂ → R-C≡CH + 2 NaX + 2 NH₃
+                        <div class="bg-gray-800 dark:bg-gray-900 text-white p-8 rounded-lg mb-4">
+                            <svg viewBox="0 0 1200 120" class="w-full h-auto mx-auto"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <!-- R-CH₂-CH₂-X -->
+                                <g transform="translate(50, 60)">
+                                    <!-- R -->
+                                    <circle cx="0" cy="0" r="22" fill="#6366F1" stroke="#4F46E5" stroke-width="2" />
+                                    <text x="0" y="7" fill="white" font-size="13" font-weight="bold"
+                                        text-anchor="middle">R</text>
+                                    <line x1="22" y1="0" x2="36" y2="0" stroke="#1E40AF" stroke-width="2" />
+                                    <!-- C -->
+                                    <circle cx="50" cy="0" r="22" fill="#3B82F6" stroke="#1E40AF" stroke-width="2" />
+                                    <text x="50" y="7" fill="white" font-size="13" font-weight="bold"
+                                        text-anchor="middle">C</text>
+                                    <text x="50" y="-24" fill="#F59E0B" font-size="11" font-weight="bold">H₂</text>
+                                    <line x1="72" y1="0" x2="86" y2="0" stroke="#1E40AF" stroke-width="2" />
+                                    <!-- C -->
+                                    <circle cx="100" cy="0" r="22" fill="#3B82F6" stroke="#1E40AF" stroke-width="2" />
+                                    <text x="100" y="7" fill="white" font-size="13" font-weight="bold"
+                                        text-anchor="middle">C</text>
+                                    <text x="100" y="-24" fill="#F59E0B" font-size="11" font-weight="bold">H₂</text>
+                                    <line x1="122" y1="0" x2="136" y2="0" stroke="#DC2626" stroke-width="2" />
+                                    <!-- X -->
+                                    <circle cx="150" cy="0" r="20" fill="#EF4444" stroke="#DC2626" stroke-width="2" />
+                                    <text x="150" y="7" fill="white" font-size="12" font-weight="bold"
+                                        text-anchor="middle">X</text>
+                                </g>
+
+                                <!-- + 2 NaNH₂ -->
+                                <g transform="translate(230, 60)">
+                                    <text x="0" y="7" fill="#FFFFFF" font-size="26" font-weight="bold">+</text>
+                                    <text x="30" y="7" fill="#10B981" font-size="20" font-weight="bold">2 NaNH</text>
+                                    <text x="115" y="11" fill="#10B981" font-size="16">₂</text>
+                                </g>
+
+                                <!-- Arrow -->
+                                <g transform="translate(390, 60)">
+                                    <path d="M 0 0 L 100 0" stroke="#14B8A6" stroke-width="4" fill="none"
+                                        marker-end="url(#arrow-prep-full)" />
+                                </g>
+
+                                <!-- R-C≡CH -->
+                                <g transform="translate(540, 60)">
+                                    <!-- R -->
+                                    <circle cx="0" cy="0" r="22" fill="#6366F1" stroke="#4F46E5" stroke-width="2" />
+                                    <text x="0" y="7" fill="white" font-size="13" font-weight="bold"
+                                        text-anchor="middle">R</text>
+                                    <line x1="22" y1="0" x2="38" y2="0" stroke="#6D28D9" stroke-width="2" />
+                                    <!-- C -->
+                                    <circle cx="52" cy="0" r="22" fill="#8B5CF6" stroke="#6D28D9" stroke-width="2" />
+                                    <text x="52" y="7" fill="white" font-size="13" font-weight="bold"
+                                        text-anchor="middle">C</text>
+                                    <!-- Triple Bond -->
+                                    <line x1="74" y1="-5" x2="90" y2="-5" stroke="#6D28D9" stroke-width="3" />
+                                    <line x1="74" y1="0" x2="90" y2="0" stroke="#6D28D9" stroke-width="3" />
+                                    <line x1="74" y1="5" x2="90" y2="5" stroke="#6D28D9" stroke-width="3" />
+                                    <!-- C -->
+                                    <circle cx="104" cy="0" r="22" fill="#8B5CF6" stroke="#6D28D9" stroke-width="2" />
+                                    <text x="104" y="7" fill="white" font-size="13" font-weight="bold"
+                                        text-anchor="middle">C</text>
+                                    <!-- H -->
+                                    <circle cx="126" cy="0" r="17" fill="#F59E0B" stroke="#D97706" stroke-width="2" />
+                                    <text x="126" y="6" fill="white" font-size="11" font-weight="bold"
+                                        text-anchor="middle">H</text>
+                                </g>
+
+                                <!-- + 2 NaX + 2 NH₃ -->
+                                <g transform="translate(700, 60)">
+                                    <text x="0" y="7" fill="#FFFFFF" font-size="26" font-weight="bold">+</text>
+                                    <text x="25" y="-15" fill="#6B7280" font-size="16" font-weight="bold">2 NaX</text>
+                                    <text x="25" y="7" fill="#FFFFFF" font-size="20" font-weight="bold">+</text>
+                                    <text x="45" y="27" fill="#6B7280" font-size="16" font-weight="bold">2 NH</text>
+                                    <text x="95" y="31" fill="#6B7280" font-size="13">₃</text>
+                                </g>
+
+                                <defs>
+                                    <marker id="arrow-prep-full" markerWidth="10" markerHeight="10" refX="9" refY="3"
+                                        orient="auto">
+                                        <polygon points="0 0, 10 3, 0 6" fill="#14B8A6" />
+                                    </marker>
+                                </defs>
+                            </svg>
                         </div>
                         <!-- Double Elimination Mechanism SVG -->
                         <div class="mb-6">
@@ -766,18 +923,190 @@
                             </div>
                             <div class="bg-teal-50 dark:bg-teal-900/20 rounded-lg p-6">
                                 <h4 class="font-bold text-lg text-gray-800 dark:text-white mb-3">الخطوة 1:</h4>
-                                <p class="text-gray-700 dark:text-gray-300 mb-3">
-                                    R-CH₂-CH₂-X + NaNH₂ → R-CH=CH₂ + NaX + NH₃
-                                </p>
+                                <div class="bg-white dark:bg-gray-700 rounded-lg p-4 mb-3">
+                                    <svg viewBox="0 0 1050 120" class="w-full h-auto"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <!-- R-CH₂-CH₂-X -->
+                                        <g transform="translate(40, 60)">
+                                            <circle cx="0" cy="0" r="20" fill="#6366F1" stroke="#4F46E5"
+                                                stroke-width="2" />
+                                            <text x="0" y="6" fill="white" font-size="12" font-weight="bold"
+                                                text-anchor="middle">R</text>
+                                            <line x1="20" y1="0" x2="32" y2="0" stroke="#1E40AF" stroke-width="2" />
+                                            <circle cx="44" cy="0" r="20" fill="#3B82F6" stroke="#1E40AF"
+                                                stroke-width="2" />
+                                            <text x="44" y="6" fill="white" font-size="12" font-weight="bold"
+                                                text-anchor="middle">C</text>
+                                            <text x="44" y="-22" fill="#F59E0B" font-size="10"
+                                                font-weight="bold">H₂</text>
+                                            <line x1="64" y1="0" x2="76" y2="0" stroke="#1E40AF" stroke-width="2" />
+                                            <circle cx="88" cy="0" r="20" fill="#3B82F6" stroke="#1E40AF"
+                                                stroke-width="2" />
+                                            <text x="88" y="6" fill="white" font-size="12" font-weight="bold"
+                                                text-anchor="middle">C</text>
+                                            <text x="88" y="-22" fill="#F59E0B" font-size="10"
+                                                font-weight="bold">H₂</text>
+                                            <line x1="108" y1="0" x2="120" y2="0" stroke="#DC2626" stroke-width="2" />
+                                            <circle cx="132" cy="0" r="18" fill="#EF4444" stroke="#DC2626"
+                                                stroke-width="2" />
+                                            <text x="132" y="6" fill="white" font-size="11" font-weight="bold"
+                                                text-anchor="middle">X</text>
+                                        </g>
+
+                                        <!-- + NaNH₂ -->
+                                        <g transform="translate(200, 60)">
+                                            <text x="0" y="6" fill="currentColor" class="dark:text-white" font-size="22"
+                                                font-weight="bold">+</text>
+                                            <text x="20" y="6" fill="#10B981" font-size="18"
+                                                font-weight="bold">NaNH</text>
+                                            <text x="90" y="10" fill="#10B981" font-size="14">₂</text>
+                                        </g>
+
+                                        <!-- Arrow -->
+                                        <g transform="translate(330, 60)">
+                                            <path d="M 0 0 L 80 0" stroke="#14B8A6" stroke-width="3" fill="none"
+                                                marker-end="url(#arrow-step1)" />
+                                        </g>
+
+                                        <!-- R-CH=CH₂ -->
+                                        <g transform="translate(450, 60)">
+                                            <circle cx="0" cy="0" r="20" fill="#6366F1" stroke="#4F46E5"
+                                                stroke-width="2" />
+                                            <text x="0" y="6" fill="white" font-size="12" font-weight="bold"
+                                                text-anchor="middle">R</text>
+                                            <line x1="20" y1="0" x2="32" y2="0" stroke="#6D28D9" stroke-width="2" />
+                                            <circle cx="44" cy="0" r="20" fill="#8B5CF6" stroke="#6D28D9"
+                                                stroke-width="2" />
+                                            <text x="44" y="6" fill="white" font-size="12" font-weight="bold"
+                                                text-anchor="middle">C</text>
+                                            <text x="44" y="-22" fill="#F59E0B" font-size="10"
+                                                font-weight="bold">H</text>
+                                            <!-- Double Bond -->
+                                            <line x1="64" y1="-4" x2="76" y2="-4" stroke="#6D28D9" stroke-width="3" />
+                                            <line x1="64" y1="4" x2="76" y2="4" stroke="#6D28D9" stroke-width="2" />
+                                            <circle cx="88" cy="0" r="20" fill="#8B5CF6" stroke="#6D28D9"
+                                                stroke-width="2" />
+                                            <text x="88" y="6" fill="white" font-size="12" font-weight="bold"
+                                                text-anchor="middle">C</text>
+                                            <text x="88" y="-22" fill="#F59E0B" font-size="10"
+                                                font-weight="bold">H₂</text>
+                                        </g>
+
+                                        <!-- + NaX + NH₃ -->
+                                        <g transform="translate(570, 60)">
+                                            <text x="0" y="6" fill="currentColor" class="dark:text-white" font-size="22"
+                                                font-weight="bold">+</text>
+                                            <text x="20" y="6" fill="#6B7280" font-size="16"
+                                                font-weight="bold">NaX</text>
+                                            <text x="70" y="6" fill="currentColor" class="dark:text-white"
+                                                font-size="22" font-weight="bold">+</text>
+                                            <text x="90" y="6" fill="#6B7280" font-size="16"
+                                                font-weight="bold">NH</text>
+                                            <text x="125" y="10" fill="#6B7280" font-size="13">₃</text>
+                                        </g>
+
+                                        <defs>
+                                            <marker id="arrow-step1" markerWidth="10" markerHeight="10" refX="9"
+                                                refY="3" orient="auto">
+                                                <polygon points="0 0, 10 3, 0 6" fill="#14B8A6" />
+                                            </marker>
+                                        </defs>
+                                    </svg>
+                                </div>
                                 <p class="text-gray-700 dark:text-gray-300 text-sm">
                                     تكوين ألكين
                                 </p>
                             </div>
                             <div class="bg-cyan-50 dark:bg-cyan-900/20 rounded-lg p-6">
                                 <h4 class="font-bold text-lg text-gray-800 dark:text-white mb-3">الخطوة 2:</h4>
-                                <p class="text-gray-700 dark:text-gray-300 mb-3">
-                                    R-CH=CH₂ + NaNH₂ → R-C≡CH + NaX + NH₃
-                                </p>
+                                <div class="bg-white dark:bg-gray-700 rounded-lg p-4 mb-3">
+                                    <svg viewBox="0 0 1100 120" class="w-full h-auto"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <!-- R-CH=CH₂ -->
+                                        <g transform="translate(40, 60)">
+                                            <circle cx="0" cy="0" r="20" fill="#6366F1" stroke="#4F46E5"
+                                                stroke-width="2" />
+                                            <text x="0" y="6" fill="white" font-size="12" font-weight="bold"
+                                                text-anchor="middle">R</text>
+                                            <line x1="20" y1="0" x2="32" y2="0" stroke="#6D28D9" stroke-width="2" />
+                                            <circle cx="44" cy="0" r="20" fill="#8B5CF6" stroke="#6D28D9"
+                                                stroke-width="2" />
+                                            <text x="44" y="6" fill="white" font-size="12" font-weight="bold"
+                                                text-anchor="middle">C</text>
+                                            <text x="44" y="-22" fill="#F59E0B" font-size="10"
+                                                font-weight="bold">H</text>
+                                            <!-- Double Bond -->
+                                            <line x1="64" y1="-4" x2="76" y2="-4" stroke="#6D28D9" stroke-width="3" />
+                                            <line x1="64" y1="4" x2="76" y2="4" stroke="#6D28D9" stroke-width="2" />
+                                            <circle cx="88" cy="0" r="20" fill="#8B5CF6" stroke="#6D28D9"
+                                                stroke-width="2" />
+                                            <text x="88" y="6" fill="white" font-size="12" font-weight="bold"
+                                                text-anchor="middle">C</text>
+                                            <text x="88" y="-22" fill="#F59E0B" font-size="10"
+                                                font-weight="bold">H₂</text>
+                                        </g>
+
+                                        <!-- + NaNH₂ -->
+                                        <g transform="translate(160, 60)">
+                                            <text x="0" y="6" fill="currentColor" class="dark:text-white" font-size="22"
+                                                font-weight="bold">+</text>
+                                            <text x="20" y="6" fill="#10B981" font-size="18"
+                                                font-weight="bold">NaNH</text>
+                                            <text x="90" y="10" fill="#10B981" font-size="14">₂</text>
+                                        </g>
+
+                                        <!-- Arrow -->
+                                        <g transform="translate(290, 60)">
+                                            <path d="M 0 0 L 80 0" stroke="#14B8A6" stroke-width="3" fill="none"
+                                                marker-end="url(#arrow-step2)" />
+                                        </g>
+
+                                        <!-- R-C≡CH -->
+                                        <g transform="translate(410, 60)">
+                                            <circle cx="0" cy="0" r="20" fill="#6366F1" stroke="#4F46E5"
+                                                stroke-width="2" />
+                                            <text x="0" y="6" fill="white" font-size="12" font-weight="bold"
+                                                text-anchor="middle">R</text>
+                                            <line x1="20" y1="0" x2="34" y2="0" stroke="#6D28D9" stroke-width="2" />
+                                            <circle cx="46" cy="0" r="20" fill="#8B5CF6" stroke="#6D28D9"
+                                                stroke-width="2" />
+                                            <text x="46" y="6" fill="white" font-size="12" font-weight="bold"
+                                                text-anchor="middle">C</text>
+                                            <!-- Triple Bond -->
+                                            <line x1="66" y1="-5" x2="80" y2="-5" stroke="#6D28D9" stroke-width="3" />
+                                            <line x1="66" y1="0" x2="80" y2="0" stroke="#6D28D9" stroke-width="3" />
+                                            <line x1="66" y1="5" x2="80" y2="5" stroke="#6D28D9" stroke-width="3" />
+                                            <circle cx="92" cy="0" r="20" fill="#8B5CF6" stroke="#6D28D9"
+                                                stroke-width="2" />
+                                            <text x="92" y="6" fill="white" font-size="12" font-weight="bold"
+                                                text-anchor="middle">C</text>
+                                            <circle cx="112" cy="0" r="16" fill="#F59E0B" stroke="#D97706"
+                                                stroke-width="2" />
+                                            <text x="112" y="5" fill="white" font-size="10" font-weight="bold"
+                                                text-anchor="middle">H</text>
+                                        </g>
+
+                                        <!-- + NaX + NH₃ -->
+                                        <g transform="translate(550, 60)">
+                                            <text x="0" y="6" fill="currentColor" class="dark:text-white" font-size="22"
+                                                font-weight="bold">+</text>
+                                            <text x="20" y="6" fill="#6B7280" font-size="16"
+                                                font-weight="bold">NaX</text>
+                                            <text x="70" y="6" fill="currentColor" class="dark:text-white"
+                                                font-size="22" font-weight="bold">+</text>
+                                            <text x="90" y="6" fill="#6B7280" font-size="16"
+                                                font-weight="bold">NH</text>
+                                            <text x="125" y="10" fill="#6B7280" font-size="13">₃</text>
+                                        </g>
+
+                                        <defs>
+                                            <marker id="arrow-step2" markerWidth="10" markerHeight="10" refX="9"
+                                                refY="3" orient="auto">
+                                                <polygon points="0 0, 10 3, 0 6" fill="#14B8A6" />
+                                            </marker>
+                                        </defs>
+                                    </svg>
+                                </div>
                                 <p class="text-gray-700 dark:text-gray-300 text-sm">
                                     تكوين ألكاين
                                 </p>
@@ -832,6 +1161,63 @@
                         </p>
                         <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-lg">
                             R-CH=CH-R' + 2 NaNH₂ → R-C≡C-R' + 2 NaH + 2 NH₃
+                        </div>
+                    </div>
+
+                    <!-- Video Section - Preparation of Alkynes -->
+                    <div
+                        class="bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-xl shadow-lg p-6 mb-8 border-2 border-indigo-300 dark:border-indigo-700">
+                        <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center">
+                            <svg class="w-8 h-8 mr-3 text-indigo-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            فيديو: طرق تحضير الألكاينات
+                        </h3>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">
+                            شاهد شرحاً مفصلاً لمختلف طرق تحضير الألكاينات والتفاعلات المتعلقة بها
+                        </p>
+                        <div class="video-player-container relative group">
+                            <video id="alkynes-prep-video" muted playsinline
+                                class="custom-video w-full h-full rounded-lg shadow-md">
+                                <source src="../videos/طرق_تحضير_الألكاينات.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div
+                                class="video-controls absolute bottom-0 left-0 right-0 flex items-center justify-between p-4 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-b-lg">
+                                <button id="play-pause-alkynes"
+                                    class="play-pause-btn text-white hover:text-indigo-400 transition-colors">
+                                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1 1 0 000-2.538L6.3 2.84z" />
+                                    </svg>
+                                </button>
+                                <div class="flex-1 mx-4">
+                                    <input id="progress-alkynes" type="range" min="0" max="100" value="0"
+                                        class="w-full h-1 bg-gray-600 rounded-lg appearance-none cursor-pointer slider">
+                                </div>
+                                <span id="time-alkynes" class="text-white text-sm mr-2">0:00 / 0:00</span>
+                                <button id="mute-alkynes"
+                                    class="mute-btn text-white hover:text-indigo-400 transition-colors mr-2">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM14.657 2.929a1 1 0 011.414 0A9.972 9.972 0 0119 10a9.972 9.972 0 01-2.929 7.071 1 1 0 01-1.414-1.414A7.971 7.971 0 0017 10c0-2.21-.894-4.208-2.343-5.657a1 1 0 010-1.414zm-2.829 2.828a1 1 0 011.415 0A5.983 5.983 0 0115 10a5.984 5.984 0 01-1.757 4.243 1 1 0 01-1.415-1.415A3.984 3.984 0 0013 10a3.983 3.983 0 00-1.172-2.828 1 1 0 010-1.415z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                                <button id="speed-alkynes"
+                                    class="text-white hover:text-indigo-400 transition-colors text-sm mr-2">1x</button>
+                                <button id="fullscreen-alkynes"
+                                    class="fullscreen-btn text-white hover:text-indigo-400 transition-colors">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                                    </svg>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -1748,62 +2134,6 @@
                         </div>
                     </section>
 
-                    <!-- Video Section - Preparation of Alkynes -->
-                    <div
-                        class="bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-xl shadow-lg p-6 mb-8 border-2 border-indigo-300 dark:border-indigo-700">
-                        <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center">
-                            <svg class="w-8 h-8 mr-3 text-indigo-500" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                            فيديو: طرق تحضير الألكاينات
-                        </h3>
-                        <p class="text-gray-700 dark:text-gray-300 mb-4">
-                            شاهد شرحاً مفصلاً لمختلف طرق تحضير الألكاينات والتفاعلات المتعلقة بها
-                        </p>
-                        <div class="video-player-container relative group">
-                            <video id="alkynes-prep-video" muted playsinline
-                                class="custom-video w-full h-full rounded-lg shadow-md">
-                                <source src="../videos/طرق_تحضير_الألكاينات.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                            <div
-                                class="video-controls absolute bottom-0 left-0 right-0 flex items-center justify-between p-4 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-b-lg">
-                                <button id="play-pause-alkynes"
-                                    class="play-pause-btn text-white hover:text-indigo-400 transition-colors">
-                                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
-                                    </svg>
-                                </button>
-                                <div class="flex-1 mx-4">
-                                    <input id="progress-alkynes" type="range" min="0" max="100" value="0"
-                                        class="w-full h-1 bg-gray-600 rounded-lg appearance-none cursor-pointer slider">
-                                </div>
-                                <span id="time-alkynes" class="text-white text-sm mr-2">0:00 / 0:00</span>
-                                <button id="mute-alkynes"
-                                    class="mute-btn text-white hover:text-indigo-400 transition-colors mr-2">
-                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd"
-                                            d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM14.657 2.929a1 1 0 011.414 0A9.972 9.972 0 0119 10a9.972 9.972 0 01-2.929 7.071 1 1 0 01-1.414-1.414A7.971 7.971 0 0017 10c0-2.21-.894-4.208-2.343-5.657a1 1 0 010-1.414zm-2.829 2.828a1 1 0 011.415 0A5.983 5.983 0 0115 10a5.984 5.984 0 01-1.757 4.243 1 1 0 01-1.415-1.415A3.984 3.984 0 0013 10a3.983 3.983 0 00-1.172-2.828 1 1 0 010-1.415z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </button>
-                                <button id="speed-alkynes"
-                                    class="text-white hover:text-indigo-400 transition-colors text-sm mr-2">1x</button>
-                                <button id="fullscreen-alkynes"
-                                    class="fullscreen-btn text-white hover:text-indigo-400 transition-colors">
-                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
             </div>
         </main>
     </div>

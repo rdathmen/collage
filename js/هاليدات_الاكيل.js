@@ -203,7 +203,111 @@ document.addEventListener('DOMContentLoaded', () => {
             if (volumeOffIcon) volumeOffIcon.classList.remove('hidden');
         } else {
             if (volumeOnIcon) volumeOnIcon.classList.remove('hidden');
-            if (volumeOffIcon) volumeOffIcon.classList.add('hidden');
         }
     });
+
+    // New Video Player for Alkyl Halide Preparation
+    const alkylHalidePrepVideo = document.getElementById('alkyl-halide-prep-video');
+    if (alkylHalidePrepVideo) {
+        const videoContainer = alkylHalidePrepVideo.closest('.video-container');
+        const playPauseBtn = videoContainer.querySelector('.play-pause-btn');
+        const playIcon = videoContainer.querySelector('.play-icon');
+        const pauseIcon = videoContainer.querySelector('.pause-icon');
+        const progressContainer = videoContainer.querySelector('.progress-container');
+        const progressBar = videoContainer.querySelector('.progress-bar');
+        const currentTimeEl = videoContainer.querySelector('.current-time');
+        const durationEl = videoContainer.querySelector('.duration');
+        const muteBtn = videoContainer.querySelector('.mute-btn');
+        const volumeIcon = videoContainer.querySelector('.volume-icon');
+        const mutedIcon = videoContainer.querySelector('.muted-icon');
+        const speedControl = videoContainer.querySelector('.speed-control');
+        const fullscreenBtn = videoContainer.querySelector('.fullscreen-btn');
+
+        // Format time in MM:SS
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${minutes}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        // Toggle play/pause
+        function togglePlayPause() {
+            if (alkylHalidePrepVideo.paused) {
+                alkylHalidePrepVideo.play();
+                playIcon.classList.add('hidden');
+                pauseIcon.classList.remove('hidden');
+            } else {
+                alkylHalidePrepVideo.pause();
+                playIcon.classList.remove('hidden');
+                pauseIcon.classList.add('hidden');
+            }
+        }
+
+        // Update progress bar and time
+        function updateProgress() {
+            const percent = (alkylHalidePrepVideo.currentTime / alkylHalidePrepVideo.duration) * 100;
+            progressBar.style.width = percent + '%';
+            currentTimeEl.textContent = formatTime(alkylHalidePrepVideo.currentTime);
+        }
+
+        // Set video time on progress bar click
+        function setProgress(e) {
+            const rect = progressContainer.getBoundingClientRect();
+            const pos = (e.clientX - rect.left) / rect.width;
+            alkylHalidePrepVideo.currentTime = pos * alkylHalidePrepVideo.duration;
+        }
+
+        // Toggle mute
+        function toggleMute() {
+            alkylHalidePrepVideo.muted = !alkylHalidePrepVideo.muted;
+            if (alkylHalidePrepVideo.muted) {
+                volumeIcon.classList.add('hidden');
+                mutedIcon.classList.remove('hidden');
+            } else {
+                volumeIcon.classList.remove('hidden');
+                mutedIcon.classList.add('hidden');
+            }
+        }
+
+        // Change playback speed
+        function changeSpeed() {
+            alkylHalidePrepVideo.playbackRate = parseFloat(speedControl.value);
+        }
+
+        // Toggle fullscreen
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                if (videoContainer.requestFullscreen) {
+                    videoContainer.requestFullscreen();
+                } else if (videoContainer.webkitRequestFullscreen) {
+                    videoContainer.webkitRequestFullscreen();
+                } else if (videoContainer.msRequestFullscreen) {
+                    videoContainer.msRequestFullscreen();
+                }
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+
+        // Event listeners
+        if (playPauseBtn) playPauseBtn.addEventListener('click', togglePlayPause);
+        if (progressContainer) progressContainer.addEventListener('click', setProgress);
+        if (muteBtn) muteBtn.addEventListener('click', toggleMute);
+        if (speedControl) speedControl.addEventListener('change', changeSpeed);
+        if (fullscreenBtn) fullscreenBtn.addEventListener('click', toggleFullscreen);
+
+        alkylHalidePrepVideo.addEventListener('timeupdate', updateProgress);
+        alkylHalidePrepVideo.addEventListener('loadedmetadata', () => {
+            durationEl.textContent = formatTime(alkylHalidePrepVideo.duration);
+        });
+        alkylHalidePrepVideo.addEventListener('ended', () => {
+            playIcon.classList.remove('hidden');
+            pauseIcon.classList.add('hidden');
+        });
+
+        // Allow clicking video to play/pause
+        alkylHalidePrepVideo.addEventListener('click', togglePlayPause);
+    }
 });
