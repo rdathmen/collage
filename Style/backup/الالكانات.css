@@ -1,5 +1,5 @@
 body {
-    font-family: 'Tajawal', sans-serif;
+    font-family: Arial, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f8f7f6;
     font-size: 1.125rem;
     /* 18px */
@@ -85,25 +85,4 @@ pre {
     width: 100%;
     height: auto;
     display: block;
-}
-
-/* Dark Mode Styles */
-.dark .nav-link {
-    color: #e2e8f0;
-}
-
-.dark .nav-link:hover {
-    background-color: #374151;
-    color: #ffffff;
-}
-
-.dark .nav-link.active {
-    background-color: #0d9488;
-    color: #ffffff;
-}
-
-.dark pre {
-    background-color: #1f2937;
-    border-color: #374151;
-    color: #e5e7eb;
 }
