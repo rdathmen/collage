@@ -1,3 +1,13 @@
+﻿<?php
+session_start();
+
+// Check if user is logged in
+if (!isset($_SESSION['user_id'])) {
+    // Redirect to login page if not logged in
+    header("Location: login.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="ar" dir="ltr">
 
@@ -5,19 +15,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>المجموعات الوظيفية - الكيمياء العضوية</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../js/tailwindcss.js"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
         }
     </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../Style/cards.css">
     <style>
         body {
-            font-family: 'Tajawal', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #4facfe 75%, #00f2fe 100%);
             background-attachment: fixed;
             background-size: 400% 400%;
@@ -28,9 +35,11 @@
             0% {
                 background-position: 0% 50%;
             }
+
             50% {
                 background-position: 100% 50%;
             }
+
             100% {
                 background-position: 0% 50%;
             }
@@ -48,20 +57,32 @@
         }
 
         /* Improved readability */
-        p, li, td, th {
+        p,
+        li,
+        td,
+        th {
             line-height: 1.8 !important;
         }
 
-        h1, h2, h3, h4, h5, h6 {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             line-height: 1.4 !important;
         }
 
         /* Better text contrast in dark mode */
-        .dark p, .dark li {
+        .dark p,
+        .dark li {
             color: rgb(229, 231, 235) !important;
         }
 
-        .dark h1, .dark h2, .dark h3, .dark h4 {
+        .dark h1,
+        .dark h2,
+        .dark h3,
+        .dark h4 {
             color: rgb(255, 255, 255) !important;
         }
     </style>
@@ -76,7 +97,7 @@
             <div class="flex justify-between h-20 items-center">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center gap-3">
-                    <a href="../index.html" class="flex items-center gap-3">
+                    <a href="../index.php" class="flex items-center gap-3">
                         <div
                             class="w-10 h-10 bg-teal-600 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg transform rotate-3">
                             C</div>
@@ -87,12 +108,14 @@
 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8 ">
-                    <a href="../index.html"
+                    <a href="../index.php"
                         class="text-gray-600 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400 font-medium transition-colors">الرئيسية</a>
                     <a href="#" class="text-teal-600 dark:text-teal-400 font-bold transition-colors">المواضيع</a>
                     <a href="من_نحن.html"
                         class="text-gray-600 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400 font-medium transition-colors">من
                         نحن</a>
+                    <a href="../logout.php"
+                        class="text-gray-600 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 font-medium transition-colors">تسجيل الخروج</a>
                     <button
                         class="theme-toggle p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors mr-4"
                         aria-label="Toggle Dark Mode">
@@ -144,7 +167,8 @@
     <header class="bg-gradient-to-r from-teal-800 to-slate-900 text-white pt-32 pb-12 px-4">
         <div class="max-w-7xl mx-auto text-center">
             <h1 class="text-4xl md:text-5xl font-bold mb-4">المجموعات الوظيفية</h1>
-            <p class="text-xl text-teal-100 max-w-2xl mx-auto leading-relaxed" style="line-height: 1.8;">استكشف العائلات الكيميائية المختلفة، خصائصها، وتفاعلاتها
+            <p class="text-xl text-teal-100 max-w-2xl mx-auto leading-relaxed" style="line-height: 1.8;">استكشف العائلات
+                الكيميائية المختلفة، خصائصها، وتفاعلاتها
                 المميزة.</p>
         </div>
     </header>
@@ -171,7 +195,8 @@
                         <span class="text-gray-500 dark:text-gray-400 text-sm">الصيغة العامة</span>
                         <span class="font-mono font-bold text-teal-600 dark:text-teal-400">CnH2n+2</span>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed" style="line-height: 1.6;">هيدروكربونات مشبعة، تتكون من روابط أحادية فقط.
+                    <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed" style="line-height: 1.6;">
+                        هيدروكربونات مشبعة، تتكون من روابط أحادية فقط.
                     </p>
                 </div>
             </a>
