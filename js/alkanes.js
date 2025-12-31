@@ -41,10 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
         sidebar.classList.toggle('hidden');
     });
 
-    toggleButton.addEventListener('click', () => {
-        subMenu.classList.toggle('hidden');
-        toggleIcon.classList.toggle('rotate-180');
-    });
 
     const initialHash = window.location.hash;
     if (initialHash) {
