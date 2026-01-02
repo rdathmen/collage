@@ -145,12 +145,12 @@ session_start();
                         C
                     </div>
                     <span class="font-bold text-2xl text-gray-800 dark:text-white tracking-tight">
-                        الكيمياء<span class="text-teal-600 dark:text-teal-400">.العضوية</span>
+                        الكيمياء<span class="text-teal-600 dark:text-teal-400">العضوية</span>
                     </span>
                 </div>
 
                 <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-8 space-x-reverse">
+                <div class="hidden md:flex items-center gap-12">
                     <a href="index.php" class="nav-item relative text-gray-700 dark:text-gray-200 hover:text-teal-600 dark:hover:text-teal-400 font-semibold transition-colors">الرئيسية</a>
                     <a href="Pages/cards.php" class="nav-item relative text-gray-700 dark:text-gray-200 hover:text-teal-600 dark:hover:text-teal-400 font-semibold transition-colors">المواضيع</a>
                     <a href="Pages/about_us.html" class="nav-item relative text-gray-700 dark:text-gray-200 hover:text-teal-600 dark:hover:text-teal-400 font-semibold transition-colors">من نحن</a>
