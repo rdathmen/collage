@@ -1,6 +1,6 @@
 ﻿<?php
 session_start();
-include "../db_conn.php";
+include "../DataBase/db_conn.php";
 
 if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['email'])) {
     function validate($data){
