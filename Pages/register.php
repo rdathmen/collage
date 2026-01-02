@@ -33,7 +33,8 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['emai
             header("Location: register.php?error=اسم المستخدم أو البريد الإلكتروني مستخدم بالفعل");
             exit();
         }else {
-            $sql2 = "INSERT INTO users(username, email, password) VALUES('$uname', '$email', '$pass')";
+            $hashed_pass = password_hash($pass, PASSWORD_DEFAULT);
+            $sql2 = "INSERT INTO users(username, email, password) VALUES('$uname', '$email', '$hashed_pass')";
             $result2 = mysqli_query($conn, $sql2);
             if ($result2) {
                 header("Location: register.php?success=تم إنشاء الحساب بنجاح");
