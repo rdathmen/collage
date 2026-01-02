@@ -6,7 +6,22 @@ if (!isset($_SESSION['user_id'])) {
     // Redirect to login page if not logged in
     header("Location: login.php");
     exit();
+
 }
+
+include "../DataBase/db_conn.php";
+
+$user_id = $_SESSION['user_id'];
+$sql = "SELECT last_page, completed_pages FROM users WHERE id = '$user_id'";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($result);
+
+$last_page = $row['last_page'] ?? null;
+$completed_pages = json_decode($row['completed_pages'] ?? '[]', true);
+if (!is_array($completed_pages)) $completed_pages = [];
+
+$total_topics = 9;
+$progress_percentage = min(100, round((count($completed_pages) / $total_topics) * 100));
 ?>
 <!DOCTYPE html>
 <html lang="ar" dir="ltr">
@@ -175,6 +190,34 @@ if (!isset($_SESSION['user_id'])) {
 
     <!-- Cards Grid -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        
+        <!-- Progress Dashboard -->
+        <div class="relative z-10 mb-12 -mt-20">
+            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 flex flex-col md:flex-row items-center justify-between gap-6 border border-gray-100 dark:border-gray-700">
+                <div class="w-full md:w-2/3">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-lg font-bold text-gray-800 dark:text-white">تقدمك في التعلم</h3>
+                        <span class="text-teal-600 font-bold"><?php echo $progress_percentage; ?>%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
+                        <div class="bg-gradient-to-r from-teal-500 to-emerald-400 h-3 rounded-full transition-all duration-1000" style="width: <?php echo $progress_percentage; ?>%"></div>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-2">لقد أنجزت <?php echo count($completed_pages); ?> من <?php echo $total_topics; ?> مواضيع</p>
+                </div>
+                
+                <?php if ($last_page): ?>
+                <div class="w-full md:w-auto">
+                    <a href="<?php echo htmlspecialchars($last_page); ?>" class="flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-700 text-white px-6 py-3 rounded-xl font-bold transition-all shadow-lg shadow-teal-500/20 w-full md:w-auto">
+                        <span>متابعة القراءة</span>
+                        <svg class="w-5 h-5 rtl:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                        </svg>
+                    </a>
+                </div>
+                <?php endif; ?>
+            </div>
+        </div>
+
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
             <!-- Card: Alkanes (New) -->
