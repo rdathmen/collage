@@ -126,7 +126,7 @@ $progress_percentage = min(100, round((count($completed_pages) / $total_topics) 
                     <a href="../index.php"
                         class="text-gray-600 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400 font-medium transition-colors">الرئيسية</a>
                     <a href="#" class="text-teal-600 dark:text-teal-400 font-bold transition-colors">المواضيع</a>
-                    <a href="من_نحن.html"
+                    <a href="about_us.html"
                         class="text-gray-600 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400 font-medium transition-colors">من
                         نحن</a>
                     <a href="../logout.php"
@@ -221,7 +221,7 @@ $progress_percentage = min(100, round((count($completed_pages) / $total_topics) 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
             <!-- Card: Alkanes (New) -->
-            <a href="الالكانات.html"
+            <a href="alkanes.html"
                 class="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 card-1">
                 <div class="h-48 bg-gray-200 relative overflow-hidden">
                     <img src="../images/molecule_alkene.png" alt="Alkanes"
@@ -245,7 +245,7 @@ $progress_percentage = min(100, round((count($completed_pages) / $total_topics) 
             </a>
 
             <!-- Card Alkyl Halides -->
-            <a href="هاليدات_الاكيل.html"
+            <a href="alkyl_halides.html"
                 class="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 card-2">
                 <div class="h-48 bg-gray-200 relative overflow-hidden">
                     <img src="../images/molecule_alkyl_halide_card.png"
@@ -277,7 +277,7 @@ $progress_percentage = min(100, round((count($completed_pages) / $total_topics) 
             </a>
 
             <!-- Card: Alcohols -->
-            <a href="الكحولات.html"
+            <a href="alcohols.html"
                 class="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 card-3">
                 <div class="h-48 bg-gray-200 relative overflow-hidden">
                     <img src="../images/كحولات.png" alt="Alcohols"
@@ -308,7 +308,7 @@ $progress_percentage = min(100, round((count($completed_pages) / $total_topics) 
             </a>
 
             <!-- Card: Ethers -->
-            <a href="الايثرات.html"
+            <a href="ethers.html"
                 class="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 card-4">
                 <div class="h-48 bg-gray-200 relative overflow-hidden">
                     <img src="../images/جزيئ.png" alt="Ethers"
@@ -339,7 +339,7 @@ $progress_percentage = min(100, round((count($completed_pages) / $total_topics) 
             </a>
 
             <!-- Card: Alkenes -->
-            <a href="الألكينات.html"
+            <a href="alkenes.html"
                 class="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 card-5">
                 <div class="h-48 bg-gray-200 relative overflow-hidden">
                     <img src="../images/خلفية الألكينات.jpg" alt="Alkenes"
@@ -370,7 +370,7 @@ $progress_percentage = min(100, round((count($completed_pages) / $total_topics) 
             </a>
 
             <!-- Card: Alkynes -->
-            <a href="الألكاينات.html"
+            <a href="alkynes.html"
                 class="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 card-6">
                 <div class="h-48 bg-gray-200 relative overflow-hidden">
                     <img src="../images/خلفية االألكاينات.jpg" alt="Alkynes"
@@ -401,7 +401,7 @@ $progress_percentage = min(100, round((count($completed_pages) / $total_topics) 
             </a>
 
             <!-- Card: Aldehydes & Ketones -->
-            <a href="الألدهيدات_والكيتونات.html"
+            <a href="aldehydes_and_ketones.html"
                 class="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 card-7">
                 <div class="h-48 bg-gray-200 relative overflow-hidden">
                     <img src="../images/الألدهيدات والكيتونات خلفية.jpg" alt="Aldehydes & Ketones"
@@ -432,7 +432,7 @@ $progress_percentage = min(100, round((count($completed_pages) / $total_topics) 
             </a>
 
             <!-- Card: Amines -->
-            <a href="الأمينات.html"
+            <a href="amines.html"
                 class="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 card-8">
                 <div class="h-48 bg-gray-200 relative overflow-hidden">
                     <img src="../images/خلفية الأمينات.jpg" alt="Amines"
@@ -463,7 +463,7 @@ $progress_percentage = min(100, round((count($completed_pages) / $total_topics) 
             </a>
 
             <!-- Card: Nitro Compounds -->
-            <a href="النترو_مركبات.html"
+            <a href="nitro_compounds.html"
                 class="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 card-9">
                 <div class="h-48 bg-gray-200 relative overflow-hidden">
                     <img src="../images/خلفية النترو مركبات.jpg" alt="Nitro Compounds"
