@@ -36,7 +36,7 @@ $progress_percentage = min(100, round((count($completed_pages) / $total_topics) 
             darkMode: 'class',
         }
     </script>
-    <link rel="stylesheet" href="../Style/cards.css">
+    <!-- <link rel="stylesheet" href="../Style/cards.css"> Legacy CSS removed to prevent conflicts -->
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -60,15 +60,22 @@ $progress_percentage = min(100, round((count($completed_pages) / $total_topics) 
             }
         }
 
-        .glass-nav {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --glass-blur: 15px;
         }
 
-        .dark .glass-nav {
-            background: rgba(17, 24, 39, 0.9);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        .dark {
+            --glass-bg: rgba(17, 24, 39, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-morphism {
+            background: var(--glass-bg);
+            backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
         }
 
         /* Improved readability */
@@ -107,7 +114,7 @@ $progress_percentage = min(100, round((count($completed_pages) / $total_topics) 
 <body class="text-gray-900 transition-colors duration-300">
 
     <!-- Navigation -->
-    <nav class="glass-nav fixed w-full z-50 transition-all duration-300">
+    <nav class="glass-morphism fixed top-0 w-full z-50 transition-all duration-300 border-none shadow-none">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <!-- Logo -->
@@ -151,7 +158,7 @@ $progress_percentage = min(100, round((count($completed_pages) / $total_topics) 
 
                 <!-- Mobile Menu Button -->
                 <div class="md:hidden flex items-center">
-                    <button class="text-gray-600 hover:text-teal-600 focus:outline-none">
+                    <button id="mobile-menu-toggle" class="text-gray-600 hover:text-teal-600 focus:outline-none">
                         <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M4 6h16M4 12h16M4 18h16" />
@@ -176,47 +183,72 @@ $progress_percentage = min(100, round((count($completed_pages) / $total_topics) 
                 </div>
             </div>
         </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg border-b border-gray-200 dark:border-gray-800 absolute w-full left-0 top-20 shadow-xl transition-all duration-300 transform origin-top">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="../index.php" class="block px-4 py-3 rounded-xl text-base font-bold text-gray-700 dark:text-gray-200 hover:bg-teal-50 dark:hover:bg-gray-800 hover:text-teal-600 dark:hover:text-teal-400 transition-all">الرئيسية</a>
+                <a href="#" class="block px-4 py-3 rounded-xl text-base font-bold text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-gray-800/50">المواضيع</a>
+                <a href="about_us.html" class="block px-4 py-3 rounded-xl text-base font-bold text-gray-700 dark:text-gray-200 hover:bg-teal-50 dark:hover:bg-gray-800 hover:text-teal-600 dark:hover:text-teal-400 transition-all">من نحن</a>
+                <div class="border-t border-gray-100 dark:border-gray-800 my-2 pt-2">
+                    <a href="../logout.php" class="block px-4 py-3 rounded-xl text-base font-bold text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 transition-all">تسجيل الخروج</a>
+                </div>
+            </div>
+        </div>
     </nav>
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
 
     <!-- Header -->
     <header class="bg-gradient-to-r from-teal-800 to-slate-900 text-white pt-32 pb-12 px-4">
         <div class="max-w-7xl mx-auto text-center">
             <h1 class="text-4xl md:text-5xl font-bold mb-4">المجموعات الوظيفية</h1>
-            <p class="text-xl text-teal-100 max-w-2xl mx-auto leading-relaxed" style="line-height: 1.8;">استكشف العائلات
+            <p class="text-xl text-teal-100 max-w-2xl mx-auto leading-relaxed mb-12" style="line-height: 1.8;">استكشف العائلات
                 الكيميائية المختلفة، خصائصها، وتفاعلاتها
                 المميزة.</p>
+
+            <!-- Progress Dashboard -->
+            <div class="relative z-10 text-right">
+                <div class="rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div class="w-full md:w-2/3">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-bold text-white">تقدمك في التعلم</h3>
+                            <span class="text-teal-300 font-bold"><?php echo $progress_percentage; ?>%</span>
+                        </div>
+                        <div class="w-full bg-slate-700/50 rounded-full h-3 backdrop-blur-sm">
+                            <div class="bg-gradient-to-r from-teal-400 to-emerald-300 h-3 rounded-full transition-all duration-1000" style="width: <?php echo $progress_percentage; ?>%"></div>
+                        </div>
+                        <p class="text-sm text-teal-100/80 mt-2">لقد أنجزت <?php echo count($completed_pages); ?> من <?php echo $total_topics; ?> مواضيع</p>
+                    </div>
+
+                    <?php if ($last_page): ?>
+                    <div class="w-full md:w-auto">
+                        <a href="<?php echo htmlspecialchars($last_page); ?>" class="flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-700 text-white px-6 py-3 rounded-xl font-bold transition-all shadow-lg shadow-teal-500/20 w-full md:w-auto">
+                            <span>متابعة القراءة</span>
+                            <svg class="w-5 h-5 rtl:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                            </svg>
+                        </a>
+                    </div>
+                    <?php endif; ?>
+                </div>
+            </div>
         </div>
     </header>
 
     <!-- Cards Grid -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         
-        <!-- Progress Dashboard -->
-        <div class="relative z-10 mb-12 -mt-20">
-            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 flex flex-col md:flex-row items-center justify-between gap-6 border border-gray-100 dark:border-gray-700">
-                <div class="w-full md:w-2/3">
-                    <div class="flex justify-between items-center mb-2">
-                        <h3 class="text-lg font-bold text-gray-800 dark:text-white">تقدمك في التعلم</h3>
-                        <span class="text-teal-600 font-bold"><?php echo $progress_percentage; ?>%</span>
-                    </div>
-                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
-                        <div class="bg-gradient-to-r from-teal-500 to-emerald-400 h-3 rounded-full transition-all duration-1000" style="width: <?php echo $progress_percentage; ?>%"></div>
-                    </div>
-                    <p class="text-sm text-gray-500 mt-2">لقد أنجزت <?php echo count($completed_pages); ?> من <?php echo $total_topics; ?> مواضيع</p>
-                </div>
-                
-                <?php if ($last_page): ?>
-                <div class="w-full md:w-auto">
-                    <a href="<?php echo htmlspecialchars($last_page); ?>" class="flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-700 text-white px-6 py-3 rounded-xl font-bold transition-all shadow-lg shadow-teal-500/20 w-full md:w-auto">
-                        <span>متابعة القراءة</span>
-                        <svg class="w-5 h-5 rtl:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                        </svg>
-                    </a>
-                </div>
-                <?php endif; ?>
-            </div>
-        </div>
+
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
@@ -270,10 +302,10 @@ $progress_percentage = min(100, round((count($completed_pages) / $total_topics) 
                     <?php endif; ?>
                     <div class="absolute bottom-4 right-4 text-white">
                         <div class="text-xs font-bold bg-teal-500 px-2 py-1 rounded mb-1 inline-block">
-                            هاليدات الألكيل
+                            مشتقات الهيدروكربون
                         </div>
                         <h3 class="text-2xl font-bold">
-                            Alkyl Halides
+                            هاليدات الألكيل
                         </h3>
                     </div>
                 </div>
