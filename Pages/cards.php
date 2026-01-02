@@ -227,6 +227,14 @@ $progress_percentage = min(100, round((count($completed_pages) / $total_topics) 
                     <img src="../images/molecule_alkene.png" alt="Alkanes"
                         class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <?php if (in_array('alkanes.html', $completed_pages)): ?>
+                    <div class="absolute top-4 left-4 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded flex items-center gap-1 shadow-lg z-20">
+                        <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                        </svg>
+                        تمت القراءة
+                    </div>
+                    <?php endif; ?>
                     <div class="absolute bottom-4 right-4 text-white">
                         <div class="text-xs font-bold bg-teal-500 px-2 py-1 rounded mb-1 inline-block">أساس الكيمياء
                         </div>
@@ -252,6 +260,14 @@ $progress_percentage = min(100, round((count($completed_pages) / $total_topics) 
                         alt="صورة توضيحية لهاليد ألكيل تمثل مجموعة ألكيل متصلة بذرة هالوجين"
                         class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700" />
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <?php if (in_array('alkyl_halides.html', $completed_pages)): ?>
+                    <div class="absolute top-4 left-4 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded flex items-center gap-1 shadow-lg z-20">
+                        <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                        </svg>
+                        تمت القراءة
+                    </div>
+                    <?php endif; ?>
                     <div class="absolute bottom-4 right-4 text-white">
                         <div class="text-xs font-bold bg-teal-500 px-2 py-1 rounded mb-1 inline-block">
                             هاليدات الألكيل
@@ -283,6 +299,14 @@ $progress_percentage = min(100, round((count($completed_pages) / $total_topics) 
                     <img src="../images/كحولات.png" alt="Alcohols"
                         class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <?php if (in_array('alcohols.html', $completed_pages)): ?>
+                    <div class="absolute top-4 left-4 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded flex items-center gap-1 shadow-lg z-20">
+                        <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                        </svg>
+                        تمت القراءة
+                    </div>
+                    <?php endif; ?>
                     <div class="absolute bottom-4 right-4 text-white">
                         <div class="text-xs font-bold bg-green-500 px-2 py-1 rounded mb-1 inline-block">
                             مشتقات الهيدروكربونات
@@ -314,6 +338,14 @@ $progress_percentage = min(100, round((count($completed_pages) / $total_topics) 
                     <img src="../images/جزيئ.png" alt="Ethers"
                         class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <?php if (in_array('ethers.html', $completed_pages)): ?>
+                    <div class="absolute top-4 left-4 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded flex items-center gap-1 shadow-lg z-20">
+                        <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                        </svg>
+                        تمت القراءة
+                    </div>
+                    <?php endif; ?>
                     <div class="absolute bottom-4 right-4 text-white">
                         <div class="text-xs font-bold bg-purple-500 px-2 py-1 rounded mb-1 inline-block">
                             مشتقات الهيدروكربونات
@@ -345,6 +377,14 @@ $progress_percentage = min(100, round((count($completed_pages) / $total_topics) 
                     <img src="../images/خلفية الألكينات.jpg" alt="Alkenes"
                         class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <?php if (in_array('alkenes.html', $completed_pages)): ?>
+                    <div class="absolute top-4 left-4 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded flex items-center gap-1 shadow-lg z-20">
+                        <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                        </svg>
+                        تمت القراءة
+                    </div>
+                    <?php endif; ?>
                     <div class="absolute bottom-4 right-4 text-white">
                         <div class="text-xs font-bold bg-blue-500 px-2 py-1 rounded mb-1 inline-block">
                             هيدروكربونات غير مشبعة
@@ -376,6 +416,14 @@ $progress_percentage = min(100, round((count($completed_pages) / $total_topics) 
                     <img src="../images/خلفية االألكاينات.jpg" alt="Alkynes"
                         class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <?php if (in_array('alkynes.html', $completed_pages)): ?>
+                    <div class="absolute top-4 left-4 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded flex items-center gap-1 shadow-lg z-20">
+                        <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                        </svg>
+                        تمت القراءة
+                    </div>
+                    <?php endif; ?>
                     <div class="absolute bottom-4 right-4 text-white">
                         <div class="text-xs font-bold bg-indigo-500 px-2 py-1 rounded mb-1 inline-block">
                             هيدروكربونات غير مشبعة
@@ -407,6 +455,14 @@ $progress_percentage = min(100, round((count($completed_pages) / $total_topics) 
                     <img src="../images/الألدهيدات والكيتونات خلفية.jpg" alt="Aldehydes & Ketones"
                         class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <?php if (in_array('aldehydes_and_ketones.html', $completed_pages)): ?>
+                    <div class="absolute top-4 left-4 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded flex items-center gap-1 shadow-lg z-20">
+                        <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                        </svg>
+                        تمت القراءة
+                    </div>
+                    <?php endif; ?>
                     <div class="absolute bottom-4 right-4 text-white">
                         <div class="text-xs font-bold bg-orange-500 px-2 py-1 rounded mb-1 inline-block">
                             مركبات كربونيلية
@@ -438,6 +494,14 @@ $progress_percentage = min(100, round((count($completed_pages) / $total_topics) 
                     <img src="../images/خلفية الأمينات.jpg" alt="Amines"
                         class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <?php if (in_array('amines.html', $completed_pages)): ?>
+                    <div class="absolute top-4 left-4 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded flex items-center gap-1 shadow-lg z-20">
+                        <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                        </svg>
+                        تمت القراءة
+                    </div>
+                    <?php endif; ?>
                     <div class="absolute bottom-4 right-4 text-white">
                         <div class="text-xs font-bold bg-pink-500 px-2 py-1 rounded mb-1 inline-block">
                             مركبات نيتروجينية
@@ -469,6 +533,14 @@ $progress_percentage = min(100, round((count($completed_pages) / $total_topics) 
                     <img src="../images/خلفية النترو مركبات.jpg" alt="Nitro Compounds"
                         class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <?php if (in_array('nitro_compounds.html', $completed_pages)): ?>
+                    <div class="absolute top-4 left-4 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded flex items-center gap-1 shadow-lg z-20">
+                        <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                        </svg>
+                        تمت القراءة
+                    </div>
+                    <?php endif; ?>
                     <div class="absolute bottom-4 right-4 text-white">
                         <div class="text-xs font-bold bg-red-500 px-2 py-1 rounded mb-1 inline-block">
                             مركبات نيتروجينية
