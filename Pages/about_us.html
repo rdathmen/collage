@@ -1,0 +1,510 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>من نحن - الكيمياء العضوية</title>
+    <script src="../js/tailwindcss.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .dark .glass-nav {
+            background: rgba(17, 24, 39, 0.9);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Improved readability */
+        p,
+        li,
+        td,
+        th {
+            line-height: 1.8 !important;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            line-height: 1.4 !important;
+        }
+
+        /* Better text contrast in dark mode */
+        .dark p,
+        .dark li {
+            color: rgb(229, 231, 235) !important;
+        }
+
+        .dark h1,
+        .dark h2,
+        .dark h3,
+        .dark h4 {
+            color: rgb(255, 255, 255) !important;
+        }
+    </style>
+    <script src="../js/theme.js"></script>
+</head>
+
+<body class="bg-stone-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Navigation -->
+    <nav class="glass-nav fixed w-full z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <a href="../index.php" class="flex items-center gap-3">
+                        <div
+                            class="w-10 h-10 bg-teal-600 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg transform rotate-3">
+                            C</div>
+                        <span class="font-bold text-2xl text-gray-800 dark:text-white tracking-tight">الكيمياء<span
+                                class="text-teal-600">.العضوية</span></span>
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8 ">
+                    <a href="../index.php"
+                        class="text-gray-600 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400 font-medium transition-colors">الرئيسية</a>
+                    <a href="cards.php"
+                        class="text-gray-600 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400 font-medium transition-colors">المواضيع</a>
+                    <a href="about_us.html" class="text-teal-600 dark:text-teal-400 font-bold transition-colors">من
+                        نحن</a>
+                    <button
+                        class="theme-toggle p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors mr-4"
+                        aria-label="Toggle Dark Mode">
+                        <!-- Sun Icon -->
+                        <svg class="w-6 h-6 hidden dark:block text-yellow-400" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                        <!-- Moon Icon -->
+                        <svg class="w-6 h-6 block dark:hidden text-gray-600" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button class="text-gray-600 hover:text-teal-600 focus:outline-none">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                    <button
+                        class="theme-toggle p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors ml-2"
+                        aria-label="Toggle Dark Mode">
+                        <!-- Sun Icon -->
+                        <svg class="w-6 h-6 hidden dark:block text-yellow-400" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                        <!-- Moon Icon -->
+                        <svg class="w-6 h-6 block dark:hidden text-gray-600" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="bg-gradient-to-r from-teal-800 via-teal-600 to-slate-900 text-white pt-32 pb-16 px-4">
+        <div class="max-w-7xl mx-auto text-center">
+            <h1 class="text-4xl md:text-6xl font-black mb-6">من نحن</h1>
+            <p class="text-xl md:text-2xl text-teal-100 max-w-3xl mx-auto leading-relaxed">
+                منصة تعليمية متخصصة في الكيمياء العضوية، نسعى لتبسيط المفاهيم المعقدة وجعل التعلم تجربة ممتعة وتفاعلية
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+
+        <!-- Mission Section -->
+        <section class="mb-16">
+            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 md:p-12">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-16 h-16 bg-teal-100 dark:bg-teal-900 rounded-xl flex items-center justify-center">
+                        <svg class="w-8 h-8 text-teal-600 dark:text-teal-400" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white">رؤيتنا ورسالتنا</h2>
+                </div>
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-xl font-bold text-teal-600 dark:text-teal-400 mb-3">رؤيتنا</h3>
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                            أن نكون المنصة التعليمية الرائدة في مجال الكيمياء العضوية باللغة العربية، حيث نسعى لتمكين
+                            الطلاب والباحثين من فهم المفاهيم الأساسية والمتقدمة بطريقة سهلة ومبسطة، مع توفير محتوى عالي
+                            الجودة يدعم التعلم الذاتي والتعلم المستمر.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-teal-600 dark:text-teal-400 mb-3">رسالتنا</h3>
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                            نحن ملتزمون بتبسيط الكيمياء العضوية وجعلها في متناول الجميع. نقدم شروحات واضحة، رسوم توضيحية
+                            تفاعلية، وأمثلة عملية تساعد على فهم التفاعلات الكيميائية والمركبات العضوية. نؤمن بأن التعلم
+                            يجب أن يكون ممتعاً ومرتبطاً بالحياة اليومية.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What We Offer Section -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">ماذا نقدم؟</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Feature 1 -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+                    <div
+                        class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">شروحات مبسطة</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                        نحول المفاهيم المعقدة إلى شروحات واضحة وسهلة الفهم، مع استخدام أمثلة من الحياة اليومية لتسهيل
+                        الاستيعاب.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+                    <div
+                        class="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-purple-600 dark:text-purple-400" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">رسوم توضيحية تفاعلية</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                        نستخدم الرسوم التوضيحية والصور التفاعلية لشرح البنى الجزيئية والتفاعلات الكيميائية بشكل مرئي
+                        وواضح.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+                    <div
+                        class="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-green-600 dark:text-green-400" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">محتوى شامل</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                        نغطي جميع فروع الكيمياء العضوية من الأساسيات إلى المفاهيم المتقدمة، مع أمثلة وتمارين عملية.
+                    </p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+                    <div
+                        class="w-12 h-12 bg-orange-100 dark:bg-orange-900 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-orange-600 dark:text-orange-400" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">تمارين تفاعلية</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                        نوفر تمارين تفاعلية واختبارات ذاتية تساعدك على تقييم فهمك وتطبيق ما تعلمته.
+                    </p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+                    <div class="w-12 h-12 bg-red-100 dark:bg-red-900 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-red-600 dark:text-red-400" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">محتوى محدث</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                        نحرص على تحديث المحتوى باستمرار وإضافة مواضيع جديدة لمواكبة أحدث التطورات في مجال الكيمياء
+                        العضوية.
+                    </p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+                    <div
+                        class="w-12 h-12 bg-teal-100 dark:bg-teal-900 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-teal-600 dark:text-teal-400" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">مجاني بالكامل</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                        جميع المحتويات متاحة مجاناً للجميع، لأننا نؤمن بأن التعليم يجب أن يكون متاحاً للجميع دون عوائق.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Topics Covered Section -->
+        <section class="mb-16">
+            <div
+                class="bg-gradient-to-br from-teal-50 to-blue-50 dark:from-gray-800 dark:to-gray-700 rounded-2xl shadow-xl p-8 md:p-12">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">المواضيع التي نغطيها</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white dark:bg-gray-800 rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-teal-600 dark:text-teal-400 mb-4">الهيدروكربونات</h3>
+                        <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                            <li class="flex items-center gap-2">
+                                <span class="text-teal-500">✓</span>
+                                <span>الألكانات (Alkanes)</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="text-teal-500">✓</span>
+                                <span>الألكينات (Alkenes)</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="text-teal-500">✓</span>
+                                <span>الألكاينات (Alkynes)</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-teal-600 dark:text-teal-400 mb-4">مشتقات الهيدروكربونات</h3>
+                        <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                            <li class="flex items-center gap-2">
+                                <span class="text-teal-500">✓</span>
+                                <span>الكحولات (Alcohols)</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="text-teal-500">✓</span>
+                                <span>الإيثرات (Ethers)</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="text-teal-500">✓</span>
+                                <span>هاليدات الألكيل (Alkyl Halides)</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-teal-600 dark:text-teal-400 mb-4">المركبات الكربونيلية</h3>
+                        <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                            <li class="flex items-center gap-2">
+                                <span class="text-teal-500">✓</span>
+                                <span>الألدهيدات (Aldehydes)</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="text-teal-500">✓</span>
+                                <span>الكيتونات (Ketones)</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-teal-600 dark:text-teal-400 mb-4">المركبات النيتروجينية</h3>
+                        <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                            <li class="flex items-center gap-2">
+                                <span class="text-teal-500">✓</span>
+                                <span>الأمينات (Amines)</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="text-teal-500">✓</span>
+                                <span>النترو مركبات (Nitro Compounds)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">لماذا تختارنا؟</h2>
+            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 md:p-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0">
+                            <div
+                                class="w-12 h-12 bg-teal-100 dark:bg-teal-900 rounded-full flex items-center justify-center">
+                                <span class="text-2xl">🎯</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">محتوى موثوق</h3>
+                            <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                                جميع المحتويات مبنية على مصادر علمية موثوقة ومراجعة بعناية لضمان الدقة والحداثة.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0">
+                            <div
+                                class="w-12 h-12 bg-teal-100 dark:bg-teal-900 rounded-full flex items-center justify-center">
+                                <span class="text-2xl">📱</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">تصميم متجاوب</h3>
+                            <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                                الموقع يعمل بشكل ممتاز على جميع الأجهزة - الحاسوب، اللوحي، والهاتف المحمول.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0">
+                            <div
+                                class="w-12 h-12 bg-teal-100 dark:bg-teal-900 rounded-full flex items-center justify-center">
+                                <span class="text-2xl">🌙</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">وضع ليلي</h3>
+                            <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                                يمكنك التبديل بين الوضع النهاري والليلي حسب تفضيلاتك لراحة أكبر في القراءة.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0">
+                            <div
+                                class="w-12 h-12 bg-teal-100 dark:bg-teal-900 rounded-full flex items-center justify-center">
+                                <span class="text-2xl">🚀</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">سهولة الاستخدام</h3>
+                            <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                                واجهة بسيطة وواضحة تجعل التنقل بين المواضيع والتعلم أمراً سهلاً وممتعاً.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="mb-16">
+            <div
+                class="bg-gradient-to-r from-teal-600 to-teal-800 rounded-2xl shadow-xl p-8 md:p-12 text-white text-center">
+                <h2 class="text-3xl font-bold mb-4">ابدأ رحلتك التعليمية الآن</h2>
+                <p class="text-xl text-teal-100 mb-8 max-w-2xl mx-auto leading-relaxed">
+                    استكشف عالم الكيمياء العضوية واكتشف كيف يمكن أن تكون هذه المادة ممتعة وسهلة الفهم
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="cards.php"
+                        class="px-8 py-4 bg-white text-teal-600 rounded-xl font-bold text-lg hover:bg-teal-50 transition-all shadow-lg hover:shadow-xl">
+                        تصفح المواضيع
+                    </a>
+                    <a href="../index.php"
+                        class="px-8 py-4 bg-teal-700 text-white rounded-xl font-bold text-lg hover:bg-teal-600 transition-all shadow-lg hover:shadow-xl">
+                        الصفحة الرئيسية
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Brand -->
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div
+                            class="w-8 h-8 bg-teal-600 rounded-lg flex items-center justify-center text-white font-bold">
+                            C</div>
+                        <span class="font-bold text-xl text-white">الكيمياء.العضوية</span>
+                    </div>
+                    <p class="text-sm text-gray-400">منصتك الأولى لتعلم الكيمياء العضوية بطريقة ممتعة وتفاعلية.</p>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="text-white font-bold mb-4">روابط سريعة</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../index.php" class="hover:text-teal-400 transition-colors">الرئيسية</a></li>
+                        <li><a href="cards.php" class="hover:text-teal-400 transition-colors">المواضيع</a></li>
+                        <li><a href="about_us.html" class="hover:text-teal-400 transition-colors">من نحن</a></li>
+                    </ul>
+                </div>
+
+                <!-- Topics -->
+                <div>
+                    <h4 class="text-white font-bold mb-4">أهم المواضيع</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="alkanes.html" class="hover:text-teal-400 transition-colors">الألكانات</a>
+                        </li>
+                        <li><a href="alkenes.html" class="hover:text-teal-400 transition-colors">الألكينات</a></li>
+                        <li><a href="alcohols.html" class="hover:text-teal-400 transition-colors">الكحولات</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-white font-bold mb-4">تواصل معنا</h4>
+                    <p class="text-sm text-gray-400 mb-4">نرحب بملاحظاتكم واقتراحاتكم</p>
+                    <div class="flex space-x-4 space-x-reverse">
+                        <a href="#"
+                            class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-teal-600 transition-colors">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                            </svg>
+                        </a>
+                        <a href="#"
+                            class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-teal-600 transition-colors">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.072 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-sm text-gray-500">
+                &copy; 2025 الكيمياء العضوية. جميع الحقوق محفوظة.
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

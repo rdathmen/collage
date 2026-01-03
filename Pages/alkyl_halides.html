@@ -1,0 +1,1107 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>هاليدات الألكيل</title>
+
+    <!-- Tailwind -->
+    <!-- Tailwind -->
+    <script src="../js/tailwindcss.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        };
+    </script>
+
+    <!-- ستايل عام للمحتوى -->
+    <link rel="stylesheet" href="../Style/هاليدات_الاكيل.css" />
+
+    <!-- ثيم الوضع الليلي -->
+    <script src="../js/theme.js"></script>
+    <script src="../js/sidebar.js"></script>
+</head>
+
+<body class="text-gray-900 dark:text-white bg-stone-50 dark:bg-gray-900 transition-colors duration-300"
+    style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+    <div class="flex flex-col md:flex-row-reverse min-h-screen">
+
+        <!-- هيدر للموبايل -->
+        <header class="md:hidden flex justify-between items-center p-4 bg-white dark:bg-gray-800 shadow-md w-full">
+            <a href="../index.php"
+                class="p-2 rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+            </a>
+            <h1 class="text-xl font-bold text-teal-700 dark:text-teal-400">هاليدات الألكيل</h1>
+            <div class="flex items-center gap-2">
+                <button class="theme-toggle p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                    aria-label="تبديل الوضع الليلي">
+                    <!-- Sun Icon -->
+                    <svg class="w-6 h-6 hidden dark:block text-yellow-400" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364
+                          6.364l-.707-.707M6.343 6.343l-.707-.707m12.728
+                          0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0
+                          11-8 0 4 4 0 018 0z" />
+                    </svg>
+                    <!-- Moon Icon -->
+                    <svg class="w-6 h-6 block dark:hidden text-gray-600" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646
+                          9.003 9.003 0 0012 21a9.003 9.003 0
+                          008.354-5.646z" />
+                    </svg>
+                </button>
+
+                <button id="menu-toggle"
+                    class="p-2 rounded-md text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- الشريط الجانبي -->
+        <nav id="sidebar"
+            class="w-full md:w-64 bg-white dark:bg-gray-800 md:shadow-lg p-4 space-y-2 shrink-0 hidden md:block md:sticky md:top-0 md:h-screen overflow-y-auto border-l dark:border-gray-700">
+            <h1 class="text-2xl font-bold text-teal-700 dark:text-teal-400 mb-6 hidden md:block">
+                هاليدات الألكيل
+            </h1>
+
+            <ul class="space-y-3 text-center font-bold" id="main-nav-links">
+                <li><a href="#intro"
+                        class="nav-link active text-lg font-bold hover:bg-teal-100 dark:hover:bg-teal-900 hover:text-teal-700 dark:hover:text-teal-300 rounded-lg px-3 py-2 transition-all duration-300 hover:scale-105 block">المقدمة
+                        والتعريف</a></li>
+                <li><a href="#classification"
+                        class="nav-link text-lg font-bold hover:bg-teal-100 dark:hover:bg-teal-900 hover:text-teal-700 dark:hover:text-teal-300 rounded-lg px-3 py-2 transition-all duration-300 hover:scale-105 block">تصنيف
+                        هاليدات الألكيل</a></li>
+                <li><a href="#naming"
+                        class="nav-link text-lg font-bold hover:bg-teal-100 dark:hover:bg-teal-900 hover:text-teal-700 dark:hover:text-teal-300 rounded-lg px-3 py-2 transition-all duration-300 hover:scale-105 block">التسمية</a>
+                </li>
+                <li><a href="#properties"
+                        class="nav-link text-lg font-bold hover:bg-teal-100 dark:hover:bg-teal-900 hover:text-teal-700 dark:hover:text-teal-300 rounded-lg px-3 py-2 transition-all duration-300 hover:scale-105 block">الخواص
+                        الفيزيائية</a></li>
+                <li><a href="#preparation"
+                        class="nav-link text-lg font-bold hover:bg-teal-100 dark:hover:bg-teal-900 hover:text-teal-700 dark:hover:text-teal-300 rounded-lg px-3 py-2 transition-all duration-300 hover:scale-105 block">تحضير
+                        هاليدات الألكيل</a></li>
+                <li><a href="#reactions"
+                        class="nav-link text-lg font-bold hover:bg-teal-100 dark:hover:bg-teal-900 hover:text-teal-700 dark:hover:text-teal-300 rounded-lg px-3 py-2 transition-all duration-300 hover:scale-105 block">أهم
+                        التفاعلات</a></li>
+                <li><a href="#quiz"
+                        class="nav-link text-lg font-bold hover:bg-teal-100 dark:hover:bg-teal-900 hover:text-teal-700 dark:hover:text-teal-300 rounded-lg px-3 py-2 transition-all duration-300 hover:scale-105 block">اختبر
+                        نفسك</a></li>
+            </ul>
+
+            <a href="./cards.php"
+                class="flex items-center justify-center w-full font-bold py-2 px-4 rounded-lg hover:bg-teal-700 hover:text-white transition-all duration-300 hover:scale-105 hover:shadow-lg mb-4 mt-6">
+                <span class="text-lg font-bold"> العودة </span>
+            </a>
+
+            <button
+                class="theme-toggle w-full flex items-center justify-center p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300 hover:scale-105 hover:shadow-lg mt-4"
+                aria-label="تبديل الوضع الليلي">
+                <span class="ml-2 text-lg font-bold text-gray-700 dark:text-gray-200">الوضع الليلي</span>
+                <!-- Sun Icon -->
+                <svg class="w-6 h-6 hidden dark:block text-yellow-400" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364
+                      6.364l-.707-.707M6.343 6.343l-.707-.707m12.728
+                      0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0
+                      11-8 0 4 4 0 018 0z" />
+                </svg>
+                <!-- Moon Icon -->
+                <svg class="w-6 h-6 block dark:hidden text-gray-600" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646
+                      9.003 9.003 0 0012 21a9.003 9.003 0
+                      008.354-5.646z" />
+                </svg>
+            </button>
+        </nav>
+
+        <!-- المحتوى الرئيسي -->
+        <main class="flex-1 p-6 md:p-10 overflow-y-auto">
+            <div class="max-w-4xl mx-auto">
+
+                <!-- القسم: المقدمة والتعريف -->
+                <section id="intro" class="content-section active">
+                    <!-- بطاقة هيرو -->
+                    <div
+                        class="bg-gradient-to-br from-teal-600 to-teal-800 rounded-2xl p-8 text-white shadow-xl mb-10 relative overflow-hidden">
+                        <div
+                            class="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full -mr-16 -mt-16 blur-3xl">
+                        </div>
+                        <div
+                            class="absolute bottom-0 left-0 w-48 h-48 bg-teal-400 opacity-10 rounded-full -ml-10 -mb-10 blur-2xl">
+                        </div>
+
+                        <div class="relative z-10">
+                            <h2 class="text-4xl font-bold mb-4">هاليدات الألكيل (Alkyl Halides)</h2>
+                            <p class="text-xl leading-relaxed opacity-90 mb-6">
+                                هاليدات الألكيل هي مركبات عضوية نحصل عليها من الألكانات باستبدال
+                                ذرة هيدروجين واحدة أو أكثر بذرة هالوجين مثل الفلور أو الكلور أو البروم
+                                أو اليود، وتكتب صيغتها العامة على الشكل R–X حيث R مجموعة ألكيلية و X ذرة هالوجين.
+                            </p>
+                            <div class="flex flex-wrap gap-4">
+                                <div class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/30">
+                                    <span class="block text-xs opacity-75">الصيغة العامة</span>
+                                    <span class="font-mono text-xl font-bold">R–X</span>
+                                </div>
+                                <div class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/30">
+                                    <span class="block text-xs opacity-75">المجموعة الفعالة</span>
+                                    <span class="font-bold">رابطة C–X</span>
+                                </div>
+                                <div class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/30">
+                                    <span class="block text-xs opacity-75">أمثلة سريعة</span>
+                                    <span class="font-mono font-bold">CH₃Cl , C₂H₅Br</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Enhanced Alkyl Halide Molecule SVG -->
+                    <div
+                        class="my-8 p-6 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl shadow-lg">
+                        <h3 class="font-bold mb-6 text-2xl text-center text-gray-900 dark:text-white">رسم تخطيطي لهاليد
+                            ألكيل بسيط</h3>
+                        <svg viewBox="0 0 900 450" class="w-full max-w-4xl mx-auto">
+                            <!-- Define gradients -->
+                            <defs>
+                                <radialGradient id="rkGrad" cx="30%" cy="30%">
+                                    <stop offset="0%" style="stop-color:#A78BFA;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#7C3AED;stop-opacity:1" />
+                                </radialGradient>
+                                <radialGradient id="halogenGrad" cx="30%" cy="30%">
+                                    <stop offset="0%" style="stop-color:#34D399;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#10B981;stop-opacity:1" />
+                                </radialGradient>
+                                <radialGradient id="hGrad" cx="30%" cy="30%">
+                                    <stop offset="0%" style="stop-color:#FBBF24;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#F59E0B;stop-opacity:1" />
+                                </radialGradient>
+                            </defs>
+
+                            <!-- Before: R-H (Alkane) -->
+                            <g id="alkane">
+                                <text x="200" y="60" text-anchor="middle" class="fill-gray-700 dark:fill-gray-300"
+                                    style="font-size: 20px; font-weight: bold;">الألكان (Alkane)</text>
+
+                                <!-- R group -->
+                                <circle cx="150" cy="150" r="45" fill="url(#rkGrad)" stroke="#7C3AED"
+                                    stroke-width="4" />
+                                <text x="150" y="165" text-anchor="middle" style="font-size: 32px; font-weight: bold;"
+                                    class="fill-white">R</text>
+
+                                <!-- Bond -->
+                                <line x1="195" y1="150" x2="245" y2="150" stroke="#1F2937" stroke-width="8"
+                                    class="dark:stroke-gray-300" />
+
+                                <!-- H atom -->
+                                <circle cx="290" cy="150" r="40" fill="url(#hGrad)" stroke="#F59E0B" stroke-width="4" />
+                                <text x="290" y="165" text-anchor="middle" style="font-size: 32px; font-weight: bold;"
+                                    class="fill-white">H</text>
+
+                                <!-- Label below -->
+                                <text x="220" y="240" text-anchor="middle" class="fill-purple-700 dark:fill-purple-300"
+                                    style="font-size: 22px; font-weight: bold;">R–H</text>
+                            </g>
+
+                            <!-- Arrow -->
+                            <defs>
+                                <marker id="arrowSubst" markerWidth="12" markerHeight="12" refX="10" refY="6"
+                                    orient="auto">
+                                    <polygon points="0 0, 12 6, 0 12" fill="#DC2626" />
+                                </marker>
+                            </defs>
+                            <line x1="370" y1="150" x2="490" y2="150" stroke="#DC2626" stroke-width="5"
+                                marker-end="url(#arrowSubst)" />
+                            <text x="430" y="130" text-anchor="middle" class="fill-red-600 dark:fill-red-400"
+                                style="font-size: 16px; font-weight: bold;">استبدال</text>
+                            <text x="430" y="185" text-anchor="middle" class="fill-gray-600 dark:fill-gray-400"
+                                style="font-size: 14px;">Substitution</text>
+
+                            <!-- After: R-X (Alkyl Halide) -->
+                            <g id="alkyl-halide">
+                                <text x="680" y="60" text-anchor="middle" class="fill-gray-700 dark:fill-gray-300"
+                                    style="font-size: 20px; font-weight: bold;">هاليد الألكيل (Alkyl Halide)</text>
+
+                                <!-- R group -->
+                                <circle cx="630" cy="150" r="45" fill="url(#rkGrad)" stroke="#7C3AED"
+                                    stroke-width="4" />
+                                <text x="630" y="165" text-anchor="middle" style="font-size: 32px; font-weight: bold;"
+                                    class="fill-white">R</text>
+
+                                <!-- Bond -->
+                                <line x1="675" y1="150" x2="725" y2="150" stroke="#1F2937" stroke-width="8"
+                                    class="dark:stroke-gray-300" />
+
+                                <!-- X atom (Halogen) -->
+                                <circle cx="770" cy="150" r="40" fill="url(#halogenGrad)" stroke="#10B981"
+                                    stroke-width="4" />
+                                <text x="770" y="165" text-anchor="middle" style="font-size: 32px; font-weight: bold;"
+                                    class="fill-white">X</text>
+
+                                <!-- Label below -->
+                                <text x="700" y="240" text-anchor="middle"
+                                    class="fill-emerald-700 dark:fill-emerald-300"
+                                    style="font-size: 22px; font-weight: bold;">R–X</text>
+                            </g>
+
+                            <!-- Info Box -->
+                            <rect x="100" y="300" width="700" height="120" rx="15" fill="#FEF3C7" stroke="#F59E0B"
+                                stroke-width="3" class="dark:fill-amber-900/30" />
+                            <text x="450" y="335" text-anchor="middle" class="fill-amber-800 dark:fill-amber-200"
+                                style="font-size: 20px; font-weight: bold;">الرابطة الوظيفية: C–X</text>
+                            <text x="450" y="365" text-anchor="middle" class="fill-gray-800 dark:fill-gray-200"
+                                style="font-size: 16px;">حيث R = مجموعة ألكيل (مثل CH₃, C₂H₅, C₃H₇)</text>
+                            <text x="450" y="395" text-anchor="middle" class="fill-gray-800 dark:fill-gray-200"
+                                style="font-size: 16px;">و X = هالوجين (F, Cl, Br, I)</text>
+                        </svg>
+                        <p class="text-center text-sm text-gray-600 dark:fill-gray-400 mt-6">
+                            صورة تصورية لجزيء RX توضح استبدال H في الألكان بذرة هالوجين.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- القسم: التصنيف -->
+                <section id="classification" class="content-section">
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+                        تصنيف هاليدات الألكيل
+                    </h2>
+                    <p class="mt-2 mb-6 text-gray-800 dark:text-gray-200 leading-relaxed">
+                        يُقسَّم هاليد الألكيل اعتماداً على نوع ذرة الكربون التي تحمل الهالوجين،
+                        هل هي مرتبطة بكربون واحد أم اثنين أم ثلاثة، إلى أولي وثانوي وثالثي.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                        <!-- أولي -->
+                        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 border-t-4 border-blue-500">
+                            <h3 class="text-xl font-bold mb-2 text-blue-600 dark:text-blue-300">
+                                هاليد ألكيل أولي (1°)
+                            </h3>
+                            <p class="text-gray-800 dark:text-gray-200 mb-3">
+                                تكون ذرة الكربون المرتبطة بالهالوجين متصلة مباشرة بذرة كربون واحدة فقط
+                                مثل CH₃–CH₂–X.
+                            </p>
+                            <div class="bg-gray-50 dark:bg-gray-700 p-3 rounded text-center font-mono">
+                                R–CH₂–X
+                            </div>
+                        </div>
+
+                        <!-- ثانوي -->
+                        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 border-t-4 border-purple-500">
+                            <h3 class="text-xl font-bold mb-2 text-purple-600 dark:text-purple-300">
+                                هاليد ألكيل ثانوي (2°)
+                            </h3>
+                            <p class="text-gray-800 dark:text-gray-200 mb-3">
+                                تكون ذرة الكربون التي تحمل X مرتبطة بذرتي كربون، كما في الصيغة
+                                العامة R–CH(X)–R.
+                            </p>
+                            <div class="bg-gray-50 dark:bg-gray-700 p-3 rounded text-center font-mono">
+                                R–CH(X)–R
+                            </div>
+                        </div>
+
+                        <!-- ثالثي -->
+                        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 border-t-4 border-amber-500">
+                            <h3 class="text-xl font-bold mb-2 text-amber-600 dark:text-amber-300">
+                                هاليد ألكيل ثالثي (3°)
+                            </h3>
+                            <p class="text-gray-800 dark:text-gray-200 mb-3">
+                                تكون ذرة الكربون المرتبطة بالهالوجين متصلة بثلاث ذرات كربون أخرى،
+                                ولذلك تسمى كربوناً ثالثياً.
+                            </p>
+                            <div class="bg-gray-50 dark:bg-gray-700 p-3 rounded text-center font-mono">
+                                C(X)(R)₃
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Enhanced Classification SVG -->
+                    <div
+                        class="my-8 p-6 bg-gradient-to-br from-cyan-50 to-blue-50 dark:from-cyan-900/20 dark:to-blue-900/20 rounded-2xl shadow-lg">
+                        <h3 class="font-bold mb-6 text-2xl text-center text-gray-900 dark:text-white">مخطط يوضح الأولي
+                            والثانوي والثالثي</h3>
+                        <svg viewBox="0 0 1100 350" class="w-full max-w-5xl mx-auto">
+                            <!-- Primary Alkyl Halide -->
+                            <g id="primary">
+                                <rect x="30" y="50" width="310" height="250" rx="15" fill="#DBEAFE" stroke="#3B82F6"
+                                    stroke-width="3" />
+                                <text x="185" y="85" text-anchor="middle" class="fill-blue-700 dark:fill-blue-300"
+                                    style="font-size: 20px; font-weight: bold;">1° - أولي</text>
+                                <circle cx="120" cy="160" r="20" fill="#1F2937" class="dark:fill-gray-300" />
+                                <text x="120" y="168" text-anchor="middle" class="fill-white dark:fill-gray-900"
+                                    style="font-size: 18px; font-weight: bold;">C</text>
+                                <circle cx="200" cy="160" r="20" fill="#1F2937" class="dark:fill-gray-300" />
+                                <text x="200" y="168" text-anchor="middle" class="fill-white dark:fill-gray-900"
+                                    style="font-size: 18px; font-weight: bold;">C</text>
+                                <circle cx="250" cy="140" r="18" fill="#10B981" class="dark:fill-green-500" />
+                                <text x="250" y="147" text-anchor="middle" class="fill-white"
+                                    style="font-size: 16px; font-weight: bold;">X</text>
+                                <line x1="140" y1="160" x2="180" y2="160" stroke="#1F2937" stroke-width="4"
+                                    class="dark:stroke-gray-300" />
+                                <line x1="215" y1="152" x2="235" y2="143" stroke="#1F2937" stroke-width="4"
+                                    class="dark:stroke-gray-300" />
+                                <text x="80" y="168" text-anchor="middle" class="fill-blue-600 dark:fill-blue-400"
+                                    style="font-size: 20px; font-weight: bold; font-style: italic;">R</text>
+                                <circle cx="190" cy="120" r="12" fill="#FBBF24" />
+                                <text x="190" y="126" text-anchor="middle"
+                                    style="font-size: 11px; font-weight: bold;">H</text>
+                                <circle cx="210" cy="120" r="12" fill="#FBBF24" />
+                                <text x="210" y="126" text-anchor="middle"
+                                    style="font-size: 11px; font-weight: bold;">H</text>
+                                <line x1="195" y1="132" x2="199" y2="142" stroke="#1F2937" stroke-width="2" />
+                                <line x1="205" y1="132" x2="201" y2="142" stroke="#1F2937" stroke-width="2" />
+                                <text x="185" y="230" text-anchor="middle" class="fill-gray-700 dark:fill-gray-300"
+                                    style="font-size: 16px;">R–CH₂–X</text>
+                                <text x="185" y="260" text-anchor="middle" class="fill-blue-600 dark:fill-blue-400"
+                                    style="font-size: 14px;">مثال: CH₃–CH₂–Br</text>
+                            </g>
+
+                            <!-- Secondary Alkyl Halide -->
+                            <g id="secondary">
+                                <rect x="395" y="50" width="310" height="250" rx="15" fill="#F3E8FF" stroke="#9333EA"
+                                    stroke-width="3" />
+                                <text x="550" y="85" text-anchor="middle" class="fill-purple-700 dark:fill-purple-300"
+                                    style="font-size: 20px; font-weight: bold;">2° - ثانوي</text>
+                                <circle cx="490" cy="140" r="18" fill="#1F2937" class="dark:fill-gray-300" />
+                                <text x="490" y="147" text-anchor="middle" class="fill-white dark:fill-gray-900"
+                                    style="font-size: 16px; font-weight: bold;">C</text>
+                                <circle cx="550" cy="160" r="20" fill="#1F2937" class="dark:fill-gray-300" />
+                                <text x="550" y="168" text-anchor="middle" class="fill-white dark:fill-gray-900"
+                                    style="font-size: 18px; font-weight: bold;">C</text>
+                                <circle cx="610" cy="140" r="18" fill="#1F2937" class="dark:fill-gray-300" />
+                                <text x="610" y="147" text-anchor="middle" class="fill-white dark:fill-gray-900"
+                                    style="font-size: 16px; font-weight: bold;">C</text>
+                                <circle cx="590" cy="200" r="18" fill="#F59E0B" class="dark:fill-orange-500" />
+                                <text x="590" y="207" text-anchor="middle" class="fill-white"
+                                    style="font-size: 16px; font-weight: bold;">X</text>
+                                <line x1="507" y1="147" x2="533" y2="157" stroke="#1F2937" stroke-width="4"
+                                    class="dark:stroke-gray-300" />
+                                <line x1="567" y1="153" x2="593" y2="147" stroke="#1F2937" stroke-width="4"
+                                    class="dark:stroke-gray-300" />
+                                <line x1="560" y1="178" x2="580" y2="192" stroke="#1F2937" stroke-width="4"
+                                    class="dark:stroke-gray-300" />
+                                <text x="450" y="147" text-anchor="middle" class="fill-purple-600 dark:fill-purple-400"
+                                    style="font-size: 18px; font-weight: bold; font-style: italic;">R</text>
+                                <text x="650" y="147" text-anchor="middle" class="fill-purple-600 dark:fill-purple-400"
+                                    style="font-size: 18px; font-weight: bold; font-style: italic;">R'</text>
+                                <circle cx="550" cy="120" r="12" fill="#FBBF24" />
+                                <text x="550" y="126" text-anchor="middle"
+                                    style="font-size: 11px; font-weight: bold;">H</text>
+                                <line x1="550" y1="132" x2="550" y2="142" stroke="#1F2937" stroke-width="2" />
+                                <text x="550" y="230" text-anchor="middle" class="fill-gray-700 dark:fill-gray-300"
+                                    style="font-size: 16px;">R–CH(X)–R'</text>
+                                <text x="550" y="260" text-anchor="middle" class="fill-purple-600 dark:fill-purple-400"
+                                    style="font-size: 14px;">مثال: CH₃–CH(Br)–CH₃</text>
+                            </g>
+
+                            <!-- Tertiary Alkyl Halide -->
+                            <g id="tertiary">
+                                <rect x="760" y="50" width="310" height="250" rx="15" fill="#FEF3C7" stroke="#F59E0B"
+                                    stroke-width="3" />
+                                <text x="915" y="85" text-anchor="middle" class="fill-amber-700 dark:fill-amber-300"
+                                    style="font-size: 20px; font-weight: bold;">3° - ثالثي</text>
+                                <circle cx="915" cy="160" r="22" fill="#1F2937" class="dark:fill-gray-300" />
+                                <text x="915" y="168" text-anchor="middle" class="fill-white dark:fill-gray-900"
+                                    style="font-size: 18px; font-weight: bold;">C</text>
+                                <circle cx="850" cy="130" r="17" fill="#1F2937" class="dark:fill-gray-300" />
+                                <text x="850" y="137" text-anchor="middle" class="fill-white dark:fill-gray-900"
+                                    style="font-size: 15px; font-weight: bold;">C</text>
+                                <circle cx="980" cy="130" r="17" fill="#1F2937" class="dark:fill-gray-300" />
+                                <text x="980" y="137" text-anchor="middle" class="fill-white dark:fill-gray-900"
+                                    style="font-size: 15px; font-weight: bold;">C</text>
+                                <circle cx="915" cy="210" r="17" fill="#1F2937" class="dark:fill-gray-300" />
+                                <text x="915" y="217" text-anchor="middle" class="fill-white dark:fill-gray-900"
+                                    style="font-size: 15px; font-weight: bold;">C</text>
+                                <circle cx="960" cy="180" r="18" fill="#DC2626" class="dark:fill-red-500" />
+                                <text x="960" y="187" text-anchor="middle" class="fill-white"
+                                    style="font-size: 16px; font-weight: bold;">X</text>
+                                <line x1="867" y1="137" x2="897" y2="152" stroke="#1F2937" stroke-width="4"
+                                    class="dark:stroke-gray-300" />
+                                <line x1="963" y1="137" x2="933" y2="152" stroke="#1F2937" stroke-width="4"
+                                    class="dark:stroke-gray-300" />
+                                <line x1="915" y1="182" x2="915" y2="193" stroke="#1F2937" stroke-width="4"
+                                    class="dark:stroke-gray-300" />
+                                <line x1="933" y1="168" x2="945" y2="174" stroke="#1F2937" stroke-width="4"
+                                    class="dark:stroke-gray-300" />
+                                <text x="815" y="137" text-anchor="middle" class="fill-amber-600 dark:fill-amber-400"
+                                    style="font-size: 18px; font-weight: bold; font-style: italic;">R</text>
+                                <text x="1015" y="137" text-anchor="middle" class="fill-amber-600 dark:fill-amber-400"
+                                    style="font-size: 18px; font-weight: bold; font-style: italic;">R'</text>
+                                <text x="915" y="245" text-anchor="middle" class="fill-amber-600 dark:fill-amber-400"
+                                    style="font-size: 18px; font-weight: bold; font-style: italic;">R''</text>
+                                <text x="915" y="265" text-anchor="middle" class="fill-gray-700 dark:fill-gray-300"
+                                    style="font-size: 16px;">C(X)(R)(R')(R'')</text>
+                            </g>
+                        </svg>
+                    </div>
+
+                    <!-- ملاحظة عن عدم وجود رابعي -->
+                    <div
+                        class="mt-6 p-4 bg-yellow-50 dark:bg-yellow-900/30 border border-yellow-200 dark:border-yellow-700 rounded-lg">
+                        <h4 class="font-bold mb-1 text-yellow-700 dark:text-yellow-300">
+                            ملاحظة مهمة
+                        </h4>
+                        <p class="text-gray-800 dark:text-gray-200">
+                            لا يوجد هاليد ألكيل رباعي لأن الكربون الرباعي مشغول بأربع روابط
+                            تساهمية، ولا يبقى له فراغ ليرتبط بذرة هالوجين إضافية.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- القسم: التسمية -->
+                <section id="naming" class="content-section">
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+                        تسمية هاليدات الألكيل
+                    </h2>
+                    <p class="mt-2 text-gray-800 dark:text-gray-200 leading-relaxed">
+                        تتبع تسمية هاليدات الألكيل قواعد IUPAC؛ نختار أطول سلسلة كربونية،
+                        نعطيها اسم ألكان، نرقم من الطرف الأقرب للهالوجين، ثم نكتب رقم
+                        واسم الهالوجين متبوعاً باسم الألكان.
+                    </p>
+
+                    <ol class="list-decimal list-inside mt-4 space-y-2 text-gray-900 dark:text-gray-100">
+                        <li>اختر أطول سلسلة كربونية وسمِّها كألكان عادي.</li>
+                        <li>رقِّم السلسلة من الطرف الأقرب لذرة الهالوجين X.</li>
+                        <li>اكتب رقم موقع X متبوعاً باسم الهالوجين: كلورو (Cl)، برومو (Br)، يودو (I)، فلورو (F).</li>
+                        <li>عند وجود أكثر من تفرع أو أكثر من هالوجين، ترتَّب حسب الأبجدية وتُذكر أعدادها (di, tri...).
+                        </li>
+                    </ol>
+
+                    <!-- جدول أمثلة تسمية -->
+                    <div class="overflow-x-auto mt-4">
+                        <table class="min-w-full bg-white dark:bg-gray-800 shadow-md rounded-lg text-right">
+                            <thead class="bg-gray-100 dark:bg-gray-700">
+                                <tr>
+                                    <th class="px-6 py-3 text-gray-700 dark:text-gray-100 font-bold text-sm">
+                                        الصيغة البنائية (مبسطة)
+                                    </th>
+                                    <th class="px-6 py-3 text-gray-700 dark:text-gray-100 font-bold text-sm">
+                                        الاسم النظامي
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody
+                                class="text-gray-800 dark:text-gray-200 divide-y divide-gray-200 dark:divide-gray-600">
+                                <tr>
+                                    <td class="px-6 py-3 font-mono">
+                                        CH₃–CH₂–CH₂–Cl
+                                    </td>
+                                    <td class="px-6 py-3">
+                                        1-كلورو بروبان
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-3 font-mono">
+                                        CH₃–CH(Br)–CH₃
+                                    </td>
+                                    <td class="px-6 py-3">
+                                        2-برومو بروبان
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-3 font-mono">
+                                        CH₃–CH(Cl)–CH₂–CH₃
+                                    </td>
+                                    <td class="px-6 py-3">
+                                        2-كلورو بيوتان
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-3 font-mono">
+                                        CH₃–C(Cl)(CH₃)–CH₃
+                                    </td>
+                                    <td class="px-6 py-3">
+                                        2-كلورو-2-مثيل بروبان
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- مكان لصورة تدريب تسمية -->
+                    <div class="my-6 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm text-center">
+                        <h3 class="font-bold mb-2">ورقة تدريب على تسمية هاليدات الألكيل</h3>
+                        <img src="../images/alkyl_halide_naming_sheet.png"
+                            alt="صفحة تمارين تحتوي على صيغ بنائية لهاليدات ألكيل مع فراغات لكتابة الأسماء النظامية"
+                            class="mx-auto rounded-lg shadow-sm max-w-lg w-full object-contain" />
+                    </div>
+                </section>
+
+                <!-- القسم: الخواص الفيزيائية -->
+                <section id="properties" class="content-section">
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+                        الخواص الفيزيائية لهاليدات الألكيل
+                    </h2>
+                    <p class="text-gray-800 dark:text-gray-200 leading-relaxed mb-4">
+                        تتدرج الحالة الفيزيائية لهاليدات الألكيل مع زيادة عدد ذرات الكربون
+                        كما تتأثر ذوبانيتها وقطبيتها بوجود الهالوجين المرتبط بذرة الكربون.
+                    </p>
+
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 mb-4">
+                        <ul class="list-disc list-inside space-y-2 text-gray-900 dark:text-gray-100">
+                            <li>هاليدات الألكيل ذات السلاسل القصيرة مثل CH₃Cl و CH₃Br تكون غازات في درجة حرارة الغرفة.
+                            </li>
+                            <li>مع زيادة عدد ذرات الكربون تتحول إلى سوائل عديمة اللون، والأطول (أكثر من ≈ 18C) تكون مواد
+                                صلبة.</li>
+                            <li>هاليدات الألكيل لا تذوب عادة في الماء، لكنها تذوب في المذيبات العضوية مثل الإيثانول
+                                والبنزين.</li>
+                            <li>سبب عدم ذوبانها في الماء هو ضعف قدرتها على تكوين روابط هيدروجينية قوية مع جزيئات الماء.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- مخطط خواص فيزيائية -->
+                    <div class="my-4 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm text-center">
+                        <h3 class="font-bold mb-2">مخطط يوضح تغير الحالة الفيزيائية مع عدد ذرات الكربون</h3>
+                        <img src="../images/الخواص الفيزيائية لهاليدات الألكيل.png"
+                            alt="مخطط بياني يوضح تغير الحالة الفيزيائية لهاليدات الألكيل من غاز إلى سائل إلى صلب مع زيادة عدد ذرات الكربون"
+                            class="mx-auto rounded-lg shadow-sm w-full max-w-2xl object-contain" />
+                    </div>
+                </section>
+
+                <!-- القسم: التحضير -->
+                <section id="preparation" class="content-section">
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+                        تحضير هاليدات الألكيل من الألكينات
+                    </h2>
+                    <p class="text-gray-800 dark:text-gray-200 leading-relaxed mb-4">
+                        من الطرق الشائعة لتحضير هاليدات الألكيل إضافة هاليد الهيدروجين HX
+                        إلى الألكينات بحيث يكون عدد ذرات الكربون في الناتج مساوياً لعددها في الألكين المستخدم.
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
+                            <h3 class="font-semibold text-teal-700 dark:text-teal-300 mb-2">
+                                1. إضافة HX إلى ألكين متناظر
+                            </h3>
+                            <p class="text-gray-800 dark:text-gray-200 mb-2">
+                                في الألكين المتناظر تكون ذرات الكربون على طرفي الرابطة المزدوجة
+                                تحمل العدد نفسه من ذرات الهيدروجين، لذلك يمكن توزيع H و X بأي صورة
+                                ويعطي الناتج نفسه.
+                            </p>
+                            <pre dir="ltr" class="bg-gray-100 dark:bg-gray-700 rounded p-3 text-sm overflow-x-auto">
+CH₂ = CH₂  +  HBr  →  CH₃–CH₂Br   (برومو إيثان)</pre>
+
+
+                            <img src="../images/1. إضافة HX إلى ألكين متناظر.png" alt="HX إلى ألكين متناظر"
+                                class="mx-auto rounded-lg shadow-sm w-full max-w-2xl object-contain" />
+                        </div>
+
+                        <div class="p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm" id="markovnikov">
+                            <h3 class="font-semibold text-teal-700 dark:text-teal-300 mb-2">
+                                2. إضافة HX إلى ألكين غير متناظر (قاعدة ماركوفنيكوف)
+                            </h3>
+                            <p class="text-gray-800 dark:text-gray-200 mb-2">
+                                في الألكين غير المتناظر تضاف ذرة الهيدروجين إلى الكربون
+                                الأكثر احتواءً على ذرات الهيدروجين، بينما تضاف X إلى الكربون
+                                الأقل هيدروجيناً، وهذا ما تُعرَف بقاعدة ماركوفنيكوف.
+                            </p>
+                            <pre dir="ltr" class="bg-gray-100 dark:bg-gray-700 rounded p-3 text-sm overflow-x-auto">
+CH₃–CH = CH₂  +  HBr  →  CH₃–CH(Br)–CH₃   (2-برومو بروبان)</pre>
+
+                            <img src="../images/2. إضافة HX إلى ألكين غير متناظر (قاعدة ماركوفنيكوف).png"
+                                alt="HX إلى ألكين غير متناظر"
+                                class="mx-auto rounded-lg shadow-sm w-full max-w-2xl object-contain" />
+                        </div>
+                    </div>
+
+                    <!-- Markovnikov Rule SVG  with Beautiful Colors -->
+                    <div
+                        class="mt-6 p-6 bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-teal-900/20 dark:to-cyan-900/20 rounded-2xl shadow-lg">
+                        <h3 class="font-bold mb-6 text-2xl text-center text-gray-900 dark:text-white">رسم يوضح قاعدة
+                            ماركوفنيكوف</h3>
+                        <svg viewBox="0 0 1000 400" class="w-full max-w-5xl mx-auto">
+                            <!-- Asymmetric alkene -->
+                            <g id="alkene">
+                                <text x="150" y="80" text-anchor="middle" class="fill-teal-700 dark:fill-teal-300"
+                                    style="font-size: 18px; font-weight: bold;">بروبين (Propene)</text>
+                                <circle cx="100" cy="150" r="20" fill="#1F2937" class="dark:fill-gray-300" />
+                                <text x="100" y="158" text-anchor="middle" class="fill-white dark:fill-gray-900"
+                                    style="font-size: 18px; font-weight: bold;">C</text>
+                                <circle cx="180" cy="150" r="20" fill="#1F2937" class="dark:fill-gray-300" />
+                                <text x="180" y="158" text-anchor="middle" class="fill-white dark:fill-gray-900"
+                                    style="font-size: 18px; font-weight: bold;">C</text>
+                                <circle cx="260" cy="150" r="20" fill="#1F2937" class="dark:fill-gray-300" />
+                                <text x="260" y="158" text-anchor="middle" class="fill-white dark:fill-gray-900"
+                                    style="font-size: 18px; font-weight: bold;">C</text>
+                                <!-- Double bond -->
+                                <line x1="120" y1="145" x2="160" y2="145" stroke="#DC2626" stroke-width="5" />
+                                <line x1="120" y1="155" x2="160" y2="155" stroke="#DC2626" stroke-width="5" />
+                                <line x1="200" y1="150" x2="240" y2="150" stroke="#1F2937" stroke-width="4"
+                                    class="dark:stroke-gray-300" />
+                                <circle cx="60" cy="135" r="12" fill="#FBBF24" />
+                                <text x="60" y="141" text-anchor="middle"
+                                    style="font-size: 11px; font-weight: bold;">H₃</text>
+                                <circle cx="170" cy="110" r="12" fill="#FBBF24" />
+                                <text x="170" y="116" text-anchor="middle"
+                                    style="font-size: 11px; font-weight: bold;">H</text>
+                                <circle cx="300" cy="135" r="12" fill="#FBBF24" />
+                                <text x="300" y="141" text-anchor="middle"
+                                    style="font-size: 11px; font-weight: bold;">H₃</text>
+                                <text x="100" y="205" text-anchor="middle" class="fill-green-700 dark:fill-green-300"
+                                    style="font-size: 14px; font-weight: bold;">3 H (أكثر)</text>
+                                <text x="180" y="205" text-anchor="middle" class="fill-orange-700 dark:fill-orange-300"
+                                    style="font-size: 14px; font-weight: bold;">1 H (أقل)</text>
+                            </g>
+
+                            <!-- Plus HBr -->
+                            <text x="350" y="155" text-anchor="middle" class="fill-gray-700 dark:fill-gray-300"
+                                style="font-size: 28px; font-weight: bold;">+</text>
+                            <g id="hbr">
+                                <circle cx="450" cy="150" r="15" fill="#FBBF24" />
+                                <text x="450" y="156" text-anchor="middle"
+                                    style="font-size: 14px; font-weight: bold;">H</text>
+                                <circle cx="495" cy="150" r="18" fill="#A855F7" class="dark:fill-purple-500" />
+                                <text x="495" y="157" text-anchor="middle" class="fill-white"
+                                    style="font-size: 16px; font-weight: bold;">Br</text>
+                                <line x1="465" y1="150" x2="477" y2="150" stroke="#1F2937" stroke-width="3" />
+                            </g>
+
+                            <!-- Arrow -->
+                            <defs>
+                                <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="9" refY="3"
+                                    orient="auto">
+                                    <polygon points="0 0, 10 3, 0 6" fill="#059669" />
+                                </marker>
+                            </defs>
+                            <line x1="540" y1="150" x2="640" y2="150" stroke="#059669" stroke-width="4"
+                                marker-end="url(#arrowGreen)" />
+
+                            <!-- Product -->
+                            <g id="product">
+                                <text x="850" y="80" text-anchor="middle" class="fill-teal-700 dark:fill-teal-300"
+                                    style="font-size: 18px; font-weight: bold;">2-برومو بروبان</text>
+                                <circle cx="750" cy="150" r="20" fill="#1F2937" class="dark:fill-gray-300" />
+                                <text x="750" y="158" text-anchor="middle" class="fill-white dark:fill-gray-900"
+                                    style="font-size: 18px; font-weight: bold;">C</text>
+                                <circle cx="830" cy="150" r="20" fill="#1F2937" class="dark:fill-gray-300" />
+                                <text x="830" y="158" text-anchor="middle" class="fill-white dark:fill-gray-900"
+                                    style="font-size: 18px; font-weight: bold;">C</text>
+                                <circle cx="910" cy="150" r="20" fill="#1F2937" class="dark:fill-gray-300" />
+                                <text x="910" y="158" text-anchor="middle" class="fill-white dark:fill-gray-900"
+                                    style="font-size: 18px; font-weight: bold;">C</text>
+                                <line x1="770" y1="150" x2="810" y2="150" stroke="#1F2937" stroke-width="4"
+                                    class="dark:stroke-gray-300" />
+                                <line x1="850" y1="150" x2="890" y2="150" stroke="#1F2937" stroke-width="4"
+                                    class="dark:stroke-gray-300" />
+                                <circle cx="710" cy="135" r="12" fill="#FBBF24" />
+                                <text x="710" y="141" text-anchor="middle"
+                                    style="font-size: 11px; font-weight: bold;">H₃</text>
+                                <circle cx="820" cy="110" r="12" fill="#FBBF24" />
+                                <text x="820" y="116" text-anchor="middle"
+                                    style="font-size: 11px; font-weight: bold;">H</text>
+                                <circle cx="830" cy="190" r="18" fill="#A855F7" class="dark:fill-purple-500" />
+                                <text x="830" y="197" text-anchor="middle" class="fill-white"
+                                    style="font-size: 16px; font-weight: bold;">Br</text>
+                                <line x1="830" y1="170" x2="830" y2="172" stroke="#1F2937" stroke-width="3" />
+                                <circle cx="950" cy="135" r="12" fill="#FBBF24" />
+                                <text x="950" y="141" text-anchor="middle"
+                                    style="font-size: 11px; font-weight: bold;">H₃</text>
+                            </g>
+
+                            <!-- Rule Box -->
+                            <rect x="100" y="270" width="800" height="100" rx="12" fill="#ECFCCB" stroke="#84CC16"
+                                stroke-width="3" class="dark:fill-lime-900/30" />
+                            <text x="500" y="305" text-anchor="middle" class="fill-lime-800 dark:fill-lime-200"
+                                style="font-size: 20px; font-weight: bold;">⚡ قاعدة ماركوفنيكوف ⚡</text>
+                            <text x="500" y="335" text-anchor="middle" class="fill-gray-800 dark:fill-gray-200"
+                                style="font-size: 16px;">H يضاف للكربون الأكثر هيدروجيناً</text>
+                            <text x="500" y="360" text-anchor="middle" class="fill-gray-800 dark:fill-gray-200"
+                                style="font-size: 16px;">X (الهالوجين) يضاف للكربون الأقل هيدروجيناً</text>
+                        </svg>
+                    </div>
+
+                    <!-- Video Player Section -->
+                    <div
+                        class="my-8 p-6 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl shadow-lg">
+                        <h3 class="font-bold mb-2 text-2xl text-center text-gray-900 dark:text-white">فيديو: تحضير
+                            هاليدات الألكيل</h3>
+                        <p class="text-center text-gray-700 dark:text-gray-300 mb-6">تعرف على طرق تحضير هاليدات الألكيل
+                            من الألكينات وغيرها</p>
+
+                        <div
+                            class="video-container relative w-full max-w-4xl mx-auto rounded-xl overflow-hidden shadow-2xl bg-black">
+                            <video id="alkyl-halide-prep-video" class="w-full"
+                                src="../videos/تحضير_هاليدات_الألكيل.mp4">
+                                متصفحك لا يدعم تشغيل الفيديو
+                            </video>
+
+                            <!-- Custom Controls -->
+                            <div
+                                class="video-controls absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                <!-- Progress Bar -->
+                                <div class="progress-container mb-3 cursor-pointer">
+                                    <div class="h-1 bg-gray-600 rounded-full overflow-hidden">
+                                        <div class="progress-bar h-full bg-teal-500 transition-all" style="width: 0%">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Control Buttons -->
+                                <div class="flex items-center justify-between text-white">
+                                    <div class="flex items-center gap-4">
+                                        <!-- Play/Pause Button -->
+                                        <button class="play-pause-btn hover:text-teal-400 transition-colors"
+                                            aria-label="تشغيل/إيقاف">
+                                            <svg class="play-icon w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M8 5v14l11-7z" />
+                                            </svg>
+                                            <svg class="pause-icon w-8 h-8 hidden" fill="currentColor"
+                                                viewBox="0 0 24 24">
+                                                <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
+                                            </svg>
+                                        </button>
+
+                                        <!-- Time Display -->
+                                        <div class="time-display text-sm">
+                                            <span class="current-time">0:00</span> / <span class="duration">0:00</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-center gap-4">
+                                        <!-- Mute Button -->
+                                        <button class="mute-btn hover:text-teal-400 transition-colors"
+                                            aria-label="كتم الصوت">
+                                            <svg class="volume-icon w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                                <path
+                                                    d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z" />
+                                            </svg>
+                                            <svg class="muted-icon w-6 h-6 hidden" fill="currentColor"
+                                                viewBox="0 0 24 24">
+                                                <path
+                                                    d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" />
+                                            </svg>
+                                        </button>
+
+                                        <!-- Speed Control -->
+                                        <select
+                                            class="speed-control bg-black/50 text-white text-sm rounded px-2 py-1 cursor-pointer hover:bg-black/70 transition-colors"
+                                            aria-label="سرعة التشغيل">
+                                            <option value="0.5">0.5x</option>
+                                            <option value="0.75">0.75x</option>
+                                            <option value="1" selected>1x</option>
+                                            <option value="1.25">1.25x</option>
+                                            <option value="1.5">1.5x</option>
+                                            <option value="2">2x</option>
+                                        </select>
+
+                                        <!-- Fullscreen Button -->
+                                        <button class="fullscreen-btn hover:text-teal-400 transition-colors"
+                                            aria-label="ملء الشاشة">
+                                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                                <path
+                                                    d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            </section>
+
+            <!-- قسم: هاليدات متعددة الهالوجين -->
+            <section id="multi-halides" class="content-section">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+                    هاليدات الألكيل متعددة الهالوجين
+                </h2>
+                <p class="text-gray-800 dark:text-gray-200 leading-relaxed mb-4">
+                    يمكن استبدال أكثر من ذرة هيدروجين في الألكان بذرات هالوجين لتكوين
+                    هاليدات ثنائية أو ثلاثية أو رباعية الهالوجين، وقد تكون الذرات
+                    المستبدلة على نفس الكربون أو على كربونات مختلفة.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
+                        <h3 class="font-semibold mb-2">مثال: رباعي كلورو ميثان</h3>
+                        <pre dir="ltr" class="bg-gray-100 dark:bg-gray-700 rounded p-3 text-sm overflow-x-auto">
+CCl₄   (رباعي كلورو ميثان)</pre>
+                    </div>
+                    <div class="p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
+                        <h3 class="font-semibold mb-2">مثال: ثلاثي كلورو ميثان</h3>
+                        <pre dir="ltr" class="bg-gray-100 dark:bg-gray-700 rounded p-3 text-sm overflow-x-auto">
+CHCl₃  (ثلاثي كلورو ميثان)</pre>
+                    </div>
+                </div>
+
+                <!-- مكان لصورة توضح توزيع الهالوجين -->
+                <div class="mt-4 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm text-center">
+                    <h3 class="font-bold mb-2">مقارنة بين هاليدات أحادية ومتعددة الهالوجين</h3>
+                    <img src="../images/multi_halogen_alkyl.png"
+                        alt="رسم يقارن بين هاليد ألكيل أحادي الهالوجين وهاليدات متعددة الهالوجين على نفس ذرة الكربون أو على ذرات مختلفة"
+                        class="mx-auto rounded-lg shadow-sm max-h-72 object-contain" />
+                </div>
+            </section>
+
+            <!-- القسم: أهم التفاعلات -->
+            <section id="reactions" class="content-section">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+                    أهم التفاعلات الكيميائية لهاليدات الألكيل
+                </h2>
+                <p class="text-gray-800 dark:text-gray-200 leading-relaxed mb-4">
+                    تمتاز هاليدات الألكيل بقابلية عالية لتفاعلات التعويض النيوكليوفيلي
+                    وسحب HX لتكوين الألكينات، إضافة إلى قدرتها على تكوين كواشف غرينيار
+                    المهمة في تحضير مركبات عضوية أخرى.
+                </p>
+
+                <!-- أ) مع KOH المائي: تكوين كحول -->
+                <div class="p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm mb-4">
+                    <h3 class="font-semibold text-teal-700 dark:text-teal-300 mb-2">
+                        1. تفاعل هاليد الألكيل مع KOH المائي (تحويله إلى كحول)
+                    </h3>
+                    <p class="text-gray-800 dark:text-gray-200 mb-2">
+                        يتفاعل هاليد الألكيل مع هيدروكسيد البوتاسيوم المائي باستبدال
+                        ذرة الهالوجين بمجموعة (OH) لتكوين كحول مناسب مع ملح البوتاسيوم للهاليد.
+                    </p>
+                    <p class="mt-4 font-semibold text-gray-700 dark:text-gray-300 text-lg">المعادلة العامة:</p>
+                    <div
+                        class="bg-gradient-to-r from-blue-50 to-green-50 dark:from-gray-700 dark:to-gray-800 rounded-xl p-6 my-4 border-2 border-blue-200 dark:border-blue-800 shadow-md">
+                        <div class="flex flex-wrap items-center justify-center gap-3 text-2xl font-mono" dir="ltr">
+                            <span class="text-blue-600 dark:text-blue-400 font-bold">R—X</span>
+                            <span class="text-gray-600 dark:text-gray-400 text-xl font-bold">+</span>
+                            <span class="text-purple-600 dark:text-purple-400 font-bold">KOH<sub
+                                    class="text-sm">(aq)</sub></span>
+                            <span class="text-gray-500 dark:text-gray-400 text-3xl">→</span>
+                            <span class="text-green-600 dark:text-green-400 font-bold">R—OH</span>
+                            <span class="text-gray-600 dark:text-gray-400 text-xl font-bold">+</span>
+                            <span class="text-orange-600 dark:text-orange-400 font-bold">KX</span>
+                        </div>
+                    </div>
+
+                    <p
+                        class="mt-6 font-bold text-teal-700 dark:text-teal-300 text-lg bg-teal-50 dark:bg-teal-900/30 p-3 rounded-lg border-r-4 border-teal-500">
+                        💡 مثال: تحويل برومو إيثان إلى إيثانول</p>
+                    <div
+                        class="bg-gradient-to-r from-cyan-50 to-emerald-50 dark:from-gray-700 dark:to-gray-800 rounded-xl p-6 my-4 border-2 border-cyan-200 dark:border-cyan-800 shadow-md">
+                        <div class="flex flex-wrap items-center justify-center gap-3 text-2xl font-mono" dir="ltr">
+                            <div class="text-center">
+                                <span class="text-blue-600 dark:text-blue-400 font-bold">CH₃—CH₂Br</span>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">(برومو إيثان)</p>
+                            </div>
+                            <span class="text-gray-600 dark:text-gray-400 text-xl font-bold">+</span>
+                            <span class="text-purple-600 dark:text-purple-400 font-bold">KOH<sub
+                                    class="text-sm">(aq)</sub></span>
+                            <span class="text-gray-500 dark:text-gray-400 text-3xl">→</span>
+                            <div class="text-center">
+                                <span class="text-green-600 dark:text-green-400 font-bold">CH₃—CH₂OH</span>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">(إيثانول)</p>
+                            </div>
+                            <span class="text-gray-600 dark:text-gray-400 text-xl font-bold">+</span>
+                            <span class="text-orange-600 dark:text-orange-400 font-bold">KBr</span>
+                        </div>
+                    </div>
+
+                    <img src="../images/1. تفاعل هاليد الألكيل مع KOH المائي (تحويله إلى كحول).png" alt="1. تفاعل هاليد الألكيل مع KOH المائي (تحويله إلى كحول)
+
+" class="mx-auto rounded-lg shadow-sm w-full max-w-2xl object-contain" />
+                </div>
+
+                <!-- ب) مع KOH الكحولي: تكوين ألكين -->
+                <div class="p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm mb-4">
+                    <h3 class="font-semibold text-teal-700 dark:text-teal-300 mb-2">
+                        2. تفاعل هاليد الألكيل مع KOH الكحولي (سحب HX وتكوين ألكين)
+                    </h3>
+                    <p class="text-gray-800 dark:text-gray-200 mb-2">
+                        في الوسط الكحولي يعمل KOH على سحب HX من هاليد الألكيل لتكوين
+                        رابطة مزدوجة، أي يتحول المركب إلى ألكين.
+                    </p>
+                    <p class="mt-4 font-semibold text-gray-700 dark:text-gray-300 text-lg">المعادلة:</p>
+                    <div
+                        class="bg-gradient-to-r from-pink-50 to-rose-50 dark:from-gray-700 dark:to-gray-800 rounded-xl p-6 my-4 border-2 border-pink-200 dark:border-pink-800 shadow-md">
+                        <div class="flex flex-wrap items-center justify-center gap-3 text-2xl font-mono" dir="ltr">
+                            <div class="text-center">
+                                <span class="text-blue-600 dark:text-blue-400 font-bold">CH₃—CH₂Br</span>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">(برومو إيثان)</p>
+                            </div>
+                            <span class="text-gray-600 dark:text-gray-400 text-xl font-bold">+</span>
+                            <span class="text-purple-600 dark:text-purple-400 font-bold">KOH<sub
+                                    class="text-sm">(alc)</sub></span>
+                            <span class="text-gray-500 dark:text-gray-400 text-3xl">→</span>
+                            <div class="text-center">
+                                <span class="text-red-600 dark:text-red-400 font-bold">CH₂═CH₂</span>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">(إيثين)</p>
+                            </div>
+                            <span class="text-gray-600 dark:text-gray-400 text-xl font-bold">+</span>
+                            <span class="text-orange-600 dark:text-orange-400 font-bold">KBr</span>
+                            <span class="text-gray-600 dark:text-gray-400 text-xl font-bold">+</span>
+                            <span class="text-cyan-600 dark:text-cyan-400 font-bold">H₂O</span>
+                        </div>
+                    </div>
+                    <img src="../images/2. تفاعل هاليد الألكيل مع KOH الكحولي (سحب HX وتكوين ألكين).png" alt="2. تفاعل هاليد الألكيل مع KOH الكحولي (سحب HX وتكوين ألكين)
+
+" class="mx-auto rounded-lg shadow-sm w-full max-w-2xl object-contain" />
+                </div>
+
+                <!-- ج) مع المغنيسيوم: كاشف غرينيار -->
+                <div class="p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm mb-4">
+                    <h3 class="font-semibold text-teal-700 dark:text-teal-300 mb-2">
+                        3. تكوين كاشف غرينيار مع فلز المغنيسيوم
+                    </h3>
+                    <p class="text-gray-800 dark:text-gray-200 mb-2">
+                        يتفاعل هاليد الألكيل مع المغنيسيوم في مذيب أثيري جاف لتكوين
+                        مركب من نوع R–MgX يُسمَّى كاشف غرينيار، وهو كاشف فعال في بناء
+                        سلاسل كربونية جديدة.
+                    </p>
+                    <p class="mt-4 font-semibold text-gray-700 dark:text-gray-300 text-lg">المعادلة العامة:</p>
+                    <div
+                        class="bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-gray-700 dark:to-gray-800 rounded-xl p-6 my-4 border-2 border-amber-200 dark:border-amber-800 shadow-md">
+                        <div class="flex flex-wrap items-center justify-center gap-3 text-2xl font-mono" dir="ltr">
+                            <span class="text-blue-600 dark:text-blue-400 font-bold">R—Br</span>
+                            <span class="text-gray-600 dark:text-gray-400 text-xl font-bold">+</span>
+                            <span
+                                class="text-gray-700 dark:text-gray-300 font-bold bg-gray-200 dark:bg-gray-600 px-3 py-1 rounded">Mg</span>
+                            <div class="flex flex-col items-center mx-2">
+                                <span class="text-green-700 dark:text-green-400 text-sm font-bold mb-1">مذيب أثيري
+                                    جاف</span>
+                                <span class="text-gray-500 dark:text-gray-400 text-3xl">→</span>
+                            </div>
+                            <span class="text-purple-600 dark:text-purple-400 font-bold">R—MgBr</span>
+                        </div>
+                    </div>
+
+                    <p
+                        class="mt-6 font-bold text-teal-700 dark:text-teal-300 text-lg bg-teal-50 dark:bg-teal-900/30 p-3 rounded-lg border-r-4 border-teal-500">
+                        💡 مثال: تكوين كاشف غرينيار من برومو إيثان</p>
+                    <div
+                        class="bg-gradient-to-r from-indigo-50 to-violet-50 dark:from-gray-700 dark:to-gray-800 rounded-xl p-6 my-4 border-2 border-indigo-200 dark:border-indigo-800 shadow-md">
+                        <div class="flex flex-wrap items-center justify-center gap-3 text-2xl font-mono" dir="ltr">
+                            <div class="text-center">
+                                <span class="text-blue-600 dark:text-blue-400 font-bold">CH₃—CH₂Br</span>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">(برومو إيثان)</p>
+                            </div>
+                            <span class="text-gray-600 dark:text-gray-400 text-xl font-bold">+</span>
+                            <span
+                                class="text-gray-700 dark:text-gray-300 font-bold bg-gray-200 dark:bg-gray-600 px-3 py-1 rounded">Mg</span>
+                            <span class="text-gray-500 dark:text-gray-400 text-3xl">→</span>
+                            <div class="text-center">
+                                <span class="text-purple-600 dark:text-purple-400 font-bold">CH₃—CH₂—MgBr</span>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">(كاشف غرينيار)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="../images/3. تكوين كاشف غرينيار مع فلز المغنيسيوم.png" alt="3. تكوين كاشف غرينيار مع فلز المغنيسيوم
+
+" class="mx-auto rounded-lg shadow-sm w-full max-w-2xl object-contain" />
+
+                </div>
+
+
+                <!-- Video Section - Alkyl Halide Reactions -->
+                <div
+                    class="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 rounded-xl shadow-lg p-6 mb-8 border-2 border-emerald-300 dark:border-emerald-700">
+                    <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center">
+                        <svg class="w-8 h-8 mr-3 text-emerald-500" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        فيديو: هاليدات الألكيل - مفترق طرق
+                    </h3>
+                    <p class="text-gray-700 dark:text-gray-300 mb-4">
+                        شاهد تفاعلات هاليدات الألكيل المختلفة مع KOH والمغنيسيوم
+                    </p>
+                    <div class="video-player-container relative group">
+                        <video id="halides-reactions-video" muted playsinline
+                            class="custom-video w-full h-full rounded-lg shadow-md">
+                            <source src="../videos/هاليدات_الألكيل__مفترق_طرق.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div
+                            class="video-controls absolute bottom-0 left-0 right-0 flex items-center justify-between p-4 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-b-lg">
+                            <button id="play-pause-halides-react"
+                                class="play-pause-btn text-white hover:text-emerald-400 transition-colors">
+                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+                                </svg>
+                            </button>
+                            <div class="flex-1 mx-4">
+                                <input id="progress-halides-react" type="range" min="0" max="100" value="0"
+                                    class="w-full h-1 bg-gray-600 rounded-lg appearance-none cursor-pointer slider">
+                            </div>
+                            <span id="time-halides-react" class="text-white text-sm mr-2">0:00 / 0:00</span>
+                            <button id="mute-halides-react"
+                                class="mute-btn text-white hover:text-emerald-400 transition-colors mr-2">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM14.657 2.929a1 1 0 011.414 0A9.972 9.972 0 0119 10a9.972 9.972 0 01-2.929 7.071 1 1 0 01-1.414-1.414A7.971 7.971 0 0017 10c0-2.21-.894-4.208-2.343-5.657a1 1 0 010-1.414zm-2.829 2.828a1 1 0 011.415 0A5.983 5.983 0 0115 10a5.984 5.984 0 01-1.757 4.243 1 1 0 01-1.415-1.415A3.984 3.984 0 0013 10a3.983 3.983 0 00-1.172-2.828 1 1 0 010-1.415z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <button id="speed-halides-react"
+                                class="text-white hover:text-emerald-400 transition-colors text-sm mr-2">1x</button>
+                            <button id="fullscreen-halides-react"
+                                class="fullscreen-btn text-white hover:text-emerald-400 transition-colors">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- القسم: الاختبار التفاعلي -->
+            <section id="quiz" class="content-section">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4 text-center">
+                    اختبر نفسك في هاليدات الألكيل
+                </h2>
+                <p class="mt-2 mb-4 text-gray-800 dark:text-gray-200 leading-relaxed text-center">
+                    أجب عن الأسئلة التالية لمراجعة مفاهيم التصنيف والتسمية والتحضير
+                    لهاليدات الألكيل.
+                </p>
+
+                <div class="mt-4 p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4 text-center">
+                        ! جرّب حظّك
+                    </h3>
+                    <div class="text-center">
+                        <p class="text-lg text-gray-800 dark:text-gray-200 mb-2">
+                            <span id="quiz-item-type" class="font-bold text-teal-700 dark:text-teal-400"></span>
+                        </p>
+                        <p id="quiz-question"
+                            class="text-xl font-mono bg-gray-100 dark:bg-gray-700 dark:text-white p-3 rounded-md my-4 text-left"
+                            dir="ltr"></p>
+                        <p class="text-sm text-gray-500 mb-2">
+                            اكتب الصيغة أو الاسم الصحيح حسب ما يطلبه السؤال ثم اضغط إرسال.
+                        </p>
+                        <input type="text" id="quiz-answer"
+                            class="w-full md:w-2/3 p-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md text-center"
+                            placeholder="اكتب الإجابة هنا" />
+                        <div class="mt-4">
+                            <button id="quiz-submit"
+                                class="bg-teal-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-teal-700 transition-colors">
+                                إرسال
+                            </button>
+                            <button id="quiz-next"
+                                class="bg-gray-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-gray-600 transition-colors ml-2">
+                                سؤال جديد
+                            </button>
+                        </div>
+                        <p id="quiz-feedback" class="mt-4 h-6 text-lg font-semibold"></p>
+                    </div>
+                </div>
+            </section>
+    </div>
+    </main>
+    </div>
+
+    <!-- منطق التنقل والاختبار والفيديو -->
+    <script src="../js/alkyl_halides.js"></script>
+    <script src="../js/progress.js"></script>
+</body>
+
+</html>

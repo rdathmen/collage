@@ -1,2480 +1,0 @@
-﻿<!DOCTYPE html>
-<html lang="ar" dir="ltr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مستكشف الايثرات</title>
-    <script src="../js/tailwindcss.js"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-        }
-    </script>
-    <script src="../js/chart.min.js"></script>
-    <link rel="stylesheet" href="../Style/topics.css">
-    <link rel="stylesheet" href="../Style/topics-override.css">
-    <script src="../js/theme.js"></script>
-    <script src="../js/sidebar.js"></script>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0.7;
-            }
-        }
-
-        @keyframes bounce {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        .animate-in {
-            animation: fadeInUp 0.6s ease-out;
-        }
-
-        .hover\:shadow-xl:hover {
-            transform: translateY(-5px);
-            transition: all 0.3s ease;
-        }
-
-        .quiz-option {
-            transition: all 0.3s ease;
-        }
-
-        .quiz-option:hover {
-            transform: translateX(-5px);
-        }
-
-        img {
-            transition: transform 0.3s ease;
-        }
-
-        img:hover {
-            transform: scale(1.05);
-        }
-
-        .content-section {
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-
-        .card-interactive {
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .card-interactive:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-
-        .card-interactive:active {
-            transform: translateY(-4px) scale(0.98);
-        }
-
-        @keyframes shimmer {
-            0% {
-                background-position: -1000px 0;
-            }
-
-            100% {
-                background-position: 1000px 0;
-            }
-        }
-
-        .shimmer {
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            background-size: 1000px 100%;
-            animation: shimmer 2s infinite;
-        }
-
-        @keyframes shake {
-
-            0%,
-            100% {
-                transform: translateX(0);
-            }
-
-            25% {
-                transform: translateX(-10px);
-            }
-
-            75% {
-                transform: translateX(10px);
-            }
-        }
-
-        .benefits-quiz-option {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .benefits-quiz-option::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.5s;
-        }
-
-        .benefits-quiz-option:hover::before {
-            left: 100%;
-        }
-
-        .benefits-quiz-option.bg-green-500 {
-            animation: correctPulse 0.6s ease;
-        }
-
-        .benefits-quiz-option.bg-red-500 {
-            animation: wrongShake 0.6s ease;
-        }
-
-        @keyframes correctPulse {
-            0% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.05);
-                box-shadow: 0 0 20px rgba(34, 197, 94, 0.5);
-            }
-
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        @keyframes wrongShake {
-
-            0%,
-            100% {
-                transform: translateX(0);
-            }
-
-            25% {
-                transform: translateX(-10px);
-            }
-
-            75% {
-                transform: translateX(10px);
-            }
-        }
-
-        .quiz-icon {
-            min-width: 24px;
-            text-align: center;
-        }
-
-        #quiz-score {
-            animation: fadeInUp 0.5s ease;
-        }
-
-        /* SVG Chemical Equation Styles */
-        svg text {
-            font-family: 'Courier New', monospace;
-        }
-
-        /* Dark mode compatible colors for SVG */
-        .dark svg .dark-fill-blue {
-            fill: #60A5FA;
-        }
-
-        .dark svg .dark-fill-green {
-            fill: #34D399;
-        }
-
-        .dark svg .dark-fill-red {
-            fill: #F87171;
-        }
-
-        .dark svg .dark-fill-yellow {
-            fill: #FDE047;
-        }
-    </style>
-    <script src="../js/sidebar.js"></script>`r`n
-</head>
-
-<body class="text-gray-900 dark:text-gray-100 bg-stone-50 dark:bg-gray-900 transition-colors duration-300">
-    <div class="flex flex-col md:flex-row min-h-screen">
-        <header class="md:hidden flex justify-between items-center p-4 bg-white dark:bg-gray-800 shadow-md w-full">
-            <a href="../index.php"
-                class="p-2 rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                </svg>
-            </a>
-            <h1 class="text-xl font-bold text-teal-700 dark:text-teal-400">تحضير الايثرات</h1>
-            <div class="flex items-center gap-2">
-                <button class="theme-toggle p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-                    aria-label="Toggle Dark Mode">
-                    <svg class="w-6 h-6 hidden dark:block text-yellow-400" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                    </svg>
-                    <svg class="w-6 h-6 block dark:hidden text-gray-600" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                    </svg>
-                </button>
-                <button id="menu-toggle" class="p-2 rounded-md text-gray-700 hover:bg-gray-100">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16m-7 6h7" />
-                    </svg>
-                </button>
-            </div>
-        </header>
-
-        <nav id="sidebar"
-            class="w-full md:w-64 bg-white dark:bg-gray-800 md:shadow-lg p-4 space-y-2 shrink-0 hidden md:block md:sticky md:top-0 md:h-screen overflow-y-auto border-l dark:border-gray-700">
-            <h1 class="text-2xl font-bold text-teal-700 dark:text-teal-400 mb-6 hidden md:block">الايثرات</h1>
-            <ul class="space-y-3 text-center font-bold" id="main-nav-links">
-                <li><a href="#intro"
-                        class="nav-link active text-lg font-bold hover:bg-teal-100 dark:hover:bg-teal-900 hover:text-teal-700 dark:hover:text-teal-300 rounded-lg px-3 py-2 transition-all duration-300 hover:scale-105 block">مقدمة</a>
-                </li>
-                <li>
-                    <button
-                        class="title w-full text-center flex justify-center items-center hover:bg-teal-100 dark:hover:bg-teal-900 hover:text-teal-700 dark:hover:text-teal-300 rounded-lg px-3 py-2 transition-all duration-300 hover:scale-105"
-                        id="toggle-button">
-                        <span class="text-lg font-bold">طرق التحظير</span>
-                        <svg id="toggle-icon" class="w-5 h-5 transition-transform duration-200"
-                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd"
-                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </button>
-                    <ul class="sub-menu hidden ml-4 space-y-2 mt-2" id="sub-menu">
-                        <li><a href="#williamson" class="nav-link block py-2">طريقة وليمسون</a></li>
-                        <li><a href="#dehydration" class="nav-link block py-2">نزع الماء من الكحولات</a></li>
-                    </ul>
-                </li>
-                <li><a href="#benefits"
-                        class="nav-link text-lg font-bold hover:bg-teal-100 dark:hover:bg-teal-900 hover:text-teal-700 dark:hover:text-teal-300 rounded-lg px-3 py-2 transition-all duration-300 hover:scale-105 block">المنافع</a>
-                </li>
-                <li class="w-full"><a href="#quiz"
-                        class="nav-link text-lg font-bold hover:bg-teal-100 dark:hover:bg-teal-900 hover:text-teal-700 dark:hover:text-teal-300 rounded-lg px-3 py-2 transition-all duration-300 hover:scale-105 block">
-                        اختبر
-                        معلوماتك
-                    </a></li>
-            </ul>
-            <a href="./cards.php"
-                class="flex items-center justify-center w-full font-bold py-2 px-4 rounded-lg hover:bg-teal-700 hover:text-white transition-all duration-300 hover:scale-105 hover:shadow-lg mb-4">
-                <span class="text-lg font-bold"> العودة </span>
-            </a>
-            <button
-                class="theme-toggle w-full flex items-center justify-center p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300 hover:scale-105 hover:shadow-lg mt-4"
-                aria-label="Toggle Dark Mode">
-                <span class="ml-2 text-lg font-bold text-gray-700 dark:text-gray-200">الوضع الليلي</span>
-                <svg class="w-6 h-6 hidden dark:block text-yellow-400" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                </svg>
-                <svg class="w-6 h-6 block dark:hidden text-gray-600" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                </svg>
-            </button>
-        </nav>
-
-        <main class="flex-1 p-6 md:p-10 overflow-y-auto">
-            <div class="max-w-4xl mx-auto">
-
-                <!-- Intro Section -->
-                <section id="intro" class="content-section active">
-                    <!-- Hero Definition Card -->
-                    <div
-                        class="bg-gradient-to-br from-purple-600 to-indigo-800 rounded-2xl p-8 text-white shadow-xl mb-10 relative overflow-hidden">
-                        <div class="relative z-10">
-                            <h2 class="text-4xl font-bold mb-4">الايثرات (Ethers)</h2>
-                            <p class="text-xl leading-relaxed opacity-90 mb-6">
-                                هي مركبات عضوية تحتوي على ذرة أكسجين مرتبطة بمجموعتي ألكيل أو أريل.
-                            </p>
-                            <div class="flex flex-wrap gap-4">
-                                <div class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/30">
-                                    <span class="block text-xs opacity-75">الصيغة العامة</span>
-                                    <span class="font-mono text-xl font-bold">R-O-R'</span>
-                                </div>
-                                <div class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/30">
-                                    <span class="block text-xs opacity-75">المجموعة الوظيفية</span>
-                                    <span class="font-bold">رابطة إيثرية (C-O-C)</span>
-                                </div>
-                            </div>
-                        </div>
-                        <img src="../images/اثيرات/ether_general_structure.png" alt="Ether structure"
-                            class="absolute -right-16 -bottom-16 w-64 opacity-20">
-                    </div>
-                    <h3
-                        class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-6 border-r-4 border-purple-500 pr-3">
-                        أنواع الايثرات
-                    </h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-                        <!-- Symmetrical -->
-                        <div
-                            class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 hover:shadow-xl transition-shadow border-t-4 border-teal-500 group text-center card-interactive">
-                            <h4 class="text-lg font-bold text-gray-800 dark:text-white mb-2">ايثرات متماثلة</h4>
-                            <p class="text-gray-600 dark:text-gray-300 mb-4">
-                                تكون فيها مجموعتا الألكيل أو الأريل المرتبطتان بذرة الأكسجين متطابقتين.
-                            </p>
-                            <div
-                                class="bg-gray-50 dark:bg-gray-700 p-2 rounded text-center text-teal-500 dark:text-teal-300 font-mono text-xl">
-                                CH₃-O-CH₃ (ثنائي ميثيل إيثر)
-                            </div>
-                        </div>
-
-                        <!-- Asymmetrical -->
-                        <div
-                            class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 hover:shadow-xl transition-shadow border-t-4 border-pink-500 group text-center card-interactive">
-                            <h4 class="text-lg font-bold text-gray-800 dark:text-white mb-2">ايثرات غير متماثلة</h4>
-                            <p class="text-gray-600 dark:text-gray-300 mb-4">
-                                تكون فيها مجموعتا الألكيل أو الأريل المرتبطتان بذرة الأكسجين مختلفتين.
-                            </p>
-                            <div
-                                class="bg-gray-50 dark:bg-gray-700 p-2 rounded text-center text-pink-500 dark:text-pink-300 font-mono text-xl">
-                                CH₃-O-CH₂CH₃ (إيثيل ميثيل إيثر)
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 mb-8">
-                        <img src="../images/اثيرات/انواع لاثيرات.jpg" alt="أنواع الإيثرات"
-                            class="mx-auto rounded-lg shadow-md w-full max-w-4xl">
-                        <p class="text-center text-sm text-gray-600 dark:text-gray-400 mt-4">أنواع الإيثرات: المتماثلة
-                            وغير المتماثلة</p>
-                    </div>
-                    <!-- Physical Properties Section -->
-                    <div class="mt-12">
-                        <div
-                            class="bg-gradient-to-br from-cyan-600 to-blue-800 rounded-2xl p-8 text-white shadow-xl mb-10 relative overflow-hidden">
-                            <div class="relative z-10">
-                                <h3 class="text-4xl font-bold mb-4 flex items-center">
-                                    <svg class="w-10 h-10 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                                    </svg>
-                                    الخواص الفيزيائية للإيثرات
-                                </h3>
-                                <p class="text-xl leading-relaxed opacity-90">
-                                    تمتلك الإيثرات خصائص فيزيائية مميزة تجعلها مفيدة في العديد من التطبيقات الصناعية
-                                    والكيميائية.
-                                </p>
-                            </div>
-                            <svg class="absolute -right-16 -bottom-16 w-64 opacity-20" fill="currentColor"
-                                viewBox="0 0 24 24">
-                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                            </svg>
-                        </div>
-
-                        <!-- Boiling Point -->
-                        <div
-                            class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 mb-8 border-t-4 border-red-500 hover:shadow-xl transition-shadow">
-                            <div class="flex items-center mb-6">
-                                <div class="bg-red-100 dark:bg-red-900/30 p-4 rounded-lg mr-4">
-                                    <svg class="w-8 h-8 text-red-600 dark:text-red-400" fill="none"
-                                        stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                                    </svg>
-                                </div>
-                                <h4 class="text-2xl font-bold text-gray-800 dark:text-white">درجة الغليان</h4>
-                            </div>
-                            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-6 text-lg">
-                                تتميز الإيثرات بدرجات غليان <strong class="text-red-600 dark:text-red-400">منخفضة
-                                    نسبياً</strong> مقارنة بالكحولات المماثلة في الوزن الجزيئي.
-                            </p>
-
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                                <div class="bg-red-50 dark:bg-red-900/20 rounded-lg p-6">
-                                    <h5 class="font-bold text-lg text-gray-800 dark:text-white mb-3">السبب:</h5>
-                                    <p class="text-gray-700 dark:text-gray-300 mb-4">
-                                        عدم قدرة جزيئات الإيثرات على تكوين <strong>روابط هيدروجينية</strong> بين
-                                        جزيئاتها، على عكس الكحولات.
-                                    </p>
-                                    <div class="bg-white dark:bg-gray-700 rounded-lg p-4">
-                                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">مثال:</p>
-                                        <div class="space-y-2">
-                                            <p class="font-mono text-sm"><span
-                                                    class="text-red-600 dark:text-red-400">CH₃CH₂-O-CH₂CH₃</span> →
-                                                -24°C</p>
-                                            <p class="font-mono text-sm"><span
-                                                    class="text-blue-600 dark:text-blue-400">CH₃CH₂-OH</span> → 78°C</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-6">
-                                    <h5 class="font-bold text-lg text-gray-800 dark:text-white mb-3">المقارنة:</h5>
-                                    <div class="space-y-3">
-                                        <div class="flex items-center justify-between">
-                                            <span class="text-gray-700 dark:text-gray-300">الإيثرات</span>
-                                            <span class="font-bold text-red-600 dark:text-red-400">منخفضة</span>
-                                        </div>
-                                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
-                                            <div class="bg-red-500 h-3 rounded-full" style="width: 30%"></div>
-                                        </div>
-                                        <div class="flex items-center justify-between mt-4">
-                                            <span class="text-gray-700 dark:text-gray-300">الكحولات</span>
-                                            <span class="font-bold text-blue-600 dark:text-blue-400">عالية</span>
-                                        </div>
-                                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
-                                            <div class="bg-blue-500 h-3 rounded-full" style="width: 80%"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Solubility -->
-                        <div
-                            class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 mb-8 border-t-4 border-blue-500 hover:shadow-xl transition-shadow">
-                            <div class="flex items-center mb-6">
-                                <div class="bg-blue-100 dark:bg-blue-900/30 p-4 rounded-lg mr-4">
-                                    <svg class="w-8 h-8 text-blue-600 dark:text-blue-400" fill="none"
-                                        stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                                    </svg>
-                                </div>
-                                <h4 class="text-2xl font-bold text-gray-800 dark:text-white">الذوبانية</h4>
-                            </div>
-
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                                <div class="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-6">
-                                    <h5 class="font-bold text-lg text-gray-800 dark:text-white mb-3 flex items-center">
-                                        <span class="text-2xl mr-2">💧</span>
-                                        في الماء
-                                    </h5>
-                                    <p class="text-gray-700 dark:text-gray-300 mb-4">
-                                        تذوب الإيثرات <strong class="text-blue-600 dark:text-blue-400">بشكل
-                                            طفيف</strong> في الماء بسبب:
-                                    </p>
-                                    <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mr-4">
-                                        <li>قدرتها على تكوين روابط هيدروجينية مع الماء</li>
-                                        <li>الطبيعة القطبية الضعيفة لجزيئات الإيثرات</li>
-                                        <li>كلما زاد حجم الألكيل، قلت الذوبانية</li>
-                                    </ul>
-                                    <div class="mt-4 bg-white dark:bg-gray-700 rounded-lg p-3">
-                                        <p class="text-sm text-gray-600 dark:text-gray-400">مثال: ثنائي إيثيل إيثر يذوب
-                                            بنسبة ~7.5% في الماء</p>
-                                    </div>
-                                </div>
-
-                                <div class="bg-green-50 dark:bg-green-900/20 rounded-lg p-6">
-                                    <h5 class="font-bold text-lg text-gray-800 dark:text-white mb-3 flex items-center">
-                                        <span class="text-2xl mr-2">⚗️</span>
-                                        في المذيبات العضوية
-                                    </h5>
-                                    <p class="text-gray-700 dark:text-gray-300 mb-4">
-                                        تذوب الإيثرات <strong class="text-green-600 dark:text-green-400">بشكل
-                                            ممتاز</strong> في:
-                                    </p>
-                                    <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mr-4">
-                                        <li>المذيبات العضوية غير القطبية (الهكسان، البنزين)</li>
-                                        <li>المذيبات العضوية القطبية (الإيثانول، الأسيتون)</li>
-                                        <li>الكلوروفورم والكربون رباعي الكلور</li>
-                                    </ul>
-                                    <div class="mt-4 bg-white dark:bg-gray-700 rounded-lg p-3">
-                                        <p class="text-sm text-gray-600 dark:text-gray-400">هذه الخاصية تجعلها مذيبات
-                                            ممتازة</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Polarity -->
-                        <div
-                            class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 mb-8 border-t-4 border-purple-500 hover:shadow-xl transition-shadow">
-                            <div class="flex items-center mb-6">
-                                <div class="bg-purple-100 dark:bg-purple-900/30 p-4 rounded-lg mr-4">
-                                    <svg class="w-8 h-8 text-purple-600 dark:text-purple-400" fill="none"
-                                        stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                    </svg>
-                                </div>
-                                <h4 class="text-2xl font-bold text-gray-800 dark:text-white">القطبية</h4>
-                            </div>
-
-                            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-6 text-lg">
-                                الإيثرات هي مركبات <strong class="text-purple-600 dark:text-purple-400">قطبية
-                                    ضعيفة</strong> بسبب:
-                            </p>
-
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-                                <div class="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-6 text-center">
-                                    <div class="text-4xl mb-3">⚡</div>
-                                    <h5 class="font-bold text-lg text-gray-800 dark:text-white mb-2">عزم ثنائي القطب
-                                    </h5>
-                                    <p class="text-gray-700 dark:text-gray-300 text-sm">
-                                        وجود ذرة الأكسجين القطبية تخلق عزم ثنائي قطب صغير
-                                    </p>
-                                </div>
-                                <div class="bg-indigo-50 dark:bg-indigo-900/20 rounded-lg p-6 text-center">
-                                    <div class="text-4xl mb-3">🔗</div>
-                                    <h5 class="font-bold text-lg text-gray-800 dark:text-white mb-2">زاوية الرابطة</h5>
-                                    <p class="text-gray-700 dark:text-gray-300 text-sm">
-                                        زاوية C-O-C حوالي 110° تقلل من القطبية الكلية
-                                    </p>
-                                </div>
-                                <div class="bg-pink-50 dark:bg-pink-900/20 rounded-lg p-6 text-center">
-                                    <div class="text-4xl mb-3">💫</div>
-                                    <h5 class="font-bold text-lg text-gray-800 dark:text-white mb-2">التأثير</h5>
-                                    <p class="text-gray-700 dark:text-gray-300 text-sm">
-                                        قطبية كافية للذوبان في الماء، لكن أضعف من الكحولات
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-6">
-                                <h5 class="font-bold text-lg text-gray-800 dark:text-white mb-4">مقارنة القطبية:</h5>
-                                <div class="space-y-3">
-                                    <div class="flex items-center justify-between">
-                                        <span class="text-gray-700 dark:text-gray-300">الكحولات</span>
-                                        <div class="flex-1 mx-4">
-                                            <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-3">
-                                                <div class="bg-blue-500 h-3 rounded-full" style="width: 95%"></div>
-                                            </div>
-                                        </div>
-                                        <span class="font-bold text-blue-600 dark:text-blue-400">عالية جداً</span>
-                                    </div>
-                                    <div class="flex items-center justify-between">
-                                        <span class="text-gray-700 dark:text-gray-300">الإيثرات</span>
-                                        <div class="flex-1 mx-4">
-                                            <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-3">
-                                                <div class="bg-purple-500 h-3 rounded-full" style="width: 60%"></div>
-                                            </div>
-                                        </div>
-                                        <span class="font-bold text-purple-600 dark:text-purple-400">متوسطة</span>
-                                    </div>
-                                    <div class="flex items-center justify-between">
-                                        <span class="text-gray-700 dark:text-gray-300">الألكانات</span>
-                                        <div class="flex-1 mx-4">
-                                            <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-3">
-                                                <div class="bg-gray-500 h-3 rounded-full" style="width: 5%"></div>
-                                            </div>
-                                        </div>
-                                        <span class="font-bold text-gray-600 dark:text-gray-400">ضعيفة جداً</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Odor -->
-                        <div
-                            class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 mb-8 border-t-4 border-yellow-500 hover:shadow-xl transition-shadow">
-                            <div class="flex items-center mb-6">
-                                <div class="bg-yellow-100 dark:bg-yellow-900/30 p-4 rounded-lg mr-4">
-                                    <svg class="w-8 h-8 text-yellow-600 dark:text-yellow-400" fill="none"
-                                        stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                                    </svg>
-                                </div>
-                                <h4 class="text-2xl font-bold text-gray-800 dark:text-white">الرائحة</h4>
-                            </div>
-
-                            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-6 text-lg">
-                                تمتلك الإيثرات <strong class="text-yellow-600 dark:text-yellow-400">روائح مميزة
-                                    ومقبولة</strong> تجعلها مفيدة في العديد من التطبيقات.
-                            </p>
-
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div class="bg-yellow-50 dark:bg-yellow-900/20 rounded-lg p-6">
-                                    <h5 class="font-bold text-lg text-gray-800 dark:text-white mb-4">خصائص الرائحة:</h5>
-                                    <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mr-4">
-                                        <li><strong>ثنائي إيثيل إيثر:</strong> رائحة حلوة ومميزة</li>
-                                        <li><strong>إيثرات الأريل:</strong> روائح عطرية قوية</li>
-                                        <li><strong>الإيثرات الحلقية:</strong> روائح مميزة حسب الحجم</li>
-                                    </ul>
-                                </div>
-                                <div class="bg-orange-50 dark:bg-orange-900/20 rounded-lg p-6">
-                                    <h5 class="font-bold text-lg text-gray-800 dark:text-white mb-4">التطبيقات:</h5>
-                                    <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mr-4">
-                                        <li>صناعة العطور والمنكهات</li>
-                                        <li>إضافة نكهات للطعام</li>
-                                        <li>استخدامات طبية محدودة</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Summary Table -->
-                        <div
-                            class="bg-gradient-to-br from-teal-500 to-cyan-600 rounded-xl shadow-xl p-8 text-white mb-8">
-                            <h4 class="text-2xl font-bold mb-6 text-center">ملخص الخواص الفيزيائية</h4>
-                            <div class="overflow-x-auto">
-                                <table class="w-full bg-white/10 backdrop-blur-sm rounded-lg">
-                                    <thead>
-                                        <tr class="border-b border-white/30">
-                                            <th class="px-6 py-4 text-right font-bold">الخاصية</th>
-                                            <th class="px-6 py-4 text-right font-bold">القيمة/الوصف</th>
-                                            <th class="px-6 py-4 text-right font-bold">المقارنة</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="text-sm">
-                                        <tr class="border-b border-white/20">
-                                            <td class="px-6 py-4 font-semibold">درجة الغليان</td>
-                                            <td class="px-6 py-4">منخفضة</td>
-                                            <td class="px-6 py-4">أقل من الكحولات المماثلة</td>
-                                        </tr>
-                                        <tr class="border-b border-white/20">
-                                            <td class="px-6 py-4 font-semibold">الذوبانية في الماء</td>
-                                            <td class="px-6 py-4">طفيفة</td>
-                                            <td class="px-6 py-4">أقل من الكحولات</td>
-                                        </tr>
-                                        <tr class="border-b border-white/20">
-                                            <td class="px-6 py-4 font-semibold">الذوبانية في المذيبات العضوية</td>
-                                            <td class="px-6 py-4">ممتازة</td>
-                                            <td class="px-6 py-4">مشابهة للألكانات</td>
-                                        </tr>
-                                        <tr class="border-b border-white/20">
-                                            <td class="px-6 py-4 font-semibold">القطبية</td>
-                                            <td class="px-6 py-4">ضعيفة إلى متوسطة</td>
-                                            <td class="px-6 py-4">أقل من الكحولات</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="px-6 py-4 font-semibold">الرائحة</td>
-                                            <td class="px-6 py-4">مميزة ومقبولة</td>
-                                            <td class="px-6 py-4">مختلفة حسب النوع</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </section>
-
-                <!-- Williamson Synthesis Section -->
-                <section id="williamson" class="content-section">
-                    <!-- Hero Section -->
-                    <div
-                        class="bg-gradient-to-br from-blue-600 to-indigo-800 rounded-2xl p-8 text-white shadow-xl mb-10 relative overflow-hidden hover:from-blue-500 hover:to-indigo-700 transition-all duration-300 hover:shadow-2xl hover:scale-[1.02]">
-                        <div class="relative z-10">
-                            <h2 class="text-4xl font-bold mb-4">طريقة وليمسون لتحضير الإيثرات</h2>
-                            <p class="text-xl leading-relaxed opacity-90 mb-6">
-                                طريقة كلاسيكية ومهمة لتحضير الإيثرات المتماثلة وغير المتماثلة، سُميت باسم الكيميائي
-                                الإنجليزي ألكسندر وليمسون الذي طورها في عام 1850.
-                            </p>
-                            <div
-                                class="bg-white/20 backdrop-blur-sm px-6 py-4 rounded-lg border border-white/30 inline-block">
-                                <p class="text-sm opacity-75 mb-2">الصيغة العامة للتفاعل:</p>
-                                <p class="font-mono text-2xl font-bold">R-O⁻Na⁺ + R'-X → R-O-R' + NaX</p>
-                            </div>
-                        </div>
-                        <svg class="absolute -right-16 -bottom-16 w-64 opacity-20" fill="currentColor"
-                            viewBox="0 0 24 24">
-                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                        </svg>
-                    </div>
-
-                    <!-- Visual Explanation -->
-                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 mb-8">
-                        <img src="../images/اثيرات/طريقة وليمسون لتحضير الإيثرات.jpg"
-                            alt="طريقة وليمسون لتحضير الإيثرات" class="mx-auto rounded-lg shadow-md w-full max-w-4xl">
-                        <p class="text-center text-sm text-gray-600 dark:text-gray-400 mt-4">توضيح طريقة وليمسون لتحضير
-                            الإيثرات من الألكوكسيدات وهاليدات الألكيل</p>
-                    </div>
-
-
-
-                    <!-- Overview -->
-                    <div
-                        class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 mb-8 border-t-4 border-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:shadow-xl hover:scale-[1.01] transition-all duration-300">
-                        <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center">
-                            <svg class="w-8 h-8 mr-3 text-blue-500" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                            نظرة عامة
-                        </h3>
-                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-                            طريقة وليمسون هي تفاعل استبدال نوكليوفيلي (SN2) يتضمن هجوم أيون الألكوكسيد (R-O⁻) على ذرة
-                            الكربون في هاليد الألكيل (R'-X)، مما يؤدي إلى تكوين رابطة C-O وإطلاق أيون الهاليد.
-                        </p>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-                            <div class="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-6">
-                                <h4 class="font-bold text-lg text-gray-800 dark:text-white mb-3">المكونات الأساسية:</h4>
-                                <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mr-4">
-                                    <li><strong>ألكوكسيد الصوديوم:</strong> R-O⁻Na⁺</li>
-                                    <li><strong>هاليد ألكيل:</strong> R'-X (X = Cl, Br, I)</li>
-                                    <li><strong>مذيب:</strong> عادة كحول أو ثنائي إيثيل إيثر</li>
-                                </ul>
-                            </div>
-                            <div class="bg-green-50 dark:bg-green-900/20 rounded-lg p-6">
-                                <h4 class="font-bold text-lg text-gray-800 dark:text-white mb-3">النتيجة:</h4>
-                                <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mr-4">
-                                    <li><strong>الإيثر:</strong> R-O-R'</li>
-                                    <li><strong>ملح:</strong> NaX (كلوريد/بروميد/يوديد الصوديوم)</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Mechanism -->
-                    <div
-                        class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 mb-8 border-t-4 border-purple-500 hover:bg-purple-50 dark:hover:bg-purple-900/20 hover:shadow-xl hover:scale-[1.01] transition-all duration-300">
-                        <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-6 flex items-center">
-                            <svg class="w-8 h-8 mr-3 text-purple-500" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                            </svg>
-                            آلية التفاعل (Mechanism)
-                        </h3>
-
-                        <div class="space-y-6">
-                            <div class="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-6">
-                                <h4 class="font-bold text-lg text-gray-800 dark:text-white mb-4">الخطوة 1: تكوين
-                                    الألكوكسيد</h4>
-                                <p class="text-gray-700 dark:text-gray-300 mb-4">
-                                    يتم تحضير الألكوكسيد من الكحول باستخدام قاعدة قوية مثل هيدريد الصوديوم (NaH) أو
-                                    الصوديوم المعدني:
-                                </p>
-                                <!-- Enhanced Equation 1 -->
-                                <div
-                                    class="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 text-white p-6 rounded-xl shadow-lg mb-4 border border-purple-500/30">
-                                    <div
-                                        class="flex items-center justify-center flex-wrap gap-4 font-mono text-xl md:text-2xl">
-                                        <span class="text-yellow-300 font-bold">R-OH</span>
-                                        <span class="text-gray-300">+</span>
-                                        <span class="text-blue-300 font-bold">NaH</span>
-                                        <span class="text-green-400 text-3xl">→</span>
-                                        <span class="text-pink-300 font-bold">R-O⁻Na⁺</span>
-                                        <span class="text-gray-300">+</span>
-                                        <span class="text-cyan-300 font-bold">H₂</span>
-                                    </div>
-                                    <div class="text-center mt-4">
-                                        <p class="text-sm text-purple-200 italic">أو</p>
-                                    </div>
-                                    <div
-                                        class="flex items-center justify-center flex-wrap gap-4 font-mono text-xl md:text-2xl mt-4">
-                                        <span class="text-orange-300 font-bold">2</span>
-                                        <span class="text-yellow-300 font-bold">R-OH</span>
-                                        <span class="text-gray-300">+</span>
-                                        <span class="text-orange-300 font-bold">2</span>
-                                        <span class="text-blue-300 font-bold">Na</span>
-                                        <span class="text-green-400 text-3xl">→</span>
-                                        <span class="text-orange-300 font-bold">2</span>
-                                        <span class="text-pink-300 font-bold">R-O⁻Na⁺</span>
-                                        <span class="text-gray-300">+</span>
-                                        <span class="text-cyan-300 font-bold">H₂</span>
-                                    </div>
-                                </div>
-                                <div class="bg-white dark:bg-gray-700 rounded-lg p-4">
-                                    <img src="../images/اثيرات/sodium_ethoxide.png" alt="Sodium Ethoxide"
-                                        class="mx-auto rounded-lg shadow-md max-w-md w-full">
-                                    <p class="text-center text-sm text-gray-600 dark:text-gray-400 mt-2">أيون إيثوكسيد
-                                        الصوديوم</p>
-                                </div>
-                            </div>
-
-                            <div class="bg-indigo-50 dark:bg-indigo-900/20 rounded-lg p-6">
-                                <h4 class="font-bold text-lg text-gray-800 dark:text-white mb-4">الخطوة 2: التفاعل (SN2
-                                    Mechanism)</h4>
-                                <p class="text-gray-700 dark:text-gray-300 mb-4">
-                                    يهاجم أيون الألكوكسيد (نوكليوفيل) ذرة الكربون في هاليد الألكيل من الخلف، مما يؤدي
-                                    إلى:
-                                </p>
-                                <ol
-                                    class="list-decimal list-inside space-y-3 text-gray-700 dark:text-gray-300 mr-4 mb-4">
-                                    <li>كسر رابطة C-X وإطلاق أيون الهاليد</li>
-                                    <li>تكوين رابطة C-O جديدة</li>
-                                    <li>انعكاس التكوين (inversion of configuration) إذا كان الكربون غير متماثل</li>
-                                </ol>
-                                <!-- Enhanced Equation 2 with Transition State -->
-                                <div
-                                    class="bg-gradient-to-r from-indigo-900 via-indigo-800 to-indigo-900 text-white p-6 rounded-xl shadow-lg mb-4 border border-indigo-500/30">
-                                    <div
-                                        class="flex items-center justify-center flex-wrap gap-3 font-mono text-lg md:text-xl">
-                                        <span class="text-pink-300 font-bold text-xl">R-O⁻</span>
-                                        <span class="text-gray-300 text-2xl">+</span>
-                                        <span class="text-yellow-300 font-bold text-xl">R'-X</span>
-                                        <span class="text-green-400 text-3xl animate-pulse">→</span>
-                                        <div class="flex flex-col items-center">
-                                            <span class="text-red-300 font-bold text-xl">[R-O---C---X]⁻</span>
-                                            <span
-                                                class="text-xs text-indigo-200 mt-1 italic bg-indigo-700/50 px-2 py-1 rounded">(حالة
-                                                انتقالية)</span>
-                                        </div>
-                                        <span class="text-green-400 text-3xl animate-pulse">→</span>
-                                        <span class="text-cyan-300 font-bold text-xl">R-O-R'</span>
-                                        <span class="text-gray-300 text-2xl">+</span>
-                                        <span class="text-orange-300 font-bold text-xl">X⁻</span>
-                                    </div>
-                                </div>
-                                <div class="bg-white dark:bg-gray-700 rounded-lg p-4">
-                                    <img src="../images/اثيرات/آلية التفاعل طريقة وليمسون لتحضير الإيثرات (Mechanism).jpg"
-                                        alt="آلية تفاعل وليمسون" class="mx-auto rounded-lg shadow-md w-full max-w-4xl">
-                                    <p class="text-center text-sm text-gray-600 dark:text-gray-400 mt-2">آلية تفاعل
-                                        وليمسون: توضيح خطوات التفاعل من تكوين الألكوكسيد إلى تكوين الإيثر</p>
-                                </div>
-                            </div>
-
-                            <div class="bg-teal-50 dark:bg-teal-900/20 rounded-lg p-6">
-                                <h4 class="font-bold text-lg text-gray-800 dark:text-white mb-4">الخطوة 3: تكوين المنتج
-                                </h4>
-                                <p class="text-gray-700 dark:text-gray-300 mb-4">
-                                    يتكون الإيثر النهائي مع ملح الصوديوم كمنتج ثانوي:
-                                </p>
-                                <!-- Enhanced Final Product Equation -->
-                                <div
-                                    class="bg-gradient-to-r from-teal-900 via-teal-800 to-teal-900 text-white p-6 rounded-xl shadow-lg border border-teal-500/30">
-                                    <div
-                                        class="flex items-center justify-center flex-wrap gap-4 font-mono text-2xl md:text-3xl">
-                                        <div class="flex flex-col items-center">
-                                            <span class="text-green-300 font-bold">R-O-R'</span>
-                                            <span
-                                                class="text-xs text-teal-200 mt-1 bg-teal-700/50 px-2 py-1 rounded">الإيثر</span>
-                                        </div>
-                                        <span class="text-gray-300 text-3xl">+</span>
-                                        <div class="flex flex-col items-center">
-                                            <span class="text-yellow-300 font-bold">NaX</span>
-                                            <span
-                                                class="text-xs text-teal-200 mt-1 bg-teal-700/50 px-2 py-1 rounded">ملح
-                                                صوديوم</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Examples -->
-                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 mb-8 border-t-4 border-green-500">
-                        <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-6 flex items-center">
-                            <svg class="w-8 h-8 mr-3 text-green-500" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                            </svg>
-                            أمثلة عملية
-                        </h3>
-
-                        <div class="space-y-6">
-                            <div class="bg-green-50 dark:bg-green-900/20 rounded-lg p-6">
-                                <h4 class="font-bold text-lg text-gray-800 dark:text-white mb-4">مثال 1: تحضير إيثيل
-                                    ميثيل إيثر</h4>
-                                <!-- Enhanced Example 1 Equation -->
-                                <div
-                                    class="bg-gradient-to-r from-green-900 via-green-800 to-green-900 text-white p-5 rounded-xl shadow-lg mb-4 border border-green-500/30">
-                                    <div
-                                        class="flex items-center justify-center flex-wrap gap-3 font-mono text-lg md:text-xl">
-                                        <span class="text-yellow-300 font-bold">CH₃-O⁻Na⁺</span>
-                                        <span class="text-gray-300 text-xl">+</span>
-                                        <span class="text-blue-300 font-bold">CH₃CH₂-Br</span>
-                                        <span class="text-pink-400 text-2xl">→</span>
-                                        <span class="text-green-300 font-bold">CH₃-O-CH₂CH₃</span>
-                                        <span class="text-gray-300 text-xl">+</span>
-                                        <span class="text-orange-300 font-bold">NaBr</span>
-                                    </div>
-                                </div>
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <div class="bg-white dark:bg-gray-700 rounded p-4">
-                                        <p class="font-bold text-sm mb-2 text-gray-800 dark:text-white">المتفاعلات:</p>
-                                        <p class="text-sm text-gray-700 dark:text-gray-300">• ميثوكسيد الصوديوم</p>
-                                        <p class="text-sm text-gray-700 dark:text-gray-300">• بروميد الإيثيل</p>
-                                    </div>
-                                    <div class="bg-white dark:bg-gray-700 rounded p-4">
-                                        <p class="font-bold text-sm mb-2 text-gray-800 dark:text-white">المنتج:</p>
-                                        <p class="text-sm text-gray-700 dark:text-gray-300">• إيثيل ميثيل إيثر</p>
-                                        <p class="text-sm text-gray-700 dark:text-gray-300">• بروميد الصوديوم</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-6">
-                                <h4 class="font-bold text-lg text-gray-800 dark:text-white mb-4">مثال 2: تحضير ثنائي
-                                    إيثيل إيثر</h4>
-                                <!-- Enhanced Example 2 Equation -->
-                                <div
-                                    class="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 text-white p-5 rounded-xl shadow-lg mb-4 border border-blue-500/30">
-                                    <div
-                                        class="flex items-center justify-center flex-wrap gap-3 font-mono text-lg md:text-xl">
-                                        <span class="text-cyan-300 font-bold">CH₃CH₂-O⁻Na⁺</span>
-                                        <span class="text-gray-300 text-xl">+</span>
-                                        <span class="text-yellow-300 font-bold">CH₃CH₂-I</span>
-                                        <span class="text-green-400 text-2xl">→</span>
-                                        <span class="text-pink-300 font-bold">CH₃CH₂-O-CH₂CH₃</span>
-                                        <span class="text-gray-300 text-xl">+</span>
-                                        <span class="text-orange-300 font-bold">NaI</span>
-                                    </div>
-                                </div>
-                                <p class="text-gray-700 dark:text-gray-300 mb-4">
-                                    هذا التفاعل يُستخدم لتحضير ثنائي إيثيل الإيثر، وهو مذيب مهم في الكيمياء العضوية.
-                                </p>
-                            </div>
-
-                            <div class="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-6">
-                                <h4 class="font-bold text-lg text-gray-800 dark:text-white mb-4">مثال 3: تحضير إيثرات
-                                    أريل</h4>
-                                <!-- Enhanced Example 3 Equation -->
-                                <div
-                                    class="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 text-white p-5 rounded-xl shadow-lg mb-4 border border-purple-500/30">
-                                    <div
-                                        class="flex items-center justify-center flex-wrap gap-3 font-mono text-lg md:text-xl">
-                                        <span class="text-pink-300 font-bold">Ph-O⁻Na⁺</span>
-                                        <span class="text-gray-300 text-xl">+</span>
-                                        <span class="text-blue-300 font-bold">CH₃-Br</span>
-                                        <span class="text-green-400 text-2xl">→</span>
-                                        <span class="text-yellow-300 font-bold">Ph-O-CH₃</span>
-                                        <span class="text-gray-300 text-xl">+</span>
-                                        <span class="text-orange-300 font-bold">NaBr</span>
-                                    </div>
-                                </div>
-                                <p class="text-gray-700 dark:text-gray-300 mb-4">
-                                    يمكن استخدام فينوكسيد الصوديوم لتحضير إيثرات أريل-ألكيل.
-                                </p>
-                                <div class="bg-white dark:bg-gray-700 rounded-lg p-4">
-                                    <img src="../images/اثيرات/anisole_structure.png" alt="Anisole Structure"
-                                        class="mx-auto rounded-lg shadow-md max-w-md w-full">
-                                    <p class="text-center text-sm text-gray-600 dark:text-gray-400 mt-2">أنيسول (ميثيل
-                                        فينيل إيثر)</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Conditions and Factors -->
-                    <div
-                        class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 mb-8 border-t-4 border-orange-500 hover:bg-orange-50 dark:hover:bg-orange-900/20 hover:shadow-xl hover:scale-[1.01] transition-all duration-300">
-                        <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-6 flex items-center">
-                            <svg class="w-8 h-8 mr-3 text-orange-500" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
-                            </svg>
-                            الشروط والعوامل المؤثرة
-                        </h3>
-
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="bg-orange-50 dark:bg-orange-900/20 rounded-lg p-6">
-                                <h4 class="font-bold text-lg text-gray-800 dark:text-white mb-4">1. نوع هاليد الألكيل
-                                </h4>
-                                <div class="space-y-2 text-gray-700 dark:text-gray-300">
-                                    <p><strong>الأفضل:</strong> يوديد الألكيل (R-I) - الأسرع</p>
-                                    <p><strong>جيد:</strong> بروميد الألكيل (R-Br) - الأكثر استخداماً</p>
-                                    <p><strong>أبطأ:</strong> كلوريد الألكيل (R-Cl) - يحتاج حرارة</p>
-                                </div>
-                            </div>
-
-                            <div class="bg-yellow-50 dark:bg-yellow-900/20 rounded-lg p-6">
-                                <h4 class="font-bold text-lg text-gray-800 dark:text-white mb-4">2. نوع الكربون في هاليد
-                                    الألكيل</h4>
-                                <div class="space-y-2 text-gray-700 dark:text-gray-300">
-                                    <p><strong>أولية (1°):</strong> ✅ تعمل بشكل ممتاز</p>
-                                    <p><strong>ثانوية (2°):</strong> ⚠️ قد تحدث إزالة (elimination)</p>
-                                    <p><strong>ثالثية (3°):</strong> ❌ لا تعمل - تحدث إزالة فقط</p>
-                                </div>
-                            </div>
-
-                            <div class="bg-red-50 dark:bg-red-900/20 rounded-lg p-6">
-                                <h4 class="font-bold text-lg text-gray-800 dark:text-white mb-4">3. المذيب</h4>
-                                <div class="space-y-2 text-gray-700 dark:text-gray-300">
-                                    <p><strong>مذيبات قطبية:</strong> كحول، DMF، DMSO</p>
-                                    <p><strong>درجة الحرارة:</strong> عادة 50-100°C</p>
-                                    <p><strong>الوقت:</strong> 1-24 ساعة حسب التفاعل</p>
-                                </div>
-                            </div>
-
-                            <div class="bg-pink-50 dark:bg-pink-900/20 rounded-lg p-6">
-                                <h4 class="font-bold text-lg text-gray-800 dark:text-white mb-4">4. القاعدة المستخدمة
-                                </h4>
-                                <div class="space-y-2 text-gray-700 dark:text-gray-300">
-                                    <p><strong>NaH:</strong> قوية، لا مائية</p>
-                                    <p><strong>Na:</strong> قوية، لكن خطيرة</p>
-                                    <p><strong>KOH:</strong> أضعف، لكن آمنة</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Advantages and Limitations -->
-                    <div
-                        class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 mb-8 border-t-4 border-teal-500 hover:bg-teal-50 dark:hover:bg-teal-900/20 hover:shadow-xl hover:scale-[1.01] transition-all duration-300">
-                        <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-6 flex items-center">
-                            <svg class="w-8 h-8 mr-3 text-teal-500" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                            المزايا والعيوب
-                        </h3>
-
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="bg-teal-50 dark:bg-teal-900/20 rounded-lg p-6">
-                                <h4 class="font-bold text-lg text-gray-800 dark:text-white mb-4 flex items-center">
-                                    <svg class="w-5 h-5 mr-2 text-green-500" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    المزايا
-                                </h4>
-                                <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mr-4">
-                                    <li>تعمل مع الإيثرات المتماثلة وغير المتماثلة</li>
-                                    <li>عائد جيد في معظم الحالات</li>
-                                    <li>سهولة التحكم في التفاعل</li>
-                                    <li>تنوع في المتفاعلات</li>
-                                    <li>مناسبة للتحضير على نطاق واسع</li>
-                                    <li>تكوين منتجات نقية نسبياً</li>
-                                </ul>
-                            </div>
-
-                            <div class="bg-red-50 dark:bg-red-900/20 rounded-lg p-6">
-                                <h4 class="font-bold text-lg text-gray-800 dark:text-white mb-4 flex items-center">
-                                    <svg class="w-5 h-5 mr-2 text-red-500" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M6 18L18 6M6 6l12 12" />
-                                    </svg>
-                                    العيوب والقيود
-                                </h4>
-                                <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mr-4">
-                                    <li>لا تعمل مع هاليدات الألكيل الثلاثية</li>
-                                    <li>قد تحدث تفاعلات إزالة (elimination) كمنافسة</li>
-                                    <li>هاليدات الأريل لا تعمل (Ph-X)</li>
-                                    <li>قد تكون هناك مشاكل مع المجموعات الحساسة</li>
-                                    <li>تتطلب ظروف لا مائية في بعض الحالات</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Visual Summary -->
-                    <div class="bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl shadow-xl p-8 text-white">
-                        <h3 class="text-2xl font-bold mb-6 text-center">ملخص تفاعل وليمسون</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4 text-center">
-                                <div class="text-3xl mb-2">⚗️</div>
-                                <h4 class="font-bold mb-2">المتفاعلات</h4>
-                                <p class="text-sm opacity-90">ألكوكسيد + هاليد ألكيل</p>
-                            </div>
-                            <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4 text-center">
-                                <div class="text-3xl mb-2">🔄</div>
-                                <h4 class="font-bold mb-2">الآلية</h4>
-                                <p class="text-sm opacity-90">SN2 - استبدال نوكليوفيلي</p>
-                            </div>
-                            <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4 text-center">
-                                <div class="text-3xl mb-2">✅</div>
-                                <h4 class="font-bold mb-2">المنتج</h4>
-                                <p class="text-sm opacity-90">إيثر + ملح صوديوم</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Safety Note -->
-                    <div class="bg-yellow-50 dark:bg-yellow-900/20 border-r-4 border-yellow-500 rounded-lg p-6 mt-8">
-                        <h4 class="font-bold text-lg text-gray-800 dark:text-white mb-2 flex items-center">
-                            <svg class="w-6 h-6 ml-2 text-yellow-600" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                            </svg>
-                            ملاحظات أمان مهمة
-                        </h4>
-                        <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mr-4">
-                            <li>هيدريد الصوديوم قابل للاشتعال ويتفاعل بعنف مع الماء - استخدمه في جو خالٍ من الرطوبة</li>
-                            <li>الصوديوم المعدني خطير جداً - استخدمه بحذر شديد</li>
-                            <li>بعض المذيبات قابلة للاشتعال - استخدمها في أماكن جيدة التهوية</li>
-                            <li>ارتدِ معدات الحماية الشخصية المناسبة (قفازات، نظارات، معطف مختبر)</li>
-                        </ul>
-                    </div>
-
-                    <!-- Video: Williamson Synthesis (Moved to bottom) -->
-                    <div class="video-player-container relative group mx-auto mt-8 mb-8 max-w-4xl">
-                        <h4 class="text-xl font-bold text-gray-800 dark:text-white mb-4 text-center">فيديو توضيحي: طريقة
-                            وليمسون</h4>
-                        <video controls playsinline
-                            class="custom-video w-full rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
-                            <source src="../videos/طريقة وليمسون لتحضير الإيثرات.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                </section>
-
-                <!-- Dehydration of Alcohols Section -->
-                <section id="dehydration" class="content-section">
-                    <!-- Hero Section -->
-                    <div
-                        class="bg-gradient-to-br from-orange-600 to-red-800 rounded-2xl p-8 text-white shadow-xl mb-10 relative overflow-hidden hover:from-orange-500 hover:to-red-700 transition-all duration-300 hover:shadow-2xl hover:scale-[1.02]">
-                        <div class="relative z-10">
-                            <h2 class="text-4xl font-bold mb-4">نزع الماء من الكحولات</h2>
-                            <p class="text-xl leading-relaxed opacity-90 mb-6">
-                                طريقة مهمة لتحضير الإيثرات المتماثلة من الكحولات الأولية عن طريق نزع جزيء ماء باستخدام
-                                حمض الكبريتيك المركز.
-                            </p>
-                            <div
-                                class="bg-white/20 backdrop-blur-sm px-6 py-8 rounded-lg border border-white/30 inline-block max-w-full overflow-auto">
-                                <p class="text-sm opacity-75 mb-4">الصيغة العامة للتفاعل:</p>
-                                <svg viewBox="0 0 800 100" class="w-full max-w-3xl h-auto"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <!-- 2 R-OH -->
-                                    <text x="50" y="50" font-size="32" font-weight="bold" fill="#60A5FA"
-                                        class="dark-fill-blue">2</text>
-                                    <text x="80" y="50" font-size="32" font-weight="bold" fill="#34D399"
-                                        class="dark-fill-green">R</text>
-                                    <text x="110" y="50" font-size="32" font-weight="bold" fill="#FFFFFF">-</text>
-                                    <text x="130" y="50" font-size="32" font-weight="bold" fill="#F87171"
-                                        class="dark-fill-red">O</text>
-                                    <text x="160" y="50" font-size="32" font-weight="bold" fill="#FFFFFF">-</text>
-                                    <text x="180" y="50" font-size="32" font-weight="bold" fill="#60A5FA"
-                                        class="dark-fill-blue">H</text>
-
-                                    <!-- Arrow with conditions -->
-                                    <line x1="240" y1="45" x2="340" y2="45" stroke="#FFFFFF" stroke-width="3"
-                                        marker-end="url(#arrowhead1)" />
-                                    <text x="250" y="25" font-size="16" fill="#FDE047"
-                                        class="dark-fill-yellow">H₂SO₄</text>
-                                    <text x="250" y="75" font-size="16" fill="#FDE047"
-                                        class="dark-fill-yellow">140°C</text>
-
-                                    <!-- R-O-R -->
-                                    <text x="370" y="50" font-size="32" font-weight="bold" fill="#34D399"
-                                        class="dark-fill-green">R</text>
-                                    <text x="400" y="50" font-size="32" font-weight="bold" fill="#FFFFFF">-</text>
-                                    <text x="420" y="50" font-size="32" font-weight="bold" fill="#F87171"
-                                        class="dark-fill-red">O</text>
-                                    <text x="450" y="50" font-size="32" font-weight="bold" fill="#FFFFFF">-</text>
-                                    <text x="470" y="50" font-size="32" font-weight="bold" fill="#34D399"
-                                        class="dark-fill-green">R</text>
-
-                                    <!-- + -->
-                                    <text x="530" y="50" font-size="32" font-weight="bold" fill="#FFFFFF">+</text>
-
-                                    <!-- H₂O -->
-                                    <text x="580" y="50" font-size="32" font-weight="bold" fill="#60A5FA"
-                                        class="dark-fill-blue">H</text>
-                                    <text x="605" y="55" font-size="20" fill="#60A5FA" class="dark-fill-blue">₂</text>
-                                    <text x="625" y="50" font-size="32" font-weight="bold" fill="#F87171"
-                                        class="dark-fill-red">O</text>
-
-                                    <!-- Arrow marker -->
-                                    <defs>
-                                        <marker id="arrowhead1" markerWidth="10" markerHeight="10" refX="9" refY="3"
-                                            orient="auto">
-                                            <polygon points="0 0, 10 3, 0 6" fill="#FFFFFF" />
-                                        </marker>
-                                    </defs>
-                                </svg>
-                            </div>
-                        </div>
-                        <svg class="absolute -right-16 -bottom-16 w-64 opacity-20" fill="currentColor"
-                            viewBox="0 0 24 24">
-                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                        </svg>
-                    </div>
-
-                    <!-- Visual Explanation -->
-                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 mb-8">
-                        <img src="../images/اثيرات/نزع الماء من الكحولات.jpg" alt="نزع الماء من الكحولات"
-                            class="mx-auto rounded-lg shadow-md w-full max-w-4xl">
-                        <p class="text-center text-sm text-gray-600 dark:text-gray-400 mt-4">توضيح تفاعل نزع الماء من
-                            الكحولات لتكوين الإيثرات المتماثلة باستخدام حمض الكبريتيك</p>
-                    </div>
-
-
-
-                    <!-- Overview -->
-                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 mb-8 border-t-4 border-orange-500">
-                        <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center">
-                            <svg class="w-8 h-8 ml-3 text-orange-500" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                            نظرة عامة
-                        </h3>
-                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-6 text-lg">
-                            تعتمد هذه الطريقة على <strong class="text-orange-600 dark:text-orange-400">تفاعل نزع
-                                الماء</strong> (Dehydration) بين جزيئين من الكحول الأولي لتكوين إيثر متماثل. هذا التفاعل
-                            يتطلب ظروفاً حامضية ودرجة حرارة محددة.
-                        </p>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="bg-orange-50 dark:bg-orange-900/20 rounded-lg p-6">
-                                <h4 class="font-bold text-lg text-gray-800 dark:text-white mb-3">المتفاعلات:</h4>
-                                <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mr-4">
-                                    <li><strong>كحول أولي:</strong> R-OH (جزيئان)</li>
-                                    <li><strong>حمض الكبريتيك المركز:</strong> H₂SO₄ (محفز)</li>
-                                    <li><strong>درجة الحرارة:</strong> 140°C</li>
-                                </ul>
-                            </div>
-                            <div class="bg-red-50 dark:bg-red-900/20 rounded-lg p-6">
-                                <h4 class="font-bold text-lg text-gray-800 dark:text-white mb-3">المنتجات:</h4>
-                                <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mr-4">
-                                    <li><strong>إيثر متماثل:</strong> R-O-R</li>
-                                    <li><strong>ماء:</strong> H₂O</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Mechanism -->
-                    <div
-                        class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 mb-8 border-t-4 border-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 hover:shadow-xl hover:scale-[1.01] transition-all duration-300">
-                        <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-6 flex items-center">
-                            <svg class="w-8 h-8 ml-3 text-red-500" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                            </svg>
-                            آلية التفاعل (Mechanism)
-                        </h3>
-
-                        <div class="space-y-6">
-                            <div class="bg-red-50 dark:bg-red-900/20 rounded-lg p-6">
-                                <h4 class="font-bold text-lg text-gray-800 dark:text-white mb-4">الخطوة 1: بروتنة الكحول
-                                </h4>
-                                <p class="text-gray-700 dark:text-gray-300 mb-4">
-                                    يتفاعل جزيء الكحول مع أيون الهيدروجين (H⁺) من حمض الكبريتيك لتكوين أيون الأوكسونيوم:
-                                </p>
-                                <!-- Enhanced Equation - Alcohol Protonation -->
-                                <div
-                                    class="bg-gradient-to-r from-red-900 via-red-800 to-red-900 text-white p-5 rounded-xl shadow-lg mb-4 border border-red-500/30">
-                                    <div
-                                        class="flex items-center justify-center flex-wrap gap-4 font-mono text-xl md:text-2xl">
-                                        <span class="text-yellow-300 font-bold">R-OH</span>
-                                        <span class="text-gray-300 text-2xl">+</span>
-                                        <span class="text-pink-300 font-bold">H⁺</span>
-                                        <span class="text-green-400 text-3xl">→</span>
-                                        <span class="text-cyan-300 font-bold">R-OH₂⁺</span>
-                                    </div>
-                                </div>
-                                <p class="text-gray-700 dark:text-gray-300 text-sm">
-                                    هذا يجعل مجموعة OH مغادرة أفضل (leaving group).
-                                </p>
-                            </div>
-
-                            <div class="bg-orange-50 dark:bg-orange-900/20 rounded-lg p-6">
-                                <h4 class="font-bold text-lg text-gray-800 dark:text-white mb-4">الخطوة 2: هجوم
-                                    نوكليوفيلي</h4>
-                                <p class="text-gray-700 dark:text-gray-300 mb-4">
-                                    يهاجم جزيء كحول آخر (يعمل كنوكليوفيل) ذرة الكربون الموجبة في أيون الأوكسونيوم:
-                                </p>
-                                <!-- Enhanced Equation - Nucleophilic Attack -->
-                                <div
-                                    class="bg-gradient-to-r from-orange-900 via-orange-800 to-orange-900 text-white p-5 rounded-xl shadow-lg mb-4 border border-orange-500/30">
-                                    <div
-                                        class="flex items-center justify-center flex-wrap gap-3 font-mono text-lg md:text-xl">
-                                        <span class="text-cyan-300 font-bold">R-OH₂⁺</span>
-                                        <span class="text-gray-300 text-xl">+</span>
-                                        <span class="text-yellow-300 font-bold">R-OH</span>
-                                        <span class="text-green-400 text-2xl">→</span>
-                                        <span class="text-pink-300 font-bold">R-O-R</span>
-                                        <span class="text-gray-300 text-xl">+</span>
-                                        <span class="text-blue-300 font-bold">H₃O⁺</span>
-                                    </div>
-                                </div>
-                                <div class="bg-white dark:bg-gray-700 rounded-lg p-4">
-                                    <img src="../images/اثيرات/نزع الماء من الكحولات آلية التفاعل (Mechanism).jpg"
-                                        alt="آلية تفاعل نزع الماء من الكحولات"
-                                        class="mx-auto rounded-lg shadow-md w-full max-w-4xl">
-                                    <p class="text-center text-sm text-gray-600 dark:text-gray-400 mt-2">آلية تفاعل نزع
-                                        الماء: توضيح خطوات التفاعل من بروتنة الكحول إلى تكوين الإيثر وإطلاق الماء</p>
-                                </div>
-                            </div>
-
-                            <div class="bg-yellow-50 dark:bg-yellow-900/20 rounded-lg p-6">
-                                <h4 class="font-bold text-lg text-gray-800 dark:text-white mb-4">الخطوة 3: إطلاق الماء
-                                </h4>
-                                <p class="text-gray-700 dark:text-gray-300 mb-4">
-                                    يتم إطلاق جزيء الماء وتكوين الإيثر النهائي:
-                                </p>
-                                <!-- Enhanced Equation - Final Product -->
-                                <div
-                                    class="bg-gradient-to-r from-yellow-900 via-yellow-800 to-yellow-900 text-white p-6 rounded-xl shadow-lg border border-yellow-500/30">
-                                    <div
-                                        class="flex items-center justify-center flex-wrap gap-4 font-mono text-2xl md:text-3xl">
-                                        <div class="flex flex-col items-center">
-                                            <span class="text-green-300 font-bold">R-O-R</span>
-                                            <span
-                                                class="text-xs text-yellow-200 mt-1 bg-yellow-700/50 px-2 py-1 rounded">الإيثر</span>
-                                        </div>
-                                        <span class="text-gray-300 text-3xl">+</span>
-                                        <div class="flex flex-col items-center">
-                                            <span class="text-blue-300 font-bold">H₂O</span>
-                                            <span
-                                                class="text-xs text-yellow-200 mt-1 bg-yellow-700/50 px-2 py-1 rounded">ماء</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Temperature Control -->
-                    <div
-                        class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 mb-8 border-t-4 border-yellow-500 hover:bg-yellow-50 dark:hover:bg-yellow-900/20 hover:shadow-xl hover:scale-[1.01] transition-all duration-300">
-                        <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-6 flex items-center">
-                            <svg class="w-8 h-8 ml-3 text-yellow-500" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                            </svg>
-                            أهمية التحكم في درجة الحرارة
-                        </h3>
-
-                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-6 text-lg">
-                            درجة الحرارة تلعب دوراً <strong class="text-yellow-600 dark:text-yellow-400">حاسماً</strong>
-                            في تحديد نوع المنتج:
-                        </p>
-
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="bg-yellow-50 dark:bg-yellow-900/20 rounded-lg p-6 border-2 border-yellow-400">
-                                <div class="flex items-center mb-4">
-                                    <div
-                                        class="bg-yellow-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl ml-3">
-                                        140°C
-                                    </div>
-                                    <h4 class="text-xl font-bold text-gray-800 dark:text-white">تشكيل الإيثر</h4>
-                                </div>
-                                <p class="text-gray-700 dark:text-gray-300 mb-4">
-                                    عند <strong>140 درجة مئوية</strong>، يحدث تفاعل بين جزيئين من الكحول لتكوين الإيثر:
-                                </p>
-                                <!-- Enhanced Equation - 140°C -->
-                                <div
-                                    class="bg-gradient-to-r from-yellow-900 via-yellow-700 to-yellow-900 text-white p-4 rounded-xl shadow-lg mb-4 border-2 border-yellow-400">
-                                    <div
-                                        class="flex items-center justify-center flex-wrap gap-3 font-mono text-lg md:text-xl">
-                                        <span class="text-orange-300 font-bold">2</span>
-                                        <span class="text-yellow-300 font-bold">R-OH</span>
-                                        <span class="text-green-400 text-2xl">→</span>
-                                        <span class="text-pink-300 font-bold">R-O-R</span>
-                                        <span class="text-gray-300">+</span>
-                                        <span class="text-cyan-300 font-bold">H₂O</span>
-                                    </div>
-                                </div>
-                                <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mr-4">
-                                    <li>تفاعل بين جزيئين</li>
-                                    <li>تكوين رابطة C-O-C</li>
-                                    <li>إطلاق جزيء ماء</li>
-                                </ul>
-                            </div>
-
-                            <div class="bg-red-50 dark:bg-red-900/20 rounded-lg p-6 border-2 border-red-400">
-                                <div class="flex items-center mb-4">
-                                    <div
-                                        class="bg-red-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl ml-3">
-                                        180°C
-                                    </div>
-                                    <h4 class="text-xl font-bold text-gray-800 dark:text-white">تشكيل الألكين</h4>
-                                </div>
-                                <p class="text-gray-700 dark:text-gray-300 mb-4">
-                                    عند <strong>180 درجة مئوية</strong> أو أعلى، يحدث نزع الماء داخل الجزيء الواحد:
-                                </p>
-                                <div class="bg-gray-800 dark:bg-gray-900 text-white p-5 rounded-lg mb-4">
-                                    <svg viewBox="0 0 700 70" class="w-full max-w-2xl h-auto mx-auto"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <!-- R-CH₂-CH₂-OH -->
-                                        <text x="30" y="40" font-size="24" font-weight="bold" fill="#34D399">R</text>
-                                        <text x="55" y="40" font-size="24" font-weight="bold" fill="#FFFFFF">-</text>
-                                        <text x="70" y="40" font-size="24" font-weight="bold" fill="#9CA3AF">C</text>
-                                        <text x="90" y="40" font-size="24" font-weight="bold" fill="#60A5FA">H</text>
-                                        <text x="108" y="44" font-size="18" fill="#60A5FA">₂</text>
-                                        <text x="125" y="40" font-size="24" font-weight="bold" fill="#FFFFFF">-</text>
-                                        <text x="140" y="40" font-size="24" font-weight="bold" fill="#9CA3AF">C</text>
-                                        <text x="160" y="40" font-size="24" font-weight="bold" fill="#60A5FA">H</text>
-                                        <text x="178" y="44" font-size="18" fill="#60A5FA">₂</text>
-                                        <text x="195" y="40" font-size="24" font-weight="bold" fill="#FFFFFF">-</text>
-                                        <text x="210" y="40" font-size="24" font-weight="bold" fill="#F87171">O</text>
-                                        <text x="235" y="40" font-size="24" font-weight="bold" fill="#FFFFFF">-</text>
-                                        <text x="250" y="40" font-size="24" font-weight="bold" fill="#60A5FA">H</text>
-
-                                        <!-- Arrow -->
-                                        <line x1="300" y1="35" x2="370" y2="35" stroke="#FFFFFF" stroke-width="2"
-                                            marker-end="url(#arrow5)" />
-
-                                        <!-- R-CH=CH₂ -->
-                                        <text x="390" y="40" font-size="24" font-weight="bold" fill="#34D399">R</text>
-                                        <text x="415" y="40" font-size="24" font-weight="bold" fill="#FFFFFF">-</text>
-                                        <text x="430" y="40" font-size="24" font-weight="bold" fill="#9CA3AF">C</text>
-                                        <text x="450" y="40" font-size="24" font-weight="bold" fill="#60A5FA">H</text>
-                                        <text x="475" y="40" font-size="24" font-weight="bold" fill="#A78BFA">=</text>
-                                        <text x="495" y="40" font-size="24" font-weight="bold" fill="#9CA3AF">C</text>
-                                        <text x="515" y="40" font-size="24" font-weight="bold" fill="#60A5FA">H</text>
-                                        <text x="533" y="44" font-size="18" fill="#60A5FA">₂</text>
-
-                                        <!-- + -->
-                                        <text x="565" y="40" font-size="24" font-weight="bold" fill="#FFFFFF">+</text>
-
-                                        <!-- H₂O -->
-                                        <text x="600" y="40" font-size="24" font-weight="bold" fill="#60A5FA">H</text>
-                                        <text x="619" y="44" font-size="18" fill="#60A5FA">₂</text>
-                                        <text x="635" y="40" font-size="24" font-weight="bold" fill="#F87171">O</text>
-
-                                        <defs>
-                                            <marker id="arrow5" markerWidth="10" markerHeight="10" refX="9" refY="3"
-                                                orient="auto">
-                                                <polygon points="0 0, 10 3, 0 6" fill="#FFFFFF" />
-                                            </marker>
-                                        </defs>
-                                    </svg>
-                                </div>
-                                <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mr-4">
-                                    <li>تفاعل داخل الجزيء</li>
-                                    <li>تكوين رابطة مزدوجة</li>
-                                    <li>إطلاق جزيء ماء</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-6 mt-6">
-                            <h4 class="font-bold text-lg text-gray-800 dark:text-white mb-3">مخطط توضيحي:</h4>
-                            <div class="bg-white dark:bg-gray-700 rounded-lg p-4">
-                                <div class="flex items-center justify-between mb-4">
-                                    <div class="text-center flex-1">
-                                        <div class="bg-yellow-100 dark:bg-yellow-900/30 rounded-lg p-3 mb-2">
-                                            <p class="font-bold text-sm">140°C</p>
-                                        </div>
-                                        <p class="text-xs text-gray-600 dark:text-gray-400">إيثر</p>
-                                    </div>
-                                    <div class="text-2xl mx-4">→</div>
-                                    <div class="text-center flex-1">
-                                        <div class="bg-red-100 dark:bg-red-900/30 rounded-lg p-3 mb-2">
-                                            <p class="font-bold text-sm">180°C</p>
-                                        </div>
-                                        <p class="text-xs text-gray-600 dark:text-gray-400">ألكين</p>
-                                    </div>
-                                </div>
-                                <p class="text-sm text-gray-600 dark:text-gray-400 text-center">
-                                    التحكم في درجة الحرارة يحدد نوع المنتج
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Examples -->
-                    <div
-                        class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 mb-8 border-t-4 border-green-500 hover:bg-green-50 dark:hover:bg-green-900/20 hover:shadow-xl hover:scale-[1.01] transition-all duration-300">
-                        <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-6 flex items-center">
-                            <svg class="w-8 h-8 ml-3 text-green-500" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                            </svg>
-                            أمثلة عملية
-                        </h3>
-
-                        <div class="space-y-6">
-                            <div class="bg-green-50 dark:bg-green-900/20 rounded-lg p-6">
-                                <h4 class="font-bold text-lg text-gray-800 dark:text-white mb-4">مثال 1: تحضير ثنائي
-                                    إيثيل إيثر</h4>
-                                <div class="bg-gray-800 dark:bg-gray-900 text-white p-6 rounded-lg mb-4">
-                                    <svg viewBox="0 0 1000 100" class="w-full h-auto mx-auto"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <!-- 2 CH₃CH₂-OH -->
-                                        <text x="20" y="50" font-size="26" font-weight="bold" fill="#FDE047">2</text>
-                                        <text x="50" y="50" font-size="26" font-weight="bold" fill="#9CA3AF">C</text>
-                                        <text x="72" y="50" font-size="26" font-weight="bold" fill="#60A5FA">H</text>
-                                        <text x="90" y="54" font-size="20" fill="#60A5FA">₃</text>
-                                        <text x="110" y="50" font-size="26" font-weight="bold" fill="#9CA3AF">C</text>
-                                        <text x="132" y="50" font-size="26" font-weight="bold" fill="#60A5FA">H</text>
-                                        <text x="150" y="54" font-size="20" fill="#60A5FA">₂</text>
-                                        <text x="168" y="50" font-size="26" font-weight="bold" fill="#FFFFFF">-</text>
-                                        <text x="185" y="50" font-size="26" font-weight="bold" fill="#F87171">O</text>
-                                        <text x="210" y="50" font-size="26" font-weight="bold" fill="#FFFFFF">-</text>
-                                        <text x="227" y="50" font-size="26" font-weight="bold" fill="#60A5FA">H</text>
-
-                                        <!-- Arrow with conditions -->
-                                        <line x1="280" y1="45" x2="350" y2="45" stroke="#FFFFFF" stroke-width="2"
-                                            marker-end="url(#arrow6)" />
-                                        <text x="285" y="30" font-size="14" fill="#FDE047">H₂SO₄</text>
-                                        <text x="285" y="70" font-size="14" fill="#FDE047">140°C</text>
-
-                                        <!-- CH₃CH₂-O-CH₂CH₃ -->
-                                        <text x="375" y="50" font-size="26" font-weight="bold" fill="#9CA3AF">C</text>
-                                        <text x="397" y="50" font-size="26" font-weight="bold" fill="#60A5FA">H</text>
-                                        <text x="415" y="54" font-size="20" fill="#60A5FA">₃</text>
-                                        <text x="435" y="50" font-size="26" font-weight="bold" fill="#9CA3AF">C</text>
-                                        <text x="457" y="50" font-size="26" font-weight="bold" fill="#60A5FA">H</text>
-                                        <text x="475" y="54" font-size="20" fill="#60A5FA">₂</text>
-                                        <text x="493" y="50" font-size="26" font-weight="bold" fill="#FFFFFF">-</text>
-                                        <text x="510" y="50" font-size="26" font-weight="bold" fill="#F87171">O</text>
-                                        <text x="535" y="50" font-size="26" font-weight="bold" fill="#FFFFFF">-</text>
-                                        <text x="552" y="50" font-size="26" font-weight="bold" fill="#9CA3AF">C</text>
-                                        <text x="574" y="50" font-size="26" font-weight="bold" fill="#60A5FA">H</text>
-                                        <text x="592" y="54" font-size="20" fill="#60A5FA">₂</text>
-                                        <text x="612" y="50" font-size="26" font-weight="bold" fill="#9CA3AF">C</text>
-                                        <text x="634" y="50" font-size="26" font-weight="bold" fill="#60A5FA">H</text>
-                                        <text x="652" y="54" font-size="20" fill="#60A5FA">₃</text>
-
-                                        <!-- + -->
-                                        <text x="690" y="50" font-size="26" font-weight="bold" fill="#FFFFFF">+</text>
-
-                                        <!-- H₂O -->
-                                        <text x="730" y="50" font-size="26" font-weight="bold" fill="#60A5FA">H</text>
-                                        <text x="748" y="54" font-size="20" fill="#60A5FA">₂</text>
-                                        <text x="765" y="50" font-size="26" font-weight="bold" fill="#F87171">O</text>
-
-                                        <defs>
-                                            <marker id="arrow6" markerWidth="10" markerHeight="10" refX="9" refY="3"
-                                                orient="auto">
-                                                <polygon points="0 0, 10 3, 0 6" fill="#FFFFFF" />
-                                            </marker>
-                                        </defs>
-                                    </svg>
-                                </div>
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <div class="bg-white dark:bg-gray-700 rounded p-4">
-                                        <p class="font-bold text-sm mb-2 text-gray-800 dark:text-white">المتفاعل:</p>
-                                        <p class="text-sm text-gray-700 dark:text-gray-300">إيثانول (جزيئان)</p>
-                                        <p class="text-sm text-gray-700 dark:text-gray-300">CH₃CH₂-OH</p>
-                                    </div>
-                                    <div class="bg-white dark:bg-gray-700 rounded p-4">
-                                        <p class="font-bold text-sm mb-2 text-gray-800 dark:text-white">المنتج:</p>
-                                        <p class="text-sm text-gray-700 dark:text-gray-300">ثنائي إيثيل إيثر</p>
-                                        <p class="text-sm text-gray-700 dark:text-gray-300">CH₃CH₂-O-CH₂CH₃</p>
-                                    </div>
-                                </div>
-                                <div class="bg-white dark:bg-gray-700 rounded-lg p-4 mt-4">
-                                    <img src="../images/اثيرات/diethyl_ether.png" alt="Diethyl Ether"
-                                        class="mx-auto rounded-lg shadow-md max-w-md w-full">
-                                    <p class="text-center text-sm text-gray-600 dark:text-gray-400 mt-2">بنية ثنائي
-                                        إيثيل الإيثر</p>
-                                </div>
-                            </div>
-
-                            <div class="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-6">
-                                <h4 class="font-bold text-lg text-gray-800 dark:text-white mb-4">مثال 2: تحضير ثنائي
-                                    ميثيل إيثر</h4>
-                                <div class="bg-gray-800 dark:bg-gray-900 text-white p-6 rounded-lg mb-4">
-                                    <svg viewBox="0 0 850 100" class="w-full h-auto mx-auto"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <!-- 2 CH₃-OH -->
-                                        <text x="30" y="50" font-size="26" font-weight="bold" fill="#FDE047">2</text>
-                                        <text x="60" y="50" font-size="26" font-weight="bold" fill="#9CA3AF">C</text>
-                                        <text x="82" y="50" font-size="26" font-weight="bold" fill="#60A5FA">H</text>
-                                        <text x="100" y="54" font-size="20" fill="#60A5FA">₃</text>
-                                        <text x="118" y="50" font-size="26" font-weight="bold" fill="#FFFFFF">-</text>
-                                        <text x="135" y="50" font-size="26" font-weight="bold" fill="#F87171">O</text>
-                                        <text x="160" y="50" font-size="26" font-weight="bold" fill="#FFFFFF">-</text>
-                                        <text x="177" y="50" font-size="26" font-weight="bold" fill="#60A5FA">H</text>
-
-                                        <!-- Arrow with conditions -->
-                                        <line x1="230" y1="45" x2="300" y2="45" stroke="#FFFFFF" stroke-width="2"
-                                            marker-end="url(#arrow7)" />
-                                        <text x="235" y="30" font-size="14" fill="#FDE047">H₂SO₄</text>
-                                        <text x="235" y="70" font-size="14" fill="#FDE047">140°C</text>
-
-                                        <!-- CH₃-O-CH₃ -->
-                                        <text x="325" y="50" font-size="26" font-weight="bold" fill="#9CA3AF">C</text>
-                                        <text x="347" y="50" font-size="26" font-weight="bold" fill="#60A5FA">H</text>
-                                        <text x="365" y="54" font-size="20" fill="#60A5FA">₃</text>
-                                        <text x="383" y="50" font-size="26" font-weight="bold" fill="#FFFFFF">-</text>
-                                        <text x="400" y="50" font-size="26" font-weight="bold" fill="#F87171">O</text>
-                                        <text x="425" y="50" font-size="26" font-weight="bold" fill="#FFFFFF">-</text>
-                                        <text x="442" y="50" font-size="26" font-weight="bold" fill="#9CA3AF">C</text>
-                                        <text x="464" y="50" font-size="26" font-weight="bold" fill="#60A5FA">H</text>
-                                        <text x="482" y="54" font-size="20" fill="#60A5FA">₃</text>
-
-                                        <!-- + -->
-                                        <text x="520" y="50" font-size="26" font-weight="bold" fill="#FFFFFF">+</text>
-
-                                        <!-- H₂O -->
-                                        <text x="560" y="50" font-size="26" font-weight="bold" fill="#60A5FA">H</text>
-                                        <text x="578" y="54" font-size="20" fill="#60A5FA">₂</text>
-                                        <text x="595" y="50" font-size="26" font-weight="bold" fill="#F87171">O</text>
-
-                                        <defs>
-                                            <marker id="arrow7" markerWidth="10" markerHeight="10" refX="9" refY="3"
-                                                orient="auto">
-                                                <polygon points="0 0, 10 3, 0 6" fill="#FFFFFF" />
-                                            </marker>
-                                        </defs>
-                                    </svg>
-                                </div>
-                                <p class="text-gray-700 dark:text-gray-300 mb-4">
-                                    من الميثانول يمكن تحضير ثنائي ميثيل الإيثر، وهو مركب مهم يستخدم كوقود بديل.
-                                </p>
-                                <div class="bg-white dark:bg-gray-700 rounded-lg p-4">
-                                    <img src="../images/اثيرات/dimethyl_ether.png" alt="Dimethyl Ether"
-                                        class="mx-auto rounded-lg shadow-md max-w-md w-full">
-                                    <p class="text-center text-sm text-gray-600 dark:text-gray-400 mt-2">بنية ثنائي
-                                        ميثيل الإيثر</p>
-                                </div>
-                            </div>
-
-                            <div class="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-6">
-                                <h4 class="font-bold text-lg text-gray-800 dark:text-white mb-4">مثال 3: تحضير ثنائي
-                                    بروبيل إيثر</h4>
-                                <div
-                                    class="bg-gray-800 dark:bg-gray-900 text-white p-6 rounded-lg mb-4 overflow-x-auto">
-                                    <svg viewBox="0 0 1200 100" class="w-full h-auto mx-auto" style="min-width: 900px;"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <!-- 2 CH₃CH₂CH₂-OH -->
-                                        <text x="20" y="50" font-size="24" font-weight="bold" fill="#FDE047">2</text>
-                                        <text x="45" y="50" font-size="24" font-weight="bold" fill="#9CA3AF">C</text>
-                                        <text x="65" y="50" font-size="24" font-weight="bold" fill="#60A5FA">H</text>
-                                        <text x="81" y="54" font-size="18" fill="#60A5FA">₃</text>
-                                        <text x="97" y="50" font-size="24" font-weight="bold" fill="#9CA3AF">C</text>
-                                        <text x="117" y="50" font-size="24" font-weight="bold" fill="#60A5FA">H</text>
-                                        <text x="133" y="54" font-size="18" fill="#60A5FA">₂</text>
-                                        <text x="149" y="50" font-size="24" font-weight="bold" fill="#9CA3AF">C</text>
-                                        <text x="169" y="50" font-size="24" font-weight="bold" fill="#60A5FA">H</text>
-                                        <text x="185" y="54" font-size="18" fill="#60A5FA">₂</text>
-                                        <text x="201" y="50" font-size="24" font-weight="bold" fill="#FFFFFF">-</text>
-                                        <text x="215" y="50" font-size="24" font-weight="bold" fill="#F87171">O</text>
-                                        <text x="237" y="50" font-size="24" font-weight="bold" fill="#FFFFFF">-</text>
-                                        <text x="251" y="50" font-size="24" font-weight="bold" fill="#60A5FA">H</text>
-
-                                        <!-- Arrow with conditions -->
-                                        <line x1="295" y1="45" x2="355" y2="45" stroke="#FFFFFF" stroke-width="2"
-                                            marker-end="url(#arrow8)" />
-                                        <text x="300" y="30" font-size="13" fill="#FDE047">H₂SO₄</text>
-                                        <text x="300" y="70" font-size="13" fill="#FDE047">140°C</text>
-
-                                        <!-- CH₃CH₂CH₂-O-CH₂CH₂CH₃ -->
-                                        <text x="375" y="50" font-size="24" font-weight="bold" fill="#9CA3AF">C</text>
-                                        <text x="395" y="50" font-size="24" font-weight="bold" fill="#60A5FA">H</text>
-                                        <text x="411" y="54" font-size="18" fill="#60A5FA">₃</text>
-                                        <text x="427" y="50" font-size="24" font-weight="bold" fill="#9CA3AF">C</text>
-                                        <text x="447" y="50" font-size="24" font-weight="bold" fill="#60A5FA">H</text>
-                                        <text x="463" y="54" font-size="18" fill="#60A5FA">₂</text>
-                                        <text x="479" y="50" font-size="24" font-weight="bold" fill="#9CA3AF">C</text>
-                                        <text x="499" y="50" font-size="24" font-weight="bold" fill="#60A5FA">H</text>
-                                        <text x="515" y="54" font-size="18" fill="#60A5FA">₂</text>
-                                        <text x="531" y="50" font-size="24" font-weight="bold" fill="#FFFFFF">-</text>
-                                        <text x="545" y="50" font-size="24" font-weight="bold" fill="#F87171">O</text>
-                                        <text x="567" y="50" font-size="24" font-weight="bold" fill="#FFFFFF">-</text>
-                                        <text x="581" y="50" font-size="24" font-weight="bold" fill="#9CA3AF">C</text>
-                                        <text x="601" y="50" font-size="24" font-weight="bold" fill="#60A5FA">H</text>
-                                        <text x="617" y="54" font-size="18" fill="#60A5FA">₂</text>
-                                        <text x="633" y="50" font-size="24" font-weight="bold" fill="#9CA3AF">C</text>
-                                        <text x="653" y="50" font-size="24" font-weight="bold" fill="#60A5FA">H</text>
-                                        <text x="669" y="54" font-size="18" fill="#60A5FA">₂</text>
-                                        <text x="685" y="50" font-size="24" font-weight="bold" fill="#9CA3AF">C</text>
-                                        <text x="705" y="50" font-size="24" font-weight="bold" fill="#60A5FA">H</text>
-                                        <text x="721" y="54" font-size="18" fill="#60A5FA">₃</text>
-
-                                        <!-- + -->
-                                        <text x="755" y="50" font-size="24" font-weight="bold" fill="#FFFFFF">+</text>
-
-                                        <!-- H₂O -->
-                                        <text x="790" y="50" font-size="24" font-weight="bold" fill="#60A5FA">H</text>
-                                        <text x="806" y="54" font-size="18" fill="#60A5FA">₂</text>
-                                        <text x="821" y="50" font-size="24" font-weight="bold" fill="#F87171">O</text>
-
-                                        <defs>
-                                            <marker id="arrow8" markerWidth="10" markerHeight="10" refX="9" refY="3"
-                                                orient="auto">
-                                                <polygon points="0 0, 10 3, 0 6" fill="#FFFFFF" />
-                                            </marker>
-                                        </defs>
-                                    </svg>
-                                </div>
-                                <p class="text-gray-700 dark:text-gray-300">
-                                    من البروبانول يمكن تحضير ثنائي بروبيل الإيثر.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Limitations -->
-                    <div
-                        class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 mb-8 border-t-4 border-purple-500 hover:bg-purple-50 dark:hover:bg-purple-900/20 hover:shadow-xl hover:scale-[1.01] transition-all duration-300">
-                        <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-6 flex items-center">
-                            <svg class="w-8 h-8 ml-3 text-purple-500" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                            </svg>
-                            القيود والقيود
-                        </h3>
-
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-6">
-                                <h4 class="font-bold text-lg text-gray-800 dark:text-white mb-4">القيود:</h4>
-                                <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mr-4">
-                                    <li><strong>الكحولات الأولية فقط:</strong> تعمل بشكل أفضل مع الكحولات الأولية</li>
-                                    <li><strong>الإيثرات المتماثلة:</strong> لا يمكن تحضير إيثرات غير متماثلة بهذه
-                                        الطريقة</li>
-                                    <li><strong>التحكم في درجة الحرارة:</strong> يجب التحكم بدقة لتجنب تكوين الألكينات
-                                    </li>
-                                    <li><strong>الكحولات الثانوية والثالثية:</strong> تعطي ألكينات بدلاً من الإيثرات
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div class="bg-red-50 dark:bg-red-900/20 rounded-lg p-6">
-                                <h4 class="font-bold text-lg text-gray-800 dark:text-white mb-4">المشاكل المحتملة:</h4>
-                                <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mr-4">
-                                    <li><strong>تفاعلات جانبية:</strong> قد تحدث تفاعلات إزالة (elimination)</li>
-                                    <li><strong>الأكسدة:</strong> حمض الكبريتيك قد يؤكسد بعض الكحولات</li>
-                                    <li><strong>التكثيف:</strong> قد تحدث تفاعلات تكثيف أخرى</li>
-                                    <li><strong>العائد:</strong> قد يكون العائد منخفضاً في بعض الحالات</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Comparison with Williamson -->
-                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 mb-8 border-t-4 border-indigo-500">
-                        <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-6 flex items-center">
-                            <svg class="w-8 h-8 ml-3 text-indigo-500" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                            </svg>
-                            مقارنة مع طريقة وليمسون
-                        </h3>
-
-                        <div class="overflow-x-auto">
-                            <table class="w-full bg-gray-50 dark:bg-gray-700 rounded-lg">
-                                <thead>
-                                    <tr class="bg-indigo-500 text-white">
-                                        <th class="px-6 py-4 text-right font-bold">المعيار</th>
-                                        <th class="px-6 py-4 text-right font-bold">نزع الماء</th>
-                                        <th class="px-6 py-4 text-right font-bold">طريقة وليمسون</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="text-sm">
-                                    <tr class="border-b border-gray-300 dark:border-gray-600">
-                                        <td class="px-6 py-4 font-semibold text-gray-800 dark:text-white">نوع الإيثر
-                                        </td>
-                                        <td class="px-6 py-4 text-gray-700 dark:text-gray-300">متماثل فقط</td>
-                                        <td class="px-6 py-4 text-gray-700 dark:text-gray-300">متماثل وغير متماثل</td>
-                                    </tr>
-                                    <tr class="border-b border-gray-300 dark:border-gray-600">
-                                        <td class="px-6 py-4 font-semibold text-gray-800 dark:text-white">نوع الكحول
-                                        </td>
-                                        <td class="px-6 py-4 text-gray-700 dark:text-gray-300">أولي فقط</td>
-                                        <td class="px-6 py-4 text-gray-700 dark:text-gray-300">أولي وثانوي</td>
-                                    </tr>
-                                    <tr class="border-b border-gray-300 dark:border-gray-600">
-                                        <td class="px-6 py-4 font-semibold text-gray-800 dark:text-white">الظروف</td>
-                                        <td class="px-6 py-4 text-gray-700 dark:text-gray-300">حامضية، 140°C</td>
-                                        <td class="px-6 py-4 text-gray-700 dark:text-gray-300">قاعدية، 50-100°C</td>
-                                    </tr>
-                                    <tr class="border-b border-gray-300 dark:border-gray-600">
-                                        <td class="px-6 py-4 font-semibold text-gray-800 dark:text-white">التفاعلات
-                                            الجانبية</td>
-                                        <td class="px-6 py-4 text-gray-700 dark:text-gray-300">تشكيل ألكينات</td>
-                                        <td class="px-6 py-4 text-gray-700 dark:text-gray-300">تفاعلات إزالة</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-4 font-semibold text-gray-800 dark:text-white">الاستخدام</td>
-                                        <td class="px-6 py-4 text-gray-700 dark:text-gray-300">إيثرات متماثلة بسيطة</td>
-                                        <td class="px-6 py-4 text-gray-700 dark:text-gray-300">إيثرات متنوعة</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <!-- Visual Summary -->
-                    <div class="bg-gradient-to-br from-orange-500 to-red-600 rounded-xl shadow-xl p-8 text-white">
-                        <h3 class="text-2xl font-bold mb-6 text-center">ملخص تفاعل نزع الماء</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                            <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4 text-center">
-                                <div class="text-3xl mb-2">🍷</div>
-                                <h4 class="font-bold mb-2">المتفاعل</h4>
-                                <p class="text-sm opacity-90">كحول أولي (2 جزيء)</p>
-                            </div>
-                            <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4 text-center">
-                                <div class="text-3xl mb-2">⚗️</div>
-                                <h4 class="font-bold mb-2">المحفز</h4>
-                                <p class="text-sm opacity-90">H₂SO₄ + 140°C</p>
-                            </div>
-                            <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4 text-center">
-                                <div class="text-3xl mb-2">🔄</div>
-                                <h4 class="font-bold mb-2">الآلية</h4>
-                                <p class="text-sm opacity-90">نزع ماء</p>
-                            </div>
-                            <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4 text-center">
-                                <div class="text-3xl mb-2">✅</div>
-                                <h4 class="font-bold mb-2">المنتج</h4>
-                                <p class="text-sm opacity-90">إيثر متماثل</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Safety Note -->
-                    <div class="bg-yellow-50 dark:bg-yellow-900/20 border-r-4 border-yellow-500 rounded-lg p-6 mt-8">
-                        <h4 class="font-bold text-lg text-gray-800 dark:text-white mb-2 flex items-center">
-                            <svg class="w-6 h-6 ml-2 text-yellow-600" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                            </svg>
-                            ملاحظات أمان مهمة
-                        </h4>
-                        <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mr-4">
-                            <li>حمض الكبريتيك المركز <strong>خطير جداً</strong> - يسبب حروق شديدة، استخدمه بحذر شديد
-                            </li>
-                            <li>ارتدِ معدات الحماية الشخصية الكاملة (قفازات مقاومة للأحماض، نظارات، معطف مختبر)</li>
-                            <li>استخدم حمام مائي للتحكم في درجة الحرارة بدقة</li>
-                            <li>بعض الإيثرات الناتجة <strong>قابلة للاشتعال</strong> - احفظها بعيداً عن مصادر الحرارة
-                        </ul>
-                    </div>
-
-                    <!-- Video: Dehydration of Alcohols (Moved to bottom) -->
-                    <div class="video-player-container relative group mx-auto mt-8 mb-8 max-w-4xl">
-                        <h4 class="text-xl font-bold text-gray-800 dark:text-white mb-4 text-center">فيديو توضيحي: نزع
-                            الماء من الكحولات</h4>
-                        <video controls playsinline
-                            class="custom-video w-full rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
-                            <source src="../videos/تحضير الإيثرات بنزع الماء من الكحولات.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                </section>
-
-                <!-- Benefits Section -->
-                <section id="benefits" class="content-section">
-                    <div
-                        class="bg-gradient-to-br from-green-600 to-emerald-800 rounded-2xl p-8 text-white shadow-xl mb-10 relative overflow-hidden">
-                        <div class="relative z-10">
-                            <h2 class="text-4xl font-bold mb-4">منافع واستخدامات الإيثرات</h2>
-                            <p class="text-xl leading-relaxed opacity-90 mb-6">
-                                للإيثرات استخدامات متعددة ومهمة في مختلف المجالات الصناعية والطبية والكيميائية.
-                            </p>
-                            <div class="flex flex-wrap gap-4">
-                                <div class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/30">
-                                    <span class="block text-xs opacity-75">الاستخدام الغالب</span>
-                                    <span class="font-bold">مذيبات عضوية</span>
-                                </div>
-                                <div class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/30">
-                                    <span class="block text-xs opacity-75">الأهمية الطبية</span>
-                                    <span class="font-bold">تخدير ومطهرات</span>
-                                </div>
-                                <div class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/30">
-                                    <span class="block text-xs opacity-75">الخصائص</span>
-                                    <span class="font-bold">خاملة كيميائياً</span>
-                                </div>
-                            </div>
-                        </div>
-                        <svg class="absolute -right-16 -bottom-16 w-64 opacity-20" fill="currentColor"
-                            viewBox="0 0 24 24">
-                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                        </svg>
-                    </div>
-
-                    <h3
-                        class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-6 border-r-4 border-green-500 pr-3">
-                        المنافع والاستخدامات بالتفصيل
-                    </h3>
-
-                    <!-- Use as Solvents -->
-                    <div
-                        class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 mb-8 border-t-4 border-blue-500 card-interactive hover:shadow-xl transition-all">
-                        <h4 class="text-xl font-bold text-gray-800 dark:text-white mb-4 flex items-center">
-                            <svg class="w-8 h-8 ml-3 text-blue-500" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                            </svg>
-                            1. استخدامها كمذيبات
-                            </h3>
-                            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-                                الإيثرات، خاصة ثنائي إيثيل الإيثر (Diethyl Ether)، تُستخدم كمذيبات ممتازة في الصناعة
-                                الكيميائية بسبب:
-                            </p>
-                            <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mb-6 mr-4">
-                                <li><strong>قدرتها العالية على الذوبان:</strong> تذوب العديد من المركبات العضوية غير
-                                    القطبية
-                                    والقطبية</li>
-                                <li><strong>نقطة غليان منخفضة:</strong> يسهل إزالتها بالتبخير بعد التفاعل</li>
-                                <li><strong>عدم التفاعل:</strong> خاملة نسبياً ولا تتفاعل مع معظم المركبات</li>
-                                <li><strong>استخدامها في استخراج المركبات:</strong> من المحاليل المائية</li>
-                            </ul>
-                            <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4 mb-4">
-                                <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">مثال على الاستخدام:</p>
-                                <p class="font-mono text-lg text-gray-800 dark:text-gray-200">CH₃CH₂-O-CH₂CH₃ (ثنائي
-                                    إيثيل
-                                    إيثر) - مذيب شائع في المختبرات</p>
-                            </div>
-                            <div class="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4">
-                                <img src="../images/اثيرات/diethyl_ether.png" alt="Diethyl Ether Structure"
-                                    class="mx-auto rounded-lg shadow-md max-w-md w-full"
-                                    onerror="this.style.display='none'">
-                                <p class="text-center text-sm text-gray-600 dark:text-gray-400 mt-2">بنية ثنائي إيثيل
-                                    الإيثر
-                                </p>
-                            </div>
-                    </div>
-
-                    <!-- Medical Uses -->
-                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 mb-8 border-t-4 border-red-500">
-                        <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center">
-                            <svg class="w-8 h-8 ml-3 text-red-500" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                            </svg>
-                            2. الاستخدامات الطبية
-                        </h3>
-                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-                            كان ثنائي إيثيل الإيثر يُستخدم كمخدر عام في الجراحة لعدة عقود:
-                        </p>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                            <div class="bg-red-50 dark:bg-red-900/20 rounded-lg p-6">
-                                <h4 class="font-bold text-lg text-gray-800 dark:text-white mb-2">المزايا:</h4>
-                                <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mr-4">
-                                    <li>تأثير مخدر قوي</li>
-                                    <li>سهل الاستخدام</li>
-                                    <li>رخيص الثمن</li>
-                                </ul>
-                            </div>
-                            <div class="bg-yellow-50 dark:bg-yellow-900/20 rounded-lg p-6">
-                                <h4 class="font-bold text-lg text-gray-800 dark:text-white mb-2">الاستخدامات الحديثة:
-                                </h4>
-                                <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mr-4">
-                                    <li>مخدر موضعي في بعض الحالات</li>
-                                    <li>مكون في بعض الأدوية</li>
-                                    <li>استخدامات محدودة بسبب القابلية للاشتعال</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
-                            <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">ملاحظة تاريخية:</p>
-                            <p class="text-gray-700 dark:text-gray-300">كان أول مخدر عام ناجح في الجراحة، استُخدم لأول
-                                مرة في عام 1846</p>
-                        </div>
-                    </div>
-
-                    <!-- Industrial Uses -->
-                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 mb-8 border-t-4 border-purple-500">
-                        <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center">
-                            <svg class="w-8 h-8 ml-3 text-purple-500" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                            </svg>
-                            3. الاستخدامات الصناعية
-                        </h3>
-                        <div class="space-y-6">
-                            <div class="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-6">
-                                <h4 class="font-bold text-lg text-gray-800 dark:text-white mb-3">أ. في صناعة البلاستيك
-                                    والبوليمرات:</h4>
-                                <p class="text-gray-700 dark:text-gray-300 mb-3">
-                                    تستخدم الإيثرات كمواد أولية في إنتاج أنواع مختلفة من البلاستيك والبوليمرات الصناعية.
-                                </p>
-                                <div class="bg-white dark:bg-gray-700 rounded p-3">
-                                    <p class="font-mono text-sm text-gray-800 dark:text-gray-200">مثال: إنتاج بولي
-                                        إيثيلين جلايكول (PEG)</p>
-                                </div>
-                            </div>
-
-                            <div class="bg-green-50 dark:bg-green-900/20 rounded-lg p-6">
-                                <h4 class="font-bold text-lg text-gray-800 dark:text-white mb-3">ب. في صناعة العطور
-                                    والمنكهات:</h4>
-                                <p class="text-gray-700 dark:text-gray-300 mb-3">
-                                    بعض الإيثرات لها روائح مميزة وتُستخدم في صناعة العطور والمنكهات الغذائية.
-                                </p>
-                                <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mr-4">
-                                    <li>إيثرات الفينيل: تستخدم في العطور</li>
-                                    <li>إيثرات الأريل: لها روائح مميزة</li>
-                                </ul>
-                            </div>
-
-                            <div class="bg-orange-50 dark:bg-orange-900/20 rounded-lg p-6">
-                                <h4 class="font-bold text-lg text-gray-800 dark:text-white mb-3">ج. في صناعة الوقود:
-                                </h4>
-                                <p class="text-gray-700 dark:text-gray-300 mb-3">
-                                    بعض الإيثرات مثل ثنائي ميثيل الإيثر (DME) تُستخدم كوقود بديل نظيف.
-                                </p>
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                                    <div class="bg-white dark:bg-gray-700 rounded p-3">
-                                        <p class="font-bold text-sm mb-1">المزايا:</p>
-                                        <p class="text-sm text-gray-700 dark:text-gray-300">احتراق نظيف، انبعاثات أقل
-                                        </p>
-                                    </div>
-                                    <div class="bg-white dark:bg-gray-700 rounded p-3">
-                                        <p class="font-bold text-sm mb-1">الاستخدام:</p>
-                                        <p class="text-sm text-gray-700 dark:text-gray-300">وقود للمركبات والطائرات</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Chemical Reactions -->
-                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 mb-8 border-t-4 border-teal-500">
-                        <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center">
-                            <svg class="w-8 h-8 ml-3 text-teal-500" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                            </svg>
-                            4. في التفاعلات الكيميائية
-                        </h3>
-                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-                            الإيثرات تلعب دوراً مهماً في الكيمياء العضوية كمواد أولية ووسطاء في التفاعلات:
-                        </p>
-                        <div class="space-y-4">
-                            <div class="bg-teal-50 dark:bg-teal-900/20 rounded-lg p-6">
-                                <h4 class="font-bold text-lg text-gray-800 dark:text-white mb-3">أ. حماية المجموعات
-                                    الوظيفية:</h4>
-                                <p class="text-gray-700 dark:text-gray-300 mb-3">
-                                    تستخدم الإيثرات لحماية مجموعات الهيدروكسيل في التفاعلات متعددة الخطوات.
-                                </p>
-                                <div class="bg-gray-800 dark:bg-gray-900 text-white p-6 rounded-lg mb-4">
-                                    <svg viewBox="0 0 600 80" class="w-full max-w-2xl h-auto mx-auto"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <!-- R-OH -->
-                                        <text x="50" y="45" font-size="28" font-weight="bold" fill="#34D399">R</text>
-                                        <text x="80" y="45" font-size="28" font-weight="bold" fill="#FFFFFF">-</text>
-                                        <text x="100" y="45" font-size="28" font-weight="bold" fill="#F87171">O</text>
-                                        <text x="130" y="45" font-size="28" font-weight="bold" fill="#FFFFFF">-</text>
-                                        <text x="150" y="45" font-size="28" font-weight="bold" fill="#60A5FA">H</text>
-
-                                        <!-- + -->
-                                        <text x="200" y="45" font-size="28" font-weight="bold" fill="#FFFFFF">+</text>
-
-                                        <!-- H⁺ -->
-                                        <text x="240" y="45" font-size="28" font-weight="bold" fill="#FDE047">H</text>
-                                        <text x="265" y="35" font-size="20" fill="#FDE047">⁺</text>
-
-                                        <!-- Arrow -->
-                                        <line x1="310" y1="40" x2="370" y2="40" stroke="#FFFFFF" stroke-width="2"
-                                            marker-end="url(#arrow2)" />
-
-                                        <!-- R-OH₂⁺ -->
-                                        <text x="390" y="45" font-size="28" font-weight="bold" fill="#34D399">R</text>
-                                        <text x="420" y="45" font-size="28" font-weight="bold" fill="#FFFFFF">-</text>
-                                        <text x="440" y="45" font-size="28" font-weight="bold" fill="#F87171">O</text>
-                                        <text x="470" y="45" font-size="28" font-weight="bold" fill="#FFFFFF">-</text>
-                                        <text x="490" y="45" font-size="28" font-weight="bold" fill="#60A5FA">H</text>
-                                        <text x="512" y="50" font-size="20" fill="#60A5FA">₂</text>
-                                        <text x="532" y="35" font-size="20" fill="#FDE047">⁺</text>
-
-                                        <defs>
-                                            <marker id="arrow2" markerWidth="10" markerHeight="10" refX="9" refY="3"
-                                                orient="auto">
-                                                <polygon points="0 0, 10 3, 0 6" fill="#FFFFFF" />
-                                            </marker>
-                                        </defs>
-                                    </svg>
-                                </div>
-                                <p
-                                    class="mt-2 bg-gray-800 dark:bg-gray-900 text-white p-4 rounded-lg font-mono text-sm">
-                                    R-O-R' →
-                                    R-OH (إزالة الحماية)</p>
-                            </div>
-
-                            <div class="bg-indigo-50 dark:bg-indigo-900/20 rounded-lg p-6">
-                                <div class="bg-gray-800 dark:bg-gray-900 text-white p-5 rounded-lg mb-4">
-                                    <svg viewBox="0 0 600 70" class="w-full max-w-xl h-auto mx-auto"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <!-- R-Mg-X -->
-                                        <text x="30" y="40" font-size="24" font-weight="bold" fill="#34D399">R</text>
-                                        <text x="55" y="40" font-size="24" font-weight="bold" fill="#FFFFFF">-</text>
-                                        <text x="75" y="40" font-size="24" font-weight="bold" fill="#FDE047">Mg</text>
-                                        <text x="120" y="40" font-size="24" font-weight="bold" fill="#FFFFFF">-</text>
-                                        <text x="140" y="40" font-size="24" font-weight="bold" fill="#60A5FA">X</text>
-
-                                        <!-- + -->
-                                        <text x="180" y="40" font-size="24" font-weight="bold" fill="#FFFFFF">+</text>
-
-                                        <!-- R'-C=O -->
-                                        <text x="220" y="40" font-size="24" font-weight="bold" fill="#34D399">R'</text>
-                                        <text x="250" y="40" font-size="24" font-weight="bold" fill="#FFFFFF">-</text>
-                                        <text x="270" y="40" font-size="24" font-weight="bold" fill="#F87171">C</text>
-                                        <text x="290" y="30" font-size="18" font-weight="bold" fill="#FFFFFF">=</text>
-                                        <text x="310" y="25" font-size="24" font-weight="bold" fill="#F87171">O</text>
-
-                                        <!-- Arrow -->
-                                        <line x1="350" y1="35" x2="420" y2="35" stroke="#FFFFFF" stroke-width="2"
-                                            marker-end="url(#arrow5)" />
-
-                                        <!-- R-R'-C-OMgX -->
-                                        <text x="440" y="40" font-size="24" font-weight="bold" fill="#34D399">R</text>
-                                        <text x="465" y="40" font-size="24" font-weight="bold" fill="#FFFFFF">-</text>
-                                        <text x="485" y="40" font-size="24" font-weight="bold" fill="#34D399">R'</text>
-                                        <text x="510" y="40" font-size="24" font-weight="bold" fill="#FFFFFF">-</text>
-                                        <text x="530" y="40" font-size="24" font-weight="bold" fill="#F87171">C</text>
-                                        <text x="550" y="40" font-size="24" font-weight="bold" fill="#FFFFFF">-</text>
-                                        <text x="570" y="40" font-size="24" font-weight="bold" fill="#F87171">O</text>
-                                        <text x="590" y="40" font-size="24" font-weight="bold" fill="#FDE047">MgX</text>
-
-                                        <defs>
-                                            <marker id="arrow5" markerWidth="10" markerHeight="10" refX="9" refY="3"
-                                                orient="auto">
-                                                <polygon points="0 0, 10 3, 0 6" fill="#FFFFFF" />
-                                            </marker>
-                                        </defs>
-                                    </svg>
-                                </div>
-                                <p class="text-xs mt-2 text-gray-400">(في وجود ثنائي إيثيل الإيثر)</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Summary Chart -->
-                    <div class="bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl shadow-xl p-8 text-white">
-                        <h3 class="text-2xl font-bold mb-6 text-center">ملخص استخدامات الإيثرات</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                            <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4 text-center">
-                                <div class="text-3xl mb-2">🧪</div>
-                                <h4 class="font-bold mb-2">مذيبات</h4>
-                                <p class="text-sm opacity-90">في الصناعة الكيميائية</p>
-                            </div>
-                            <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4 text-center">
-                                <div class="text-3xl mb-2">💊</div>
-                                <h4 class="font-bold mb-2">طبية</h4>
-                                <p class="text-sm opacity-90">مخدرات وأدوية</p>
-                            </div>
-                            <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4 text-center">
-                                <div class="text-3xl mb-2">🏭</div>
-                                <h4 class="font-bold mb-2">صناعية</h4>
-                                <p class="text-sm opacity-90">بلاستيك ووقود</p>
-                            </div>
-                            <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4 text-center">
-                                <div class="text-3xl mb-2">⚗️</div>
-                                <h4 class="font-bold mb-2">كيميائية</h4>
-                                <p class="text-sm opacity-90">تفاعلات عضوية</p>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                    <!-- Safety Note -->
-                    <div class="bg-yellow-50 dark:bg-yellow-900/20 border-r-4 border-yellow-500 rounded-lg p-6 mt-8">
-                        <h4 class="font-bold text-lg text-gray-800 dark:text-white mb-2 flex items-center">
-                            <svg class="w-6 h-6 ml-2 text-yellow-600" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                            </svg>
-                            ملاحظة أمان مهمة
-                        </h4>
-                        <p class="text-gray-700 dark:text-gray-300">
-                            الإيثرات قابلة للاشتعال بدرجة عالية ويجب التعامل معها بحذر. يجب تخزينها بعيداً عن مصادر
-                            الحرارة والشرر، واستخدامها في أماكن جيدة التهوية.
-                        </p>
-                    </div>
-                </section>
-
-                <!-- Quiz Section -->
-                <section id="quiz" class="content-section">
-                    <div
-                        class="bg-gradient-to-br from-violet-600 to-purple-800 rounded-2xl p-8 text-white shadow-xl mb-10 relative overflow-hidden">
-                        <div class="relative z-10">
-                            <h2 class="text-4xl font-bold mb-4">اختبر معلوماتك</h2>
-                            <p class="text-xl leading-relaxed opacity-90 mb-6">
-                                اختبر معلوماتك حول الإيثرات من المقدمة والمنافع وطرق التحضير.
-                            </p>
-                            <div class="flex flex-wrap gap-4">
-                                <div class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/30">
-                                    <span class="block text-xs opacity-75">عدد الأسئلة</span>
-                                    <span class="font-bold">7 أسئلة</span>
-                                </div>
-                                <div class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/30">
-                                    <span class="block text-xs opacity-75">المواضيع</span>
-                                    <span class="font-bold">شامل لكل الأقسام</span>
-                                </div>
-                            </div>
-                        </div>
-                        <svg class="absolute -right-16 -bottom-16 w-64 opacity-20" fill="currentColor"
-                            viewBox="0 0 24 24">
-                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                        </svg>
-                    </div>
-
-                    <!-- Unified Quiz -->
-                    <div
-                        class="bg-gradient-to-br from-violet-600 to-purple-800 rounded-xl shadow-xl p-8 text-white mb-8">
-                        <div id="quiz-container" class="space-y-6">
-                            <!-- Question 1 -->
-                            <div class="quiz-question-item bg-white/20 backdrop-blur-sm rounded-lg p-6"
-                                data-question="1">
-                                <h4 class="text-xl font-bold mb-4 flex items-center">
-                                    <span
-                                        class="bg-white/30 rounded-full w-8 h-8 flex items-center justify-center ml-3 text-lg">1</span>
-                                    ما هي الصيغة العامة للإيثرات؟
-                                </h4>
-                                <div class="space-y-3">
-                                    <button
-                                        class="quiz-option w-full text-right p-4 bg-white/30 hover:bg-white/40 rounded-lg transition-all duration-300 hover:scale-105"
-                                        data-correct="true" data-question="1">
-                                        R-O-R'
-                                    </button>
-                                    <button
-                                        class="quiz-option w-full text-right p-4 bg-white/30 hover:bg-white/40 rounded-lg transition-all duration-300 hover:scale-105"
-                                        data-correct="false" data-question="1">
-                                        R-OH
-                                    </button>
-                                    <button
-                                        class="quiz-option w-full text-right p-4 bg-white/30 hover:bg-white/40 rounded-lg transition-all duration-300 hover:scale-105"
-                                        data-correct="false" data-question="1">
-                                        R-COOH
-                                    </button>
-                                    <button
-                                        class="quiz-option w-full text-right p-4 bg-white/30 hover:bg-white/40 rounded-lg transition-all duration-300 hover:scale-105"
-                                        data-correct="false" data-question="1">
-                                        R-CHO
-                                    </button>
-                                </div>
-                            </div>
-
-                            <!-- Question 2 -->
-                            <div class="quiz-question-item bg-white/20 backdrop-blur-sm rounded-lg p-6 hidden"
-                                data-question="2">
-                                <h4 class="text-xl font-bold mb-4 flex items-center">
-                                    <span
-                                        class="bg-white/30 rounded-full w-8 h-8 flex items-center justify-center ml-3 text-lg">2</span>
-                                    لماذا تكون درجة غليان الإيثرات منخفضة؟
-                                </h4>
-                                <div class="space-y-3">
-                                    <button
-                                        class="quiz-option w-full text-right p-4 bg-white/30 hover:bg-white/40 rounded-lg transition-all duration-300 hover:scale-105"
-                                        data-correct="false" data-question="2">
-                                        لأنها مركبات غير قطبية
-                                    </button>
-                                    <button
-                                        class="quiz-option w-full text-right p-4 bg-white/30 hover:bg-white/40 rounded-lg transition-all duration-300 hover:scale-105"
-                                        data-correct="true" data-question="2">
-                                        لأنها لا تستطيع تكوين روابط هيدروجينية
-                                    </button>
-                                    <button
-                                        class="quiz-option w-full text-right p-4 bg-white/30 hover:bg-white/40 rounded-lg transition-all duration-300 hover:scale-105"
-                                        data-correct="false" data-question="2">
-                                        لأن وزنها الجزيئي منخفض
-                                    </button>
-                                    <button
-                                        class="quiz-option w-full text-right p-4 bg-white/30 hover:bg-white/40 rounded-lg transition-all duration-300 hover:scale-105"
-                                        data-correct="false" data-question="2">
-                                        لأنها قابلة للاشتعال
-                                    </button>
-                                </div>
-                            </div>
-
-                            <!-- Question 3 -->
-                            <div class="quiz-question-item bg-white/20 backdrop-blur-sm rounded-lg p-6 hidden"
-                                data-question="3">
-                                <h4 class="text-xl font-bold mb-4 flex items-center">
-                                    <span
-                                        class="bg-white/30 rounded-full w-8 h-8 flex items-center justify-center mr-3 text-lg">3</span>
-                                    ما هي طريقة وليمسون؟
-                                </h4>
-                                <div class="space-y-3">
-                                    <button
-                                        class="quiz-option w-full text-right p-4 bg-white/30 hover:bg-white/40 rounded-lg transition-all duration-300 hover:scale-105"
-                                        data-correct="false" data-question="3">
-                                        نزع الماء من الكحولات
-                                    </button>
-                                    <button
-                                        class="quiz-option w-full text-right p-4 bg-white/30 hover:bg-white/40 rounded-lg transition-all duration-300 hover:scale-105"
-                                        data-correct="true" data-question="3">
-                                        تفاعل ألكوكسيد الصوديوم مع هاليد ألكيل
-                                    </button>
-                                    <button
-                                        class="quiz-option w-full text-right p-4 bg-white/30 hover:bg-white/40 rounded-lg transition-all duration-300 hover:scale-105"
-                                        data-correct="false" data-question="3">
-                                        أكسدة الكحولات
-                                    </button>
-                                    <button
-                                        class="quiz-option w-full text-right p-4 bg-white/30 hover:bg-white/40 rounded-lg transition-all duration-300 hover:scale-105"
-                                        data-correct="false" data-question="3">
-                                        اختزال الألدهيدات
-                                    </button>
-                                </div>
-                            </div>
-
-                            <!-- Question 4 -->
-                            <div class="quiz-question-item bg-white/20 backdrop-blur-sm rounded-lg p-6 hidden"
-                                data-question="4">
-                                <h4 class="text-xl font-bold mb-4 flex items-center">
-                                    <span
-                                        class="bg-white/30 rounded-full w-8 h-8 flex items-center justify-center mr-3 text-lg">4</span>
-                                    ما هو الاستخدام الرئيسي لثنائي إيثيل الإيثر في المختبرات؟
-                                </h4>
-                                <div class="space-y-3">
-                                    <button
-                                        class="quiz-option w-full text-right p-4 bg-white/30 hover:bg-white/40 rounded-lg transition-all duration-300 hover:scale-105"
-                                        data-correct="true" data-question="4">
-                                        مذيب في التفاعلات الكيميائية
-                                    </button>
-                                    <button
-                                        class="quiz-option w-full text-right p-4 bg-white/30 hover:bg-white/40 rounded-lg transition-all duration-300 hover:scale-105"
-                                        data-correct="false" data-question="4">
-                                        مادة حافظة للطعام
-                                    </button>
-                                    <button
-                                        class="quiz-option w-full text-right p-4 bg-white/30 hover:bg-white/40 rounded-lg transition-all duration-300 hover:scale-105"
-                                        data-correct="false" data-question="4">
-                                        صبغة للأقمشة
-                                    </button>
-                                    <button
-                                        class="quiz-option w-full text-right p-4 bg-white/30 hover:bg-white/40 rounded-lg transition-all duration-300 hover:scale-105"
-                                        data-correct="false" data-question="4">
-                                        مادة تنظيف
-                                    </button>
-                                </div>
-                            </div>
-
-                            <!-- Question 5 -->
-                            <div class="quiz-question-item bg-white/20 backdrop-blur-sm rounded-lg p-6 hidden"
-                                data-question="5">
-                                <h4 class="text-xl font-bold mb-4 flex items-center">
-                                    <span
-                                        class="bg-white/30 rounded-full w-8 h-8 flex items-center justify-center mr-3 text-lg">5</span>
-                                    لماذا كان ثنائي إيثيل الإيثر يُستخدم كمخدر في الماضي؟
-                                </h4>
-                                <div class="space-y-3">
-                                    <button
-                                        class="quiz-option w-full text-right p-4 bg-white/30 hover:bg-white/40 rounded-lg transition-all duration-300 hover:scale-105"
-                                        data-correct="false" data-question="5">
-                                        لأنه رخيص الثمن فقط
-                                    </button>
-                                    <button
-                                        class="quiz-option w-full text-right p-4 bg-white/30 hover:bg-white/40 rounded-lg transition-all duration-300 hover:scale-105"
-                                        data-correct="true" data-question="5">
-                                        لأنه كان له تأثير مخدر قوي وفعال
-                                    </button>
-                                    <button
-                                        class="quiz-option w-full text-right p-4 bg-white/30 hover:bg-white/40 rounded-lg transition-all duration-300 hover:scale-105"
-                                        data-correct="false" data-question="5">
-                                        لأنه آمن تماماً
-                                    </button>
-                                    <button
-                                        class="quiz-option w-full text-right p-4 bg-white/30 hover:bg-white/40 rounded-lg transition-all duration-300 hover:scale-105"
-                                        data-correct="false" data-question="5">
-                                        لأنه لا يسبب أي آثار جانبية
-                                    </button>
-                                </div>
-                            </div>
-
-                            <!-- Question 6 -->
-                            <div class="quiz-question-item bg-white/20 backdrop-blur-sm rounded-lg p-6 hidden"
-                                data-question="6">
-                                <h4 class="text-xl font-bold mb-4 flex items-center">
-                                    <span
-                                        class="bg-white/30 rounded-full w-8 h-8 flex items-center justify-center mr-3 text-lg">6</span>
-                                    ما هو استخدام الإيثرات في تفاعلات الجرينيارد؟
-                                </h4>
-                                <div class="space-y-3">
-                                    <button
-                                        class="quiz-option w-full text-right p-4 bg-white/30 hover:bg-white/40 rounded-lg transition-all duration-300 hover:scale-105"
-                                        data-correct="false" data-question="6">
-                                        كعامل مختزل
-                                    </button>
-                                    <button
-                                        class="quiz-option w-full text-right p-4 bg-white/30 hover:bg-white/40 rounded-lg transition-all duration-300 hover:scale-105"
-                                        data-correct="false" data-question="6">
-                                        كعامل مؤكسد
-                                    </button>
-                                    <button
-                                        class="quiz-option w-full text-right p-4 bg-white/30 hover:bg-white/40 rounded-lg transition-all duration-300 hover:scale-105"
-                                        data-correct="true" data-question="6">
-                                        كمذيب يحافظ على استقرار كواشف الجرينيارد
-                                    </button>
-                                    <button
-                                        class="quiz-option w-full text-right p-4 bg-white/30 hover:bg-white/40 rounded-lg transition-all duration-300 hover:scale-105"
-                                        data-correct="false" data-question="6">
-                                        كعامل محفز
-                                    </button>
-                                </div>
-                            </div>
-
-                            <!-- Question 7 -->
-                            <div class="quiz-question-item bg-white/20 backdrop-blur-sm rounded-lg p-6 hidden"
-                                data-question="7">
-                                <h4 class="text-xl font-bold mb-4 flex items-center">
-                                    <span
-                                        class="bg-white/30 rounded-full w-8 h-8 flex items-center justify-center mr-3 text-lg">7</span>
-                                    ما هو أحد الاستخدامات الصناعية للإيثرات؟
-                                </h4>
-                                <div class="space-y-3">
-                                    <button
-                                        class="quiz-option w-full text-right p-4 bg-white/30 hover:bg-white/40 rounded-lg transition-all duration-300 hover:scale-105"
-                                        data-correct="false" data-question="7">
-                                        صناعة الأسلحة
-                                    </button>
-                                    <button
-                                        class="quiz-option w-full text-right p-4 bg-white/30 hover:bg-white/40 rounded-lg transition-all duration-300 hover:scale-105"
-                                        data-correct="true" data-question="7">
-                                        صناعة البلاستيك والبوليمرات
-                                    </button>
-                                    <button
-                                        class="quiz-option w-full text-right p-4 bg-white/30 hover:bg-white/40 rounded-lg transition-all duration-300 hover:scale-105"
-                                        data-correct="false" data-question="7">
-                                        صناعة المعادن
-                                    </button>
-                                    <button
-                                        class="quiz-option w-full text-right p-4 bg-white/30 hover:bg-white/40 rounded-lg transition-all duration-300 hover:scale-105"
-                                        data-correct="false" data-question="7">
-                                        صناعة الزجاج
-                                    </button>
-                                </div>
-                            </div>
-
-                            <!-- Score Display -->
-                            <div id="quiz-score" class="bg-white/20 backdrop-blur-sm rounded-lg p-6 text-center hidden">
-                                <h4 class="text-2xl font-bold mb-2">نتيجتك:</h4>
-                                <p class="text-3xl font-bold mb-4" id="score-text"></p>
-                                <div class="w-full bg-white/30 rounded-full h-4 mb-4">
-                                    <div id="score-bar" class="bg-white h-4 rounded-full transition-all duration-1000">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Reset Button -->
-                            <button id="reset-quiz"
-                                class="w-full bg-white/30 hover:bg-white/40 text-white font-bold py-4 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg flex items-center justify-center hidden">
-                                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                                </svg>
-                                إعادة المحاولة
-                            </button>
-                        </div>
-                </section>
-
-            </div>
-        </main>
-    </div>
-
-    <script src="../js/الايثرات.js"></script>
-</body>
-
-</html>

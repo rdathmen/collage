@@ -145,15 +145,15 @@ session_start();
                         C
                     </div>
                     <span class="font-bold text-2xl text-gray-800 dark:text-white tracking-tight">
-                        الكيمياء<span class="text-teal-600 dark:text-teal-400">.العضوية</span>
+                        الكيمياء<span class="text-teal-600 dark:text-teal-400">العضوية</span>
                     </span>
                 </div>
 
                 <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-8 space-x-reverse">
+                <div class="hidden md:flex items-center gap-12">
                     <a href="index.php" class="nav-item relative text-gray-700 dark:text-gray-200 hover:text-teal-600 dark:hover:text-teal-400 font-semibold transition-colors">الرئيسية</a>
                     <a href="Pages/cards.php" class="nav-item relative text-gray-700 dark:text-gray-200 hover:text-teal-600 dark:hover:text-teal-400 font-semibold transition-colors">المواضيع</a>
-                    <a href="Pages/من_نحن.html" class="nav-item relative text-gray-700 dark:text-gray-200 hover:text-teal-600 dark:hover:text-teal-400 font-semibold transition-colors">من نحن</a>
+                    <a href="Pages/about_us.html" class="nav-item relative text-gray-700 dark:text-gray-200 hover:text-teal-600 dark:hover:text-teal-400 font-semibold transition-colors">من نحن</a>
                     
                     <div class="h-6 w-px bg-gray-300 dark:bg-gray-700 mx-2"></div>
 
@@ -317,7 +317,7 @@ session_start();
                     <ul class="space-y-4 font-bold text-lg">
                         <li><a href="#" class="hover:text-teal-500 transition-colors flex items-center gap-2"><span>الرئيسية</span></a></li>
                         <li><a href="Pages/cards.php" class="hover:text-teal-500 transition-colors flex items-center gap-2"><span>المواضيع</span></a></li>
-                        <li><a href="Pages/من_نحن.html" class="hover:text-teal-500 transition-colors flex items-center gap-2"><span>من نحن</span></a></li>
+                        <li><a href="Pages/about_us.html" class="hover:text-teal-500 transition-colors flex items-center gap-2"><span>من نحن</span></a></li>
                     </ul>
                 </div>
 
@@ -325,9 +325,9 @@ session_start();
                 <div class="space-y-6">
                     <h4 class="text-white font-black text-xl">انطلق سريعاً</h4>
                     <ul class="space-y-4 font-bold text-lg">
-                        <li><a href="Pages/الالكانات.html" class="hover:text-teal-500 transition-colors">الألكانات</a></li>
-                        <li><a href="Pages/الألكينات.html" class="hover:text-teal-500 transition-colors">الألكينات</a></li>
-                        <li><a href="Pages/الكحولات.html" class="hover:text-teal-500 transition-colors">الكحولات</a></li>
+                        <li><a href="Pages/alkanes.html" class="hover:text-teal-500 transition-colors">الألكانات</a></li>
+                        <li><a href="Pages/alkenes.html" class="hover:text-teal-500 transition-colors">الألكينات</a></li>
+                        <li><a href="Pages/alcohols.html" class="hover:text-teal-500 transition-colors">الكحولات</a></li>
                     </ul>
                 </div>
 

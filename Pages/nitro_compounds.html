@@ -1,0 +1,825 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مستكشف النترو مركبات</title>
+    <script src="../js/tailwindcss.js"></script>
+    <script>tailwind.config = { darkMode: 'class' }</script>
+    <link rel="stylesheet" href="../Style/topics.css">
+    <link rel="stylesheet" href="../Style/topics-override.css">
+    <script src="../js/theme.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .quiz-option {
+            transition: all 0.3s ease;
+        }
+
+        .quiz-option:hover {
+            transform: translateX(-5px);
+        }
+
+        .content-section {
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        #quiz-score {
+            animation: fadeInUp 0.5s ease;
+        }
+    </style>
+    <script src="../js/sidebar.js"></script>
+</head>
+
+<body class="text-gray-900 dark:text-gray-100 bg-stone-50 dark:bg-gray-900 transition-colors duration-300">
+    <div class="flex flex-col md:flex-row min-h-screen">
+        <header class="md:hidden flex justify-between items-center p-4 bg-white dark:bg-gray-800 shadow-md w-full">
+            <a href="../index.php"
+                class="p-2 rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+            </a>
+            <h1 class="text-xl font-bold text-teal-700 dark:text-teal-400">النترو مركبات</h1>
+            <div class="flex items-center gap-2">
+                <button class="theme-toggle p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                    aria-label="Toggle Dark Mode">
+                    <svg class="w-6 h-6 hidden dark:block text-yellow-400" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                    <svg class="w-6 h-6 block dark:hidden text-gray-600" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
+                </button>
+                <button id="menu-toggle" class="p-2 rounded-md text-gray-700 hover:bg-gray-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
+            </div>
+        </header>
+        <nav id="sidebar"
+            class="w-full md:w-64 bg-white dark:bg-gray-800 md:shadow-lg p-4 space-y-2 shrink-0 hidden md:block md:sticky md:top-0 md:h-screen overflow-y-auto border-l dark:border-gray-700">
+            <h1 class="text-2xl font-bold text-teal-700 dark:text-teal-400 mb-6 hidden md:block">النترو مركبات</h1>
+            <ul class="space-y-3 text-center font-bold" id="main-nav-links">
+                <li><a href="#intro"
+                        class="nav-link active text-lg font-bold hover:bg-teal-100 dark:hover:bg-teal-900 hover:text-teal-700 dark:hover:text-teal-300 rounded-lg px-3 py-2 transition-all duration-300 hover:scale-105 block">مقدمة</a>
+                </li>
+                <li><a href="#preparation"
+                        class="nav-link text-lg font-bold hover:bg-teal-100 dark:hover:bg-teal-900 hover:text-teal-700 dark:hover:text-teal-300 rounded-lg px-3 py-2 transition-all duration-300 hover:scale-105 block">طرق
+                        التحضير</a></li>
+                <li><a href="#reactions"
+                        class="nav-link text-lg font-bold hover:bg-teal-100 dark:hover:bg-teal-900 hover:text-teal-700 dark:hover:text-teal-300 rounded-lg px-3 py-2 transition-all duration-300 hover:scale-105 block">التفاعلات</a>
+                </li>
+                <li><a href="#uses"
+                        class="nav-link text-lg font-bold hover:bg-teal-100 dark:hover:bg-teal-900 hover:text-teal-700 dark:hover:text-teal-300 rounded-lg px-3 py-2 transition-all duration-300 hover:scale-105 block">الاستخدامات</a>
+                </li>
+                <li><a href="#quiz"
+                        class="nav-link text-lg font-bold hover:bg-teal-100 dark:hover:bg-teal-900 hover:text-teal-700 dark:hover:text-teal-300 rounded-lg px-3 py-2 transition-all duration-300 hover:scale-105 block">اختبر
+                        معلوماتك</a></li>
+            </ul>
+            <a href="./cards.php"
+                class="flex items-center justify-center w-full font-bold py-2 px-4 rounded-lg hover:bg-teal-700 hover:text-white transition-all duration-300 hover:scale-105 hover:shadow-lg mb-4">
+                <span class="text-lg font-bold">العودة</span>
+            </a>
+            <button
+                class="theme-toggle w-full flex items-center justify-center p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300 hover:scale-105 hover:shadow-lg mt-4"
+                aria-label="Toggle Dark Mode">
+                <span class="ml-2 text-lg font-bold text-gray-700 dark:text-gray-200">الوضع الليلي</span>
+                <svg class="w-6 h-6 hidden dark:block text-yellow-400" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+                <svg class="w-6 h-6 block dark:hidden text-gray-600" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                </svg>
+            </button>
+        </nav>
+        <main class="flex-1 p-6 md:p-10 overflow-y-auto">
+            <div class="max-w-4xl mx-auto">
+                <section id="intro" class="content-section active">
+                    <div
+                        class="bg-gradient-to-br from-red-600 to-orange-800 rounded-2xl p-8 text-white shadow-xl mb-10">
+                        <h2 class="text-4xl font-bold mb-4">النترو مركبات (Nitro Compounds)</h2>
+                        <p class="text-xl leading-relaxed opacity-90 mb-6">
+                            مركبات عضوية تحتوي على مجموعة نترو (-NO₂) مرتبطة بذرة كربون.
+                        </p>
+                        <div class="flex flex-wrap gap-4">
+                            <div class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/30">
+                                <span class="block text-xs opacity-75">المجموعة الوظيفية</span>
+                                <span class="font-mono text-xl font-bold">R-NO₂</span>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-6 border-r-4 border-red-500 pr-3">
+                        أنواع النترو مركبات</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div
+                            class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 hover:shadow-xl transition-shadow border-t-4 border-red-500 card-interactive">
+                            <h4 class="text-lg font-bold text-gray-800 dark:text-white mb-2">نترو مركبات أليفاتية</h4>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                مجموعة النترو مرتبطة بذرة كربون أليفاتية.
+                            </p>
+                            <div
+                                class="bg-gray-50 dark:bg-gray-700 p-2 rounded text-center text-red-500 dark:text-red-300 font-mono text-xl mb-3">
+                                CH₃-NO₂ (نترو ميثان)
+                            </div>
+                            <div
+                                class="bg-gray-50 dark:bg-gray-700 p-2 rounded text-center text-red-500 dark:text-red-300 font-mono text-sm">
+                                CH₃CH₂-NO₂ (نترو إيثان)
+                            </div>
+                        </div>
+                        <div
+                            class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 hover:shadow-xl transition-shadow border-t-4 border-orange-500 card-interactive">
+                            <h4 class="text-lg font-bold text-gray-800 dark:text-white mb-2">نترو مركبات عطرية</h4>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                مجموعة النترو مرتبطة بحلقة عطرية.
+                            </p>
+                            <div
+                                class="bg-gray-50 dark:bg-gray-700 p-2 rounded text-center text-orange-500 dark:text-orange-300 font-mono text-xl mb-3">
+                                C₆H₅-NO₂ (نترو بنزين)
+                            </div>
+                            <div
+                                class="bg-gray-50 dark:bg-gray-700 p-2 rounded text-center text-orange-500 dark:text-orange-300 font-mono text-sm">
+                                أكثر استقراراً من الأليفاتية
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Image Gallery: Types of Nitro Compounds -->
+                    <div
+                        class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 mb-8 border-t-4 border-red-500 hover:shadow-2xl transition-all duration-300">
+                        <h4
+                            class="text-xl font-bold text-gray-800 dark:text-white mb-4 text-center flex items-center justify-center">
+                            <svg class="w-6 h-6 ml-2 text-red-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                            </svg>
+                            أنواع النترو مركبات
+                        </h4>
+                        <div class="relative overflow-hidden rounded-lg group">
+                            <img src="../images/النترو مركبات (Nitro Compounds)/أنواع النترو مركبات.jpg"
+                                alt="أنواع النترو مركبات"
+                                class="w-full h-auto rounded-lg shadow-md transition-transform duration-500 group-hover:scale-105">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-red-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg flex items-end">
+                                <p class="text-white p-4 text-sm font-medium">تصنيف النترو مركبات إلى أليفاتية وعطرية
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Physical Properties Section -->
+                    <div class="mt-12">
+                        <div
+                            class="bg-gradient-to-br from-cyan-600 to-blue-800 rounded-2xl p-8 text-white shadow-xl mb-10 relative overflow-hidden">
+                            <div class="relative z-10">
+                                <h3 class="text-4xl font-bold mb-4 flex items-center">
+                                    <svg class="w-10 h-10 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                                    </svg>
+                                    الخواص الفيزيائية
+                                </h3>
+                                <p class="text-xl leading-relaxed opacity-90">
+                                    تمتلك النترو مركبات خصائص فيزيائية مميزة بسبب مجموعة النترو القطبية.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Image Gallery: Physical Properties Overview -->
+                        <div
+                            class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 mb-8 border-t-4 border-blue-500 hover:shadow-2xl transition-all duration-300">
+                            <h4
+                                class="text-xl font-bold text-gray-800 dark:text-white mb-4 text-center flex items-center justify-center">
+                                <svg class="w-6 h-6 ml-2 text-blue-500" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                                </svg>
+                                ملخص الخواص الفيزيائية
+                            </h4>
+                            <div class="relative overflow-hidden rounded-lg group">
+                                <img src="../images/النترو مركبات (Nitro Compounds)/الخواص الفيزيائية النترو مركبات (Nitro Compounds).jpg"
+                                    alt="الخواص الفيزيائية للنترو مركبات"
+                                    class="w-full h-auto rounded-lg shadow-md transition-transform duration-500 group-hover:scale-105">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-blue-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg flex items-end">
+                                    <p class="text-white p-4 text-sm font-medium">نظرة عامة على الخواص الفيزيائية للنترو
+                                        مركبات</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Color and Appearance -->
+                        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 mb-8 border-t-4 border-red-500">
+                            <div class="flex items-center mb-6">
+                                <div class="bg-red-100 dark:bg-red-900/30 p-4 rounded-lg mr-4">
+                                    <svg class="w-8 h-8 text-red-600 dark:text-red-400" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                                    </svg>
+                                </div>
+                                <h4 class="text-2xl font-bold text-gray-800 dark:text-white">اللون والمظهر</h4>
+                            </div>
+                            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-6 text-lg">
+                                النترو مركبات العطرية عادة ما تكون <strong class="text-red-600 dark:text-red-400">صفراء
+                                    اللون</strong> بسبب امتصاص الضوء في المنطقة المرئية.
+                            </p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="bg-red-50 dark:bg-red-900/20 rounded-lg p-6">
+                                    <h5 class="font-bold text-lg text-gray-800 dark:text-white mb-3">النترو مركبات
+                                        العطرية:</h5>
+                                    <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mr-4">
+                                        <li>صفراء اللون عادة</li>
+                                        <li>سوائل أو مواد صلبة</li>
+                                        <li>رائحة مميزة</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-orange-50 dark:bg-orange-900/20 rounded-lg p-6">
+                                    <h5 class="font-bold text-lg text-gray-800 dark:text-white mb-3">النترو مركبات
+                                        الأليفاتية:</h5>
+                                    <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mr-4">
+                                        <li>عديمة اللون عادة</li>
+                                        <li>سوائل متطايرة</li>
+                                        <li>أقل استقراراً</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Polarity -->
+                        <div
+                            class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 mb-8 border-t-4 border-orange-500">
+                            <div class="flex items-center mb-6">
+                                <div class="bg-orange-100 dark:bg-orange-900/30 p-4 rounded-lg mr-4">
+                                    <svg class="w-8 h-8 text-orange-600 dark:text-orange-400" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                    </svg>
+                                </div>
+                                <h4 class="text-2xl font-bold text-gray-800 dark:text-white">القطبية</h4>
+                            </div>
+                            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-6 text-lg">
+                                مجموعة النترو (<strong class="text-orange-600 dark:text-orange-400">-NO₂</strong>) هي
+                                مجموعة <strong class="text-orange-600 dark:text-orange-400">قطبية جداً</strong> بسبب
+                                اختلاف السالبية الكهربية بين النيتروجين والأكسجين.
+                            </p>
+                            <div class="bg-orange-50 dark:bg-orange-900/20 rounded-lg p-6">
+                                <h5 class="font-bold text-lg text-gray-800 dark:text-white mb-3">التأثير:</h5>
+                                <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mr-4">
+                                    <li>تزيد من قطبية الجزيء</li>
+                                    <li>تؤثر على تفاعلية الحلقة العطرية</li>
+                                    <li>تجعل المركب أكثر قابلية للذوبان في المذيبات القطبية</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="preparation" class="content-section">
+                    <div
+                        class="bg-gradient-to-br from-amber-600 to-yellow-800 rounded-2xl p-8 text-white shadow-xl mb-10 relative overflow-hidden">
+                        <div class="relative z-10">
+                            <h2 class="text-4xl font-bold mb-4">طرق تحضير النترو مركبات</h2>
+                            <p class="text-xl leading-relaxed opacity-90 mb-6">
+                                يمكن تحضير النترو مركبات بعدة طرق، أهمها النترجة المباشرة للمركبات العطرية.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Nitration of Aromatics -->
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 mb-8 border-t-4 border-amber-500">
+                        <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center">
+                            <svg class="w-8 h-8 mr-3 text-amber-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                            </svg>
+                            1. النترجة المباشرة للمركبات العطرية
+                        </h3>
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-6 text-lg">
+                            يمكن تحضير النترو مركبات من تفاعل المركبات العطرية مع خليط النترجة (HNO₃ + H₂SO₄).
+                        </p>
+                        <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-lg mb-4">
+                            Ar-H + HNO₃ --(H₂SO₄)--> Ar-NO₂ + H₂O
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div class="bg-amber-50 dark:bg-amber-900/20 rounded-lg p-6">
+                                <h4 class="font-bold text-lg text-gray-800 dark:text-white mb-3">خليط النترجة:</h4>
+                                <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mr-4">
+                                    <li>حمض النتريك (HNO₃)</li>
+                                    <li>حمض الكبريتيك المركز (H₂SO₄)</li>
+                                    <li>H₂SO₄ يعمل كعامل محفز</li>
+                                </ul>
+                            </div>
+                            <div class="bg-yellow-50 dark:bg-yellow-900/20 rounded-lg p-6">
+                                <h4 class="font-bold text-lg text-gray-800 dark:text-white mb-3">الآلية:</h4>
+                                <p class="text-gray-700 dark:text-gray-300 mb-3">
+                                    H₂SO₄ + HNO₃ → NO₂⁺ + HSO₄⁻ + H₂O
+                                </p>
+                                <p class="text-gray-700 dark:text-gray-300 text-sm">
+                                    أيون النيترونيوم (NO₂⁺) هو العامل المهاجم
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-yellow-50 dark:bg-yellow-900/20 rounded-lg p-6">
+                            <h4 class="font-bold text-lg text-gray-800 dark:text-white mb-3">مثال عملي:</h4>
+                            <div class="bg-gray-800 text-white p-3 rounded-lg font-mono text-sm mb-3">
+                                C₆H₆ + HNO₃ --(H₂SO₄)--> C₆H₅-NO₂ + H₂O
+                            </div>
+                            <p class="text-gray-700 dark:text-gray-300">
+                                من البنزين يمكن تحضير نترو بنزين وهو مادة أولية مهمة لتحضير الأنيلين.
+                            </p>
+                        </div>
+
+                        <!-- Image Gallery: Aromatic Nitration -->
+                        <div
+                            class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 mb-8 border-t-4 border-amber-500 hover:shadow-2xl transition-all duration-300">
+                            <h4
+                                class="text-xl font-bold text-gray-800 dark:text-white mb-4 text-center flex items-center justify-center">
+                                <svg class="w-6 h-6 ml-2 text-amber-500" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                                </svg>
+                                مخطط النترجة المباشرة
+                            </h4>
+                            <div class="relative overflow-hidden rounded-lg group">
+                                <img src="../images/النترو مركبات (Nitro Compounds)/1. النترجة المباشرة للمركبات العطرية.jpg"
+                                    alt="مخطط تفاعل النترجة المباشرة للمركبات العطرية"
+                                    class="w-full h-auto rounded-lg shadow-md transition-transform duration-500 group-hover:scale-105">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-amber-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg flex items-end">
+                                    <p class="text-white p-4 text-sm font-medium">آلية استبدال ذرة هيدروجين بمجموعة نترو
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nitration of Aliphatics -->
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 mb-8 border-t-4 border-red-500">
+                        <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center">
+                            <svg class="w-8 h-8 mr-3 text-red-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                            2. نترجة المركبات الأليفاتية
+                        </h3>
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                            نترجة المركبات الأليفاتية أصعب وتحتاج ظروف خاصة.
+                        </p>
+                        <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-lg mb-4">
+                            R-H + HNO₃ --(ظروف خاصة)--> R-NO₂ + H₂O
+                        </div>
+                        <div class="bg-red-50 dark:bg-red-900/20 rounded-lg p-6">
+                            <h4 class="font-bold text-lg text-gray-800 dark:text-white mb-3">الظروف:</h4>
+                            <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mr-4">
+                                <li>درجة حرارة عالية (400-500°C)</li>
+                                <li>ضغط عالي</li>
+                                <li>عائد منخفض</li>
+                                <li>خليط من النترو مركبات</li>
+                            </ul>
+                        </div>
+
+                        <!-- Image Gallery: Aliphatic Nitration -->
+                        <div
+                            class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 mb-8 border-t-4 border-red-500 hover:shadow-2xl transition-all duration-300">
+                            <h4
+                                class="text-xl font-bold text-gray-800 dark:text-white mb-4 text-center flex items-center justify-center">
+                                <svg class="w-6 h-6 ml-2 text-red-500" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                </svg>
+                                نترجة المركبات الأليفاتية
+                            </h4>
+                            <div class="relative overflow-hidden rounded-lg group">
+                                <img src="../images/النترو مركبات (Nitro Compounds)/2. نترجة المركبات الأليفاتية.jpg"
+                                    alt="نترجة المركبات الأليفاتية"
+                                    class="w-full h-auto rounded-lg shadow-md transition-transform duration-500 group-hover:scale-105">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-red-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg flex items-end">
+                                    <p class="text-white p-4 text-sm font-medium">شروط وتفاعلات نترجة الألكانات</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Video Section - Preparation of Nitro Compounds -->
+                    <div
+                        class="bg-gradient-to-br from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20 rounded-xl shadow-lg p-6 mb-8 border-2 border-red-300 dark:border-red-700">
+                        <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center">
+                            <svg class="w-8 h-8 mr-3 text-red-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            فيديو: تحضير مركبات النترو
+                        </h3>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">
+                            شرح تفصيلي لطرق تحضير النترو مركبات وآليات تفاعلات النترجة المختلفة
+                        </p>
+                        <div class="video-player-container relative group">
+                            <video id="nitro-prep-video" muted playsinline
+                                class="custom-video w-full h-full rounded-lg shadow-md">
+                                <source src="../videos/تحضير_مركبات_النترو.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div
+                                class="video-controls absolute bottom-0 left-0 right-0 flex items-center justify-between p-4 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-b-lg">
+                                <button id="play-pause-nitro"
+                                    class="play-pause-btn text-white hover:text-red-400 transition-colors">
+                                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+                                    </svg>
+                                </button>
+                                <div class="flex-1 mx-4">
+                                    <input id="progress-nitro" type="range" min="0" max="100" value="0"
+                                        class="w-full h-1 bg-gray-600 rounded-lg appearance-none cursor-pointer slider">
+                                </div>
+                                <span id="time-nitro" class="text-white text-sm mr-2">0:00 / 0:00</span>
+                                <button id="mute-nitro"
+                                    class="mute-btn text-white hover:text-red-400 transition-colors mr-2">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM14.657 2.929a1 1 0 011.414 0A9.972 9.972 0 0119 10a9.972 9.972 0 01-2.929 7.071 1 1 0 01-1.414-1.414A7.971 7.971 0 0017 10c0-2.21-.894-4.208-2.343-5.657a1 1 0 010-1.414zm-2.829 2.828a1 1 0 011.415 0A5.983 5.983 0 0115 10a5.984 5.984 0 01-1.757 4.243 1 1 0 01-1.415-1.415A3.984 3.984 0 0013 10a3.983 3.983 0 00-1.172-2.828 1 1 0 010-1.415z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                                <button id="speed-nitro"
+                                    class="text-white hover:text-red-400 transition-colors text-sm mr-2">1x</button>
+                                <button id="fullscreen-nitro"
+                                    class="fullscreen-btn text-white hover:text-red-400 transition-colors">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="reactions" class="content-section">
+                    <div
+                        class="bg-gradient-to-br from-rose-600 to-pink-800 rounded-2xl p-8 text-white shadow-xl mb-10 relative overflow-hidden">
+                        <div class="relative z-10">
+                            <h2 class="text-4xl font-bold mb-4">تفاعلات النترو مركبات</h2>
+                            <p class="text-xl leading-relaxed opacity-90 mb-6">
+                                النترو مركبات تشارك في العديد من التفاعلات المهمة، خاصة الاختزال والاستبدال.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Reduction -->
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 mb-8 border-t-4 border-rose-500">
+                        <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center">
+                            <svg class="w-8 h-8 mr-3 text-rose-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
+                            </svg>
+                            1. الاختزال إلى أمينات
+                        </h3>
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                            أهم تفاعل للنترو مركبات هو اختزالها إلى أمينات.
+                        </p>
+                        <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-lg mb-4">
+                            Ar-NO₂ --(Sn/HCl أو Fe/HCl)--> Ar-NH₂
+                        </div>
+                        <!-- Reduction Reaction Diagram -->
+                        <div class="bg-white dark:bg-gray-700 rounded-lg p-4 mb-4">
+                            <svg viewBox="0 0 550 180" class="w-full" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Nitrobenzene -->
+                                <g transform="translate(50, 90)">
+                                    <text x="0" y="-50" fill="currentColor"
+                                        class="text-sm font-bold dark:text-white">C₆H₅-NO₂</text>
+                                    <!-- Benzene Ring -->
+                                    <circle cx="0" cy="0" r="30" fill="none" stroke="#F97316" stroke-width="3" />
+                                    <circle cx="0" cy="0" r="30" fill="none" stroke="#F97316" stroke-width="2"
+                                        stroke-dasharray="3,3" />
+                                    <text x="-8" y="5" fill="#F97316" font-size="12" font-weight="bold">C₆H₅</text>
+                                    <!-- NO2 Group -->
+                                    <circle cx="40" cy="0" r="20" fill="#EF4444" stroke="#DC2626" stroke-width="2" />
+                                    <text x="34" y="5" fill="white" font-size="11" font-weight="bold">N</text>
+                                    <circle cx="65" cy="-15" r="18" fill="#10B981" stroke="#059669" stroke-width="2" />
+                                    <text x="60" y="-10" fill="white" font-size="10" font-weight="bold">O</text>
+                                    <circle cx="65" cy="15" r="18" fill="#10B981" stroke="#059669" stroke-width="2" />
+                                    <text x="60" y="20" fill="white" font-size="10" font-weight="bold">O</text>
+                                    <line x1="60" y1="0" x2="47" y2="0" stroke="#DC2626" stroke-width="2" />
+                                    <line x1="60" y1="0" x2="55" y2="-15" stroke="#DC2626" stroke-width="2" />
+                                    <line x1="60" y1="0" x2="55" y2="15" stroke="#DC2626" stroke-width="2" />
+                                </g>
+                                <!-- Arrow -->
+                                <g transform="translate(200, 90)">
+                                    <path d="M 0 0 L 50 0" stroke="#F43F5E" stroke-width="4" fill="none"
+                                        marker-end="url(#arrownitro1)" />
+                                    <text x="25" y="-15" fill="#F43F5E" font-size="11" font-weight="bold"
+                                        text-anchor="middle">Sn/HCl</text>
+                                    <text x="25" y="25" fill="#F43F5E" font-size="10" text-anchor="middle">أو
+                                        Fe/HCl</text>
+                                </g>
+                                <!-- Aniline -->
+                                <g transform="translate(300, 90)">
+                                    <text x="0" y="-50" fill="currentColor"
+                                        class="text-sm font-bold dark:text-white">C₆H₅-NH₂</text>
+                                    <!-- Benzene Ring -->
+                                    <circle cx="0" cy="0" r="30" fill="none" stroke="#F97316" stroke-width="3" />
+                                    <circle cx="0" cy="0" r="30" fill="none" stroke="#F97316" stroke-width="2"
+                                        stroke-dasharray="3,3" />
+                                    <text x="-8" y="5" fill="#F97316" font-size="12" font-weight="bold">C₆H₅</text>
+                                    <!-- NH2 Group -->
+                                    <circle cx="40" cy="0" r="20" fill="#EC4899" stroke="#DB2777" stroke-width="2" />
+                                    <text x="34" y="5" fill="white" font-size="11" font-weight="bold">N</text>
+                                    <circle cx="40" cy="-25" r="15" fill="#F59E0B" stroke="#D97706" stroke-width="2" />
+                                    <text x="35" y="-20" fill="white" font-size="9" font-weight="bold">H</text>
+                                    <line x1="40" y1="-10" x2="40" y2="-20" stroke="#D97706" stroke-width="2" />
+                                    <circle cx="40" cy="25" r="15" fill="#F59E0B" stroke="#D97706" stroke-width="2" />
+                                    <text x="35" y="30" fill="white" font-size="9" font-weight="bold">H</text>
+                                    <line x1="40" y1="10" x2="40" y2="20" stroke="#D97706" stroke-width="2" />
+                                    <line x1="30" y1="0" x2="20" y2="0" stroke="#DB2777" stroke-width="2" />
+                                </g>
+                                <defs>
+                                    <marker id="arrownitro1" markerWidth="10" markerHeight="10" refX="9" refY="3"
+                                        orient="auto">
+                                        <polygon points="0 0, 10 3, 0 6" fill="#F43F5E" />
+                                    </marker>
+                                </defs>
+                            </svg>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div class="bg-rose-50 dark:bg-rose-900/20 rounded-lg p-6">
+                                <h4 class="font-bold text-lg text-gray-800 dark:text-white mb-3">باستخدام Sn/HCl:</h4>
+                                <div class="bg-gray-800 text-white p-3 rounded-lg font-mono text-sm mb-3">
+                                    Ar-NO₂ + 6[H] → Ar-NH₂ + 2H₂O
+                                </div>
+                                <p class="text-gray-700 dark:text-gray-300 text-sm">
+                                    قصدير + حمض الهيدروكلوريك - طريقة كلاسيكية
+                                </p>
+                            </div>
+                            <div class="bg-pink-50 dark:bg-pink-900/20 rounded-lg p-6">
+                                <h4 class="font-bold text-lg text-gray-800 dark:text-white mb-3">باستخدام Fe/HCl:</h4>
+                                <div class="bg-gray-800 text-white p-3 rounded-lg font-mono text-sm mb-3">
+                                    Ar-NO₂ + 6[H] → Ar-NH₂ + 2H₂O
+                                </div>
+                                <p class="text-gray-700 dark:text-gray-300 text-sm">
+                                    حديد + حمض الهيدروكلوريك - طريقة بديلة
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-yellow-50 dark:bg-yellow-900/20 rounded-lg p-6">
+                            <h4 class="font-bold text-lg text-gray-800 dark:text-white mb-3">الاستخدام:</h4>
+                            <p class="text-gray-700 dark:text-gray-300">
+                                طريقة مهمة لتحضير الأمينات العطرية، خاصة الأنيلين من نترو بنزين.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Electrophilic Substitution -->
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 mb-8 border-t-4 border-pink-500">
+                        <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center">
+                            <svg class="w-8 h-8 mr-3 text-pink-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                            </svg>
+                            2. تفاعلات الاستبدال الكهربي
+                        </h3>
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                            مجموعة النترو هي مجموعة <strong class="text-pink-600 dark:text-pink-400">مزيلة
+                                للإلكترونات</strong> وتوجه الاستبدال إلى المواضع meta.
+                        </p>
+                        <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-lg mb-4">
+                            C₆H₅-NO₂ + Br₂ --(FeBr₃)--> m-Br-C₆H₄-NO₂
+                        </div>
+                        <div class="bg-pink-50 dark:bg-pink-900/20 rounded-lg p-6">
+                            <h4 class="font-bold text-lg text-gray-800 dark:text-white mb-3">التأثير:</h4>
+                            <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mr-4">
+                                <li>مجموعة النترو تبطئ التفاعل (تقلل النشاط)</li>
+                                <li>توجه الاستبدال إلى المواضع meta</li>
+                                <li>لا تسمح بالاستبدال في المواضع ortho و para</li>
+                            </ul>
+                        </div>
+
+                        <!-- Image Gallery: Electrophilic Substitution -->
+                        <div
+                            class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 mb-8 border-t-4 border-pink-500 hover:shadow-2xl transition-all duration-300">
+                            <h4
+                                class="text-xl font-bold text-gray-800 dark:text-white mb-4 text-center flex items-center justify-center">
+                                <svg class="w-6 h-6 ml-2 text-pink-500" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                                </svg>
+                                تفاعلات الاستبدال الكهربي
+                            </h4>
+                            <div class="relative overflow-hidden rounded-lg group">
+                                <img src="../images/النترو مركبات (Nitro Compounds)/2. تفاعلات الاستبدال الكهربي.jpg"
+                                    alt="آلية تفاعلات الاستبدال الكهربي في النترو مركبات"
+                                    class="w-full h-auto rounded-lg shadow-md transition-transform duration-500 group-hover:scale-105">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-pink-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg flex items-end">
+                                    <p class="text-white p-4 text-sm font-medium">توجيه الاستبدال إلى الوضع ميتا</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nucleophilic Substitution -->
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 mb-8 border-t-4 border-purple-500">
+                        <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center">
+                            <svg class="w-8 h-8 mr-3 text-purple-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                            3. تفاعلات الاستبدال النوكليوفيلي
+                        </h3>
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                            النترو مركبات العطرية تشارك في تفاعلات الاستبدال النوكليوفيلي بسهولة.
+                        </p>
+                        <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-lg mb-4">
+                            m-NO₂-C₆H₄-X + Nu⁻ → m-NO₂-C₆H₄-Nu + X⁻
+                        </div>
+                        <div class="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-6">
+                            <h4 class="font-bold text-lg text-gray-800 dark:text-white mb-3">السبب:</h4>
+                            <p class="text-gray-700 dark:text-gray-300">
+                                مجموعة النترو تزيد من تفاعلية الحلقة العطرية تجاه الهجوم النوكليوفيلي بسبب سحبها
+                                للإلكترونات.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section id="uses" class="content-section">
+                    <div
+                        class="bg-gradient-to-br from-violet-600 to-purple-800 rounded-2xl p-8 text-white shadow-xl mb-10">
+                        <h2 class="text-4xl font-bold mb-4">استخدامات النترو مركبات</h2>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 mb-8">
+                        <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-4">الاستخدامات</h3>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mr-4">
+                            <li>صناعة المتفجرات (TNT، نتروغليسرين)</li>
+                            <li>كمواد أولية لتحضير الأمينات</li>
+                            <li>في صناعة الأصباغ</li>
+                            <li>كمواد حافظة في بعض التطبيقات</li>
+                        </ul>
+
+                        <!-- Image Gallery: Uses -->
+                        <div
+                            class="mt-8 bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border-t-4 border-violet-500 hover:shadow-2xl transition-all duration-300">
+                            <h4
+                                class="text-xl font-bold text-gray-800 dark:text-white mb-4 text-center flex items-center justify-center">
+                                <svg class="w-6 h-6 ml-2 text-violet-500" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                                </svg>
+                                تطبيقات واستخدامات النترو مركبات
+                            </h4>
+                            <div class="relative overflow-hidden rounded-lg group">
+                                <img src="../images/النترو مركبات (Nitro Compounds)/ستخدامات النترو مركبات.jpg"
+                                    alt="استخدامات النترو مركبات في الصناعة"
+                                    class="w-full h-auto rounded-lg shadow-md transition-transform duration-500 group-hover:scale-105">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-violet-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg flex items-end">
+                                    <p class="text-white p-4 text-sm font-medium">أهمية النترو مركبات في الصناعات
+                                        المختلفة</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="quiz" class="content-section">
+                    <div
+                        class="bg-gradient-to-br from-violet-600 to-purple-800 rounded-2xl p-8 text-white shadow-xl mb-10">
+                        <h2 class="text-4xl font-bold mb-4">اختبر معلوماتك</h2>
+                    </div>
+                    <div
+                        class="bg-gradient-to-br from-violet-600 to-purple-800 rounded-xl shadow-xl p-8 text-white mb-8">
+                        <div id="quiz-container" class="space-y-6">
+                            <div class="quiz-question-item bg-white/20 backdrop-blur-sm rounded-lg p-6"
+                                data-question="1">
+                                <h4 class="text-xl font-bold mb-4 flex items-center">
+                                    <span
+                                        class="bg-white/30 rounded-full w-8 h-8 flex items-center justify-center mr-3 text-lg">1</span>
+                                    ما هي الصيغة العامة للنترو مركبات؟
+                                </h4>
+                                <div class="space-y-3">
+                                    <button
+                                        class="quiz-option w-full text-right p-4 bg-white/30 hover:bg-white/40 rounded-lg transition-all duration-300 hover:scale-105"
+                                        data-correct="true" data-question="1">R-NO₂</button>
+                                    <button
+                                        class="quiz-option w-full text-right p-4 bg-white/30 hover:bg-white/40 rounded-lg transition-all duration-300 hover:scale-105"
+                                        data-correct="false" data-question="1">R-NH₂</button>
+                                    <button
+                                        class="quiz-option w-full text-right p-4 bg-white/30 hover:bg-white/40 rounded-lg transition-all duration-300 hover:scale-105"
+                                        data-correct="false" data-question="1">R-OH</button>
+                                    <button
+                                        class="quiz-option w-full text-right p-4 bg-white/30 hover:bg-white/40 rounded-lg transition-all duration-300 hover:scale-105"
+                                        data-correct="false" data-question="1">R-COOH</button>
+                                </div>
+                            </div>
+                            <div class="quiz-question-item bg-white/20 backdrop-blur-sm rounded-lg p-6 hidden"
+                                data-question="2">
+                                <h4 class="text-xl font-bold mb-4 flex items-center">
+                                    <span
+                                        class="bg-white/30 rounded-full w-8 h-8 flex items-center justify-center mr-3 text-lg">2</span>
+                                    ما هو المنتج من اختزال نترو بنزين؟
+                                </h4>
+                                <div class="space-y-3">
+                                    <button
+                                        class="quiz-option w-full text-right p-4 bg-white/30 hover:bg-white/40 rounded-lg transition-all duration-300 hover:scale-105"
+                                        data-correct="true" data-question="2">أنيلين</button>
+                                    <button
+                                        class="quiz-option w-full text-right p-4 bg-white/30 hover:bg-white/40 rounded-lg transition-all duration-300 hover:scale-105"
+                                        data-correct="false" data-question="2">بنزين</button>
+                                    <button
+                                        class="quiz-option w-full text-right p-4 bg-white/30 hover:bg-white/40 rounded-lg transition-all duration-300 hover:scale-105"
+                                        data-correct="false" data-question="2">فينول</button>
+                                    <button
+                                        class="quiz-option w-full text-right p-4 bg-white/30 hover:bg-white/40 rounded-lg transition-all duration-300 hover:scale-105"
+                                        data-correct="false" data-question="2">تولوين</button>
+                                </div>
+                            </div>
+                            <div class="quiz-question-item bg-white/20 backdrop-blur-sm rounded-lg p-6 hidden"
+                                data-question="3">
+                                <h4 class="text-xl font-bold mb-4 flex items-center">
+                                    <span
+                                        class="bg-white/30 rounded-full w-8 h-8 flex items-center justify-center mr-3 text-lg">3</span>
+                                    ما هو تأثير مجموعة النترو على تفاعلات الاستبدال في الحلقة العطرية؟
+                                </h4>
+                                <div class="space-y-3">
+                                    <button
+                                        class="quiz-option w-full text-right p-4 bg-white/30 hover:bg-white/40 rounded-lg transition-all duration-300 hover:scale-105"
+                                        data-correct="true" data-question="3">توجه إلى المواضع meta</button>
+                                    <button
+                                        class="quiz-option w-full text-right p-4 bg-white/30 hover:bg-white/40 rounded-lg transition-all duration-300 hover:scale-105"
+                                        data-correct="false" data-question="3">توجه إلى المواضع ortho و para</button>
+                                    <button
+                                        class="quiz-option w-full text-right p-4 bg-white/30 hover:bg-white/40 rounded-lg transition-all duration-300 hover:scale-105"
+                                        data-correct="false" data-question="3">لا تؤثر</button>
+                                    <button
+                                        class="quiz-option w-full text-right p-4 bg-white/30 hover:bg-white/40 rounded-lg transition-all duration-300 hover:scale-105"
+                                        data-correct="false" data-question="3">تمنع التفاعل</button>
+                                </div>
+                            </div>
+                            <div id="quiz-score" class="bg-white/20 backdrop-blur-sm rounded-lg p-6 text-center hidden">
+                                <h4 class="text-2xl font-bold mb-2">نتيجتك:</h4>
+                                <p class="text-3xl font-bold mb-4" id="score-text"></p>
+                                <div class="w-full bg-white/30 rounded-full h-4 mb-4">
+                                    <div id="score-bar" class="bg-white h-4 rounded-full transition-all duration-1000">
+                                    </div>
+                                </div>
+                            </div>
+                            <button id="reset-quiz"
+                                class="w-full bg-white/30 hover:bg-white/40 text-white font-bold py-4 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg flex items-center justify-center hidden">
+                                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                                </svg>
+                                إعادة المحاولة
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+    <script src="../js/الايثرات.js"></script>
+    <script src="../js/progress.js"></script>
+</body>
+
+</html>

@@ -1,6 +1,6 @@
 ﻿<?php
 session_start();
-include "../db_conn.php";
+include "../DataBase/db_conn.php";
 
 if (isset($_POST['uname']) && isset($_POST['password'])) {
     function validate($data){
@@ -25,8 +25,7 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
 
         if (mysqli_num_rows($result) === 1) {
             $row = mysqli_fetch_assoc($result);
-            // Direct password comparison (NOT RECOMMENDED for production)
-            if ($pass === $row['password']) {
+            if (password_verify($pass, $row['password'])) {
                 $_SESSION['user_name'] = $row['username'];
                 $_SESSION['user_id'] = $row['id'];
                 $_SESSION['name'] = $row['username'];
