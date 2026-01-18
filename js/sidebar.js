@@ -111,15 +111,43 @@ document.addEventListener('DOMContentLoaded', function () {
     // Submenu Toggle (for nested navigation)
     // ============================================
 
-    const toggleButtons = document.querySelectorAll('#toggle-button, .submenu-toggle');
+    const toggleButtons = document.querySelectorAll('#toggle-button, .submenu-toggle, [data-toggle="submenu"]');
+
     toggleButtons.forEach(button => {
         button.addEventListener('click', function (e) {
             e.preventDefault();
-            const submenu = this.parentElement.querySelector('.sub-menu');
-            const icon = this.querySelector('svg');
+            e.stopPropagation();
+
+            // Try multiple ways to find the submenu
+            const parent = this.parentElement;
+            let submenu = null;
+
+            // Method 1: Look for submenu in parent by class or id
+            submenu = parent.querySelector('.sub-menu') ||
+                parent.querySelector('#submenu') ||
+                parent.querySelector('#sub-menu') ||
+                parent.querySelector('ul');
+
+            // Method 2: Try next sibling if it's a UL
+            if (!submenu && this.nextElementSibling && this.nextElementSibling.tagName === 'UL') {
+                submenu = this.nextElementSibling;
+            }
+
+            // Find the arrow icon
+            const icon = this.querySelector('svg') || this.querySelector('#arrow-icon') || this.querySelector('#toggle-icon');
 
             if (submenu) {
+                // Toggle the hidden class
+                const isHidden = submenu.classList.contains('hidden');
                 submenu.classList.toggle('hidden');
+
+                // Also toggle display style as fallback
+                if (isHidden) {
+                    submenu.style.display = 'block';
+                } else {
+                    submenu.style.display = 'none';
+                }
+
                 if (icon) {
                     icon.classList.toggle('rotate-180');
                 }
